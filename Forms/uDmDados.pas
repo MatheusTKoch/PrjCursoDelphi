@@ -32,7 +32,7 @@ implementation
 procedure TdmDados.CarregaBanco;
 begin
   try
-    fdConexao.Params.Database := GetValorIni(ExtractFilePath(Application.ExeName), 'CONFIGURACAO', 'LOCAL');
+    fdConexao.Params.Database := GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'CONFIGURACAO', 'LOCAL_DB');
     fdConexao.Connected := True;
   except
     FormConfigBanco.ShowModal;

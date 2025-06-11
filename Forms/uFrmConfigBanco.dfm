@@ -12,6 +12,7 @@ object FormConfigBanco: TFormConfigBanco
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poDesktopCenter
+  OnClose = FormClose
   TextHeight = 15
   object Image1: TImage
     Left = 0

@@ -12,8 +12,8 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
+  Application.CreateForm(TdmDados, dmDados);
   Application.Run;
 end.

@@ -15,6 +15,7 @@ type
     Button1: TButton;
     opnPastas: TOpenDialog;
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     procedure Configura;
     { Private declarations }
@@ -45,7 +46,14 @@ var
       edtLocal.Text := opnPastas.FileName;
       vFileName := ExtractFilePath(Application.ExeName) + 'config.ini';
       SetValorIni(vFileName, 'CONFIGURACAO', 'LOCAL_DB',edtLocal.Text);
+      ShowMessage('Banco Selecionado!');
+      Self.Close;
     end;
   end;
+
+procedure TFormConfigBanco.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Application.Terminate;
+end;
 
 end.
