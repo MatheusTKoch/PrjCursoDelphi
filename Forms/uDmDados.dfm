@@ -6,7 +6,7 @@ object dmDados: TdmDados
     Params.Strings = (
       
         'Database=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\Pr' +
-        'ojetoCursoBasico\Banco\DADOS.FDB'
+        'ojetoCursoBasico\Banco de Dados\DADOS.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Protocol=TCPIP'
