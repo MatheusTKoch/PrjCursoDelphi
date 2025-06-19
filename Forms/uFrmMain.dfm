@@ -10,5 +10,18 @@ object frmMain: TfrmMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Menu = MainMenu1
+  WindowState = wsMaximized
   TextHeight = 15
+  object MainMenu1: TMainMenu
+    Left = 88
+    Top = 56
+    object Cadastros1: TMenuItem
+      Caption = 'Cadastros'
+      object Clientes1: TMenuItem
+        Caption = 'Clientes'
+        OnClick = Clientes1Click
+      end
+    end
+  end
 end

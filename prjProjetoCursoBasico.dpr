@@ -6,7 +6,8 @@ uses
   uDmDados in 'Forms\uDmDados.pas' {dmDados: TDataModule},
   uBiblioteca in 'Classes\uBiblioteca.pas',
   uFrmConfigBanco in 'Forms\uFrmConfigBanco.pas' {FormConfigBanco},
-  uFrmCadastroPai in 'Forms\uFrmCadastroPai.pas' {FormCadastroPai};
+  uFrmCadastroPai in 'Forms\uFrmCadastroPai.pas' {FormCadastroPai},
+  uFrmCadastroCliente in 'Forms\uFrmCadastroCliente.pas' {FormCadastroCliente};
 
 {$R *.res}
 
@@ -16,6 +17,5 @@ begin
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
-  Application.CreateForm(TFormCadastroPai, FormCadastroPai);
   Application.Run;
 end.
