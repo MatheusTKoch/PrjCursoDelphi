@@ -22,6 +22,14 @@ object frmMain: TfrmMain
         Caption = 'Clientes'
         OnClick = Clientes1Click
       end
+      object Estado1: TMenuItem
+        Caption = 'Estados'
+        OnClick = Estado1Click
+      end
+      object Cidades1: TMenuItem
+        Caption = 'Cidades'
+        OnClick = Cidades1Click
+      end
     end
   end
 end

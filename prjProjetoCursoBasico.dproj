@@ -149,6 +149,19 @@
             <Form>FormCadastroCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\uFrmCadastroEstado.pas">
+            <Form>FormCadastroEstado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmCadastroCidade.pas">
+            <Form>FormCadastroCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Shared\uDmLookup.pas">
+            <Form>dmLookup</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
