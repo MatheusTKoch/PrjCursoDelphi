@@ -2,7 +2,6 @@ program prjProjetoCursoBasico;
 
 uses
   Vcl.Forms,
-  uFrmMain in 'Forms\uFrmMain.pas' {frmMain},
   uDmDados in 'Forms\uDmDados.pas' {dmDados: TDataModule},
   uBiblioteca in 'Classes\uBiblioteca.pas',
   uFrmConfigBanco in 'Forms\uFrmConfigBanco.pas' {FormConfigBanco},
@@ -10,14 +9,15 @@ uses
   uFrmCadastroCliente in 'Forms\uFrmCadastroCliente.pas' {FormCadastroCliente},
   uFrmCadastroEstado in 'Forms\uFrmCadastroEstado.pas' {FormCadastroEstado},
   uFrmCadastroCidade in 'Forms\uFrmCadastroCidade.pas' {FormCadastroCidade},
-  uDmLookup in 'Shared\uDmLookup.pas' {dmLookup: TDataModule};
+  uDmLookup in 'Shared\uDmLookup.pas' {dmLookup: TDataModule},
+  uFrmMain in 'Forms\uFrmMain.pas' {FormMain};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TdmLookup, dmLookup);
