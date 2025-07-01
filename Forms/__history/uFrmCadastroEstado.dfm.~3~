@@ -1,8 +1,0 @@
-inherited FormCadastroEstado: TFormCadastroEstado
-  Caption = 'Cadastro de Estados'
-  StyleElements = [seFont, seClient, seBorder]
-  TextHeight = 15
-  inherited pnCabecalho: TPanel
-    StyleElements = [seFont, seClient, seBorder]
-  end
-end
