@@ -48,17 +48,33 @@ uses uFrmCadastroCidade, uFrmCadastroCliente, uFrmCadastroEstado;
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
-  FormCadastroCliente.Show;
+  FormCadastroCliente := TFormCadastroCliente.Create(Self);
+  try
+    FormCadastroCliente.ShowModal;
+  finally
+    FreeAndNil(FormCadastroCliente);
+  end;
 end;
 
 procedure TFormMain.AdvGlowButton2Click(Sender: TObject);
 begin
-  FormCadastroEstado.Show;
+  FormCadastroEstado := TFormCadastroEstado.Create(Self);
+  try
+    FormCadastroEstado.ShowModal;
+  finally
+    FreeAndNil(FormCadastroEstado);
+  end;
 end;
 
 procedure TFormMain.AdvGlowButton3Click(Sender: TObject);
 begin
-  FormCadastroCidade.Show;
+  FormCadastroCidade := TFormCadastroCidade.Create(Self);
+  try
+    FormCadastroCidade.ShowModal;
+  finally
+    FreeAndNil(FormCadastroCidade);
+  end;
+
 end;
 
 end.

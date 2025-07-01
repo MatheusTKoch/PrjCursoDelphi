@@ -10,7 +10,9 @@ uses
   uFrmCadastroEstado in 'Forms\uFrmCadastroEstado.pas' {FormCadastroEstado},
   uFrmCadastroCidade in 'Forms\uFrmCadastroCidade.pas' {FormCadastroCidade},
   uDmLookup in 'Shared\uDmLookup.pas' {dmLookup: TDataModule},
-  uFrmMain in 'Forms\uFrmMain.pas' {FormMain};
+  uFrmMain in 'Forms\uFrmMain.pas' {FormMain},
+  uFrmFiltroPai in 'Forms\uFrmFiltroPai.pas' {FormFiltroPai},
+  uFrmFiltroClientes in 'Forms\uFrmFiltroClientes.pas' {FormFiltroClientes};
 
 {$R *.res}
 
@@ -21,8 +23,5 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TdmLookup, dmLookup);
-  Application.CreateForm(TFormCadastroCliente, FormCadastroCliente);
-  Application.CreateForm(TFormCadastroEstado, FormCadastroEstado);
-  Application.CreateForm(TFormCadastroCidade, FormCadastroCidade);
   Application.Run;
 end.
