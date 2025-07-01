@@ -1,0 +1,22 @@
+inherited FormFiltroClientes: TFormFiltroClientes
+  Caption = 'Filtro de Clientes'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited Panel1: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Label1: TLabel
+      Width = 90
+      Caption = 'Nome do Cliente'
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 90
+    end
+    inherited Edit1: TEdit
+      Width = 416
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 416
+    end
+    inherited Button1: TButton
+      Caption = 'Filtrar'
+    end
+  end
+end

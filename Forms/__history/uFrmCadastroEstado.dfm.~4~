@@ -1,0 +1,16 @@
+inherited FormCadastroEstado: TFormCadastroEstado
+  Caption = 'Cadastro de Estados'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited pnCabecalho: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+  end
+  inherited fdQryCadastro: TFDQuery
+    UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
+    UpdateOptions.FetchGeneratorsPoint = gpImmediate
+    UpdateOptions.GeneratorName = 'GEN_ESTADO_ID'
+    UpdateOptions.AutoIncFields = 'ID_ESTADO'
+    SQL.Strings = (
+      'SELECT * FROM ESTADO')
+  end
+end

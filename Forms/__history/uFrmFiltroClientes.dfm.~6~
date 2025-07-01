@@ -1,0 +1,44 @@
+inherited FormFiltroClientes: TFormFiltroClientes
+  Caption = 'Filtro de Clientes'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited Panel1: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Label1: TLabel
+      Width = 90
+      Caption = 'Nome do Cliente'
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 90
+    end
+    inherited Edit1: TEdit
+      Width = 376
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 376
+    end
+    inherited btnFiltro: TButton
+      Left = 391
+      Top = 33
+      Caption = 'Filtrar'
+      ExplicitLeft = 391
+      ExplicitTop = 33
+    end
+  end
+  object DBGrid1: TDBGrid [1]
+    Left = 0
+    Top = 89
+    Width = 768
+    Height = 472
+    Align = alClient
+    DataSource = dsFiltro
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  inherited fdQryFiltro: TFDQuery
+    SQL.Strings = (
+      'SELECT * FROM CLIENTES')
+  end
+end
