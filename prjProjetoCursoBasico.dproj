@@ -73,7 +73,7 @@
         <SanitizedProjectName>prjProjetoCursoBasico</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <DCC_UsePackage>vclwinx;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;bindcompfmx;inetdb;FireDACSqliteDriver;DbxClientDriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;Skia.Package.FMX;fmxdae;FireDACMSAccDriver;CustomIPTransport;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;vcldb;vclFireDAC;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;fmxobj;bindcompvclsmp;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vclwinx;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;Skia.Package.RTL;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;bindcompfmx;inetdb;FireDACSqliteDriver;DbxClientDriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;Skia.Package.FMX;fmxdae;FireDACMSAccDriver;CustomIPTransport;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;vcldb;vclFireDAC;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;fmxobj;bindcompvclsmp;soaprtl;soapserver;FireDACIBDriver;dxSkinBasicRS29;dxSkinBlackRS29;dxSkinBlueprintRS29;dxSkinBlueRS29;dxSkinCaramelRS29;dxSkinCoffeeRS29;dxSkinDarkRoomRS29;dxSkinDarkSideRS29;dxSkinDevExpressDarkStyleRS29;dxSkinDevExpressStyleRS29;dxSkinFoggyRS29;dxSkinGlassOceansRS29;dxSkinHighContrastRS29;dxSkiniMaginaryRS29;dxSkinLilianRS29;dxSkinLiquidSkyRS29;dxSkinLondonLiquidSkyRS29;dxSkinMcSkinRS29;dxSkinMetropolisDarkRS29;dxSkinMetropolisRS29;dxSkinMoneyTwinsRS29;dxSkinOffice2007BlackRS29;dxSkinOffice2007BlueRS29;dxSkinOffice2007GreenRS29;dxSkinOffice2007PinkRS29;dxSkinOffice2007SilverRS29;dxSkinOffice2010BlackRS29;dxSkinOffice2010BlueRS29;dxSkinOffice2010SilverRS29;dxSkinOffice2013DarkGrayRS29;dxSkinOffice2013LightGrayRS29;dxSkinOffice2013WhiteRS29;dxSkinOffice2016ColorfulRS29;dxSkinOffice2016DarkRS29;dxSkinOffice2019BlackRS29;dxSkinOffice2019ColorfulRS29;dxSkinOffice2019DarkGrayRS29;dxSkinOffice2019WhiteRS29;dxSkinPumpkinRS29;dxSkinSevenClassicRS29;dxSkinSevenRS29;dxSkinSharpPlusRS29;dxSkinSharpRS29;dxSkinSilverRS29;dxSkinSpringTimeRS29;dxSkinStardustRS29;dxSkinSummer2008RS29;dxSkinTheAsphaltWorldRS29;dxSkinTheBezierRS29;dxSkinValentineRS29;dxSkinVisualStudio2013BlueRS29;dxSkinVisualStudio2013DarkRS29;dxSkinVisualStudio2013LightRS29;dxSkinVS2010RS29;dxSkinWhiteprintRS29;dxSkinWXIRS29;dxSkinXmas2008BlueRS29;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -82,7 +82,7 @@
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <DCC_UsePackage>vclwinx;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;bindcompfmx;inetdb;FireDACSqliteDriver;DbxClientDriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;fmxdae;FireDACMSAccDriver;CustomIPTransport;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;vcldb;vclFireDAC;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;fmxobj;bindcompvclsmp;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_UsePackage>vclwinx;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;FireDACCommonODBC;FireDACCommonDriver;appanalytics;IndyProtocols;vclx;IndyIPClient;dbxcds;vcledge;bindcompvclwinx;bindcompfmx;inetdb;FireDACSqliteDriver;DbxClientDriver;soapmidas;vclactnband;fmxFireDAC;dbexpress;DBXMySQLDriver;VclSmp;inet;vcltouch;fmxase;dbrtl;fmxdae;FireDACMSAccDriver;CustomIPTransport;vcldsnap;DBXInterBaseDriver;IndySystem;Skia.Package.VCL;vcldb;vclFireDAC;bindcomp;FireDACCommon;IndyCore;RESTBackendComponents;bindcompdbx;rtl;FireDACMySQLDriver;FireDACADSDriver;RESTComponents;DBXSqliteDriver;vcl;IndyIPServer;dsnapxml;dsnapcon;adortl;vclimg;FireDACPgDriver;FireDAC;inetdbxpress;xmlrtl;tethering;bindcompvcl;dsnap;CloudService;fmxobj;bindcompvclsmp;soaprtl;soapserver;FireDACIBDriver;dxSkinBasicRS29;dxSkinBlackRS29;dxSkinBlueprintRS29;dxSkinBlueRS29;dxSkinCaramelRS29;dxSkinCoffeeRS29;dxSkinDarkRoomRS29;dxSkinDarkSideRS29;dxSkinDevExpressDarkStyleRS29;dxSkinDevExpressStyleRS29;dxSkinFoggyRS29;dxSkinGlassOceansRS29;dxSkinHighContrastRS29;dxSkiniMaginaryRS29;dxSkinLilianRS29;dxSkinLiquidSkyRS29;dxSkinLondonLiquidSkyRS29;dxSkinMcSkinRS29;dxSkinMetropolisDarkRS29;dxSkinMetropolisRS29;dxSkinMoneyTwinsRS29;dxSkinOffice2007BlackRS29;dxSkinOffice2007BlueRS29;dxSkinOffice2007GreenRS29;dxSkinOffice2007PinkRS29;dxSkinOffice2007SilverRS29;dxSkinOffice2010BlackRS29;dxSkinOffice2010BlueRS29;dxSkinOffice2010SilverRS29;dxSkinOffice2013DarkGrayRS29;dxSkinOffice2013LightGrayRS29;dxSkinOffice2013WhiteRS29;dxSkinOffice2016ColorfulRS29;dxSkinOffice2016DarkRS29;dxSkinOffice2019BlackRS29;dxSkinOffice2019ColorfulRS29;dxSkinOffice2019DarkGrayRS29;dxSkinOffice2019WhiteRS29;dxSkinPumpkinRS29;dxSkinSevenClassicRS29;dxSkinSevenRS29;dxSkinSharpPlusRS29;dxSkinSharpRS29;dxSkinSilverRS29;dxSkinSpringTimeRS29;dxSkinStardustRS29;dxSkinSummer2008RS29;dxSkinTheAsphaltWorldRS29;dxSkinTheBezierRS29;dxSkinValentineRS29;dxSkinVisualStudio2013BlueRS29;dxSkinVisualStudio2013DarkRS29;dxSkinVisualStudio2013LightRS29;dxSkinVS2010RS29;dxSkinWhiteprintRS29;dxSkinWXIRS29;dxSkinXmas2008BlueRS29;$(DCC_UsePackage)</DCC_UsePackage>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
@@ -107,6 +107,7 @@
         <DCC_DcuOutput>C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\dcu\</DCC_DcuOutput>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
+        <UsePackages>true</UsePackages>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -127,10 +128,6 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Forms\uFrmMain.pas">
-            <Form>frmMain</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="Forms\uDmDados.pas">
             <Form>dmDados</Form>
             <FormType>dfm</FormType>
@@ -147,6 +144,47 @@
         </DCCReference>
         <DCCReference Include="Forms\uFrmCadastroCliente.pas">
             <Form>FormCadastroCliente</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmCadastroEstado.pas">
+            <Form>FormCadastroEstado</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmCadastroCidade.pas">
+            <Form>FormCadastroCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Shared\uDmLookup.pas">
+            <Form>dmLookup</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmMain.pas">
+            <Form>FormMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmFiltroPai.pas">
+            <Form>FormFiltroPai</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmFiltroClientes.pas">
+            <Form>FormFiltroClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmCadastroFornecedor.pas">
+            <Form>FormCadastroFornecedor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmFiltroFornecedores.pas">
+            <Form>FormFiltroFornecedores</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmCadastroProduto.pas">
+            <Form>FormCadastroProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Forms\uFrmFiltroProdutos.pas">
+            <Form>FormFiltroProdutos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

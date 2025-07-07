@@ -1,0 +1,3 @@
+SELECT * FROM CLIENTE
+ WHERE 1 = 1
+ AND UPPER(TRIM( REPLACE( REPLACE( REPLACE(CPF_CNPJ, '.', ''), '-', '') '/', '') ) ) LIKE '%123%'
