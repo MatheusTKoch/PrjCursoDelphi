@@ -3,7 +3,8 @@ unit uFrmCadastroFornecedor;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmCadastroPai, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
@@ -61,10 +62,10 @@ procedure TFormCadastroFornecedor.FormShow(Sender: TObject);
 begin
   inherited;
   dmLookUp.fdQryEstados.Open();
-  dmLookup.fdQryEstados.FetchAll;
+  dmLookUp.fdQryEstados.FetchAll;
 
-  dmLookup.fdQryCidades.Open();
-  dmLookup.fdQryCidades.FetchAll;
+  dmLookUp.fdQryCidades.Open();
+  dmLookUp.fdQryCidades.FetchAll;
 
   edtRazaoSocial.SetFocus;
 end;

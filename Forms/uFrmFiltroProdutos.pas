@@ -3,11 +3,13 @@ unit uFrmFiltroProdutos;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmFiltroPai, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls,
+  Vcl.ExtCtrls,
   Vcl.Grids, Vcl.DBGrids;
 
 type
@@ -71,7 +73,8 @@ begin
   ValidaQueryVazia;
   FormCadastroProduto := TFormCadastroProduto.Create(Self);
   try
-    FormCadastroProduto.fdQryCadastro.Locate('ID_PRODUTO', fdQryFiltroID_PRODUTO.AsInteger, []);
+    FormCadastroProduto.fdqrycadastro.Locate('ID_PRODUTO',
+      fdQryFiltroID_PRODUTO.AsInteger, []);
     FormCadastroProduto.ShowModal;
   finally
     FreeAndNil(FormCadastroProduto);
@@ -82,9 +85,12 @@ procedure TFormFiltroProdutos.Filtrar;
 begin
   fdQryFiltro.Close;
   fdQryFiltro.SQL.Clear;
-  fdQryFiltro.SQL.Add('SELECT P.ID_PRODUTO, P.DESCRICAO, P.QUANTIDADE, P.CUSTO, P.V_UNITARIO,');
-  fdQryFiltro.SQL.Add('P.UNIDADE, P.PESO_LIQUIDO, P.PESO_BRUTO, P.FABRICANTE, P.MARCA_MODELO, ');
-  fdQryFiltro.SQL.Add('F.RAZAO_SOCIAL FORNECEDOR  FROM PRODUTO P LEFT JOIN FORNECEDOR F ');
+  fdQryFiltro.SQL.Add
+    ('SELECT P.ID_PRODUTO, P.DESCRICAO, P.QUANTIDADE, P.CUSTO, P.V_UNITARIO,');
+  fdQryFiltro.SQL.Add
+    ('P.UNIDADE, P.PESO_LIQUIDO, P.PESO_BRUTO, P.FABRICANTE, P.MARCA_MODELO, ');
+  fdQryFiltro.SQL.Add
+    ('F.RAZAO_SOCIAL FORNECEDOR  FROM PRODUTO P LEFT JOIN FORNECEDOR F ');
   fdQryFiltro.SQL.Add('ON F.ID_FORNECEDOR = P.ID_FORNECEDOR WHERE 1=1');
 
   if StrToIntDef(edtFiltro.Text, 0) > 0 then
@@ -94,7 +100,8 @@ begin
 
   if Trim(edtDescricao.Text) <> '' then
   begin
-    fdQryFiltro.SQL.Add(' AND UPPER(P.DESCRICAO) LIKE ' +  QuotedStr('%' + UpperCase(Trim(edtDescricao.Text) + '%' ) ) );
+    fdQryFiltro.SQL.Add(' AND UPPER(P.DESCRICAO) LIKE ' +
+      QuotedStr('%' + UpperCase(Trim(edtDescricao.Text) + '%')));
   end;
 
   fdQryFiltro.Open();

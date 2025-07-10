@@ -1,0 +1,12 @@
+inherited FormCadastroVenda: TFormCadastroVenda
+  Caption = 'Venda de Produtos'
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited pnCabecalho: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+  end
+  inherited fdQryCadastro: TFDQuery
+    SQL.Strings = (
+      'SELECT * FROM VENDA_CAB')
+  end
+end

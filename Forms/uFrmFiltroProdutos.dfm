@@ -10,6 +10,7 @@ inherited FormFiltroProdutos: TFormFiltroProdutos
   inherited Panel1: TPanel
     Width = 798
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 798
     inherited Label1: TLabel
       Width = 39
       Caption = 'Codigo'
@@ -37,6 +38,7 @@ inherited FormFiltroProdutos: TFormFiltroProdutos
     inherited Panel2: TPanel
       Left = 678
       StyleElements = [seFont, seClient, seBorder]
+      ExplicitLeft = 678
     end
     object Button3: TButton
       Left = 569

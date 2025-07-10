@@ -1,6 +1,7 @@
 unit uFrmMain;
 
 interface
+
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
@@ -62,7 +63,6 @@ uses uFrmCadastroCidade, uFrmCadastroCliente, uFrmCadastroEstado,
   uFrmFiltroClientes, uFrmCadastroFornecedor, uFrmCadastroProduto,
   uFrmFiltroFornecedores, uFrmFiltroProdutos;
 
-
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
   FormCadastroCliente := TFormCadastroCliente.Create(Self);
@@ -117,7 +117,7 @@ end;
 procedure TFormMain.btnClientesClick(Sender: TObject);
 begin
   try
-    FormFiltroClientes := TFormFiltroClientes.Create(self);
+    FormFiltroClientes := TFormFiltroClientes.Create(Self);
     FormFiltroClientes.Show;
   finally
 
@@ -126,14 +126,14 @@ end;
 
 procedure TFormMain.btnFornecedorClick(Sender: TObject);
 begin
-    FormFiltroFornecedores := TFormFiltroFornecedores.Create(Self);
-    FormFiltroFornecedores.Show;
+  FormFiltroFornecedores := TFormFiltroFornecedores.Create(Self);
+  FormFiltroFornecedores.Show;
 end;
 
 procedure TFormMain.btnProdutosClick(Sender: TObject);
 begin
-    FormFiltroProdutos := TFormFiltroProdutos.Create(Self);
-    FormFiltroProdutos.Show;
+  FormFiltroProdutos := TFormFiltroProdutos.Create(Self);
+  FormFiltroProdutos.Show;
 end;
 
 end.

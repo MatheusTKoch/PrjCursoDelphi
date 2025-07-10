@@ -3,11 +3,13 @@ unit uFrmFiltroFornecedores;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmFiltroPai, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls,
+  Vcl.ExtCtrls,
   Vcl.Grids, Vcl.DBGrids, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxContainer, cxEdit, cxTextEdit;
 
@@ -70,7 +72,8 @@ begin
   ValidaQueryVazia;
   FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
   try
-    FormCadastroFornecedor.fdQryCadastro.Locate('ID_FORNECEDOR', fdQryFiltroID_FORNECEDOR.AsInteger, []);
+    FormCadastroFornecedor.fdqrycadastro.Locate('ID_FORNECEDOR',
+      fdQryFiltroID_FORNECEDOR.AsInteger, []);
     FormCadastroFornecedor.ShowModal;
   finally
     FreeAndNil(FormCadastroFornecedor);
@@ -84,15 +87,18 @@ begin
   fdQryFiltro.SQL.Add('SELECT * FROM FORNECEDOR');
   fdQryFiltro.SQL.Add('WHERE 1 = 1');
 
-  //campo razao social
+  // campo razao social
   if Trim(edtFiltro.Text) <> '' then
   begin
-    fdQryFiltro.SQL.Add(' AND UPPER(TRIM(RAZAO_SOCIAL)) LIKE' + QuotedStr('%' + UpperCase(Trim(edtFiltro.Text)) + '%'));
+    fdQryFiltro.SQL.Add(' AND UPPER(TRIM(RAZAO_SOCIAL)) LIKE' +
+      QuotedStr('%' + UpperCase(Trim(edtFiltro.Text)) + '%'));
   end;
 
   if Trim(edtCnpj.Text) <> '' then
   begin
-    fdQryFiltro.SQL.Add(' AND UPPER(TRIM( REPLACE( REPLACE( REPLACE(CNPJ, ''.'', ''''), ''-'', ''''), ''/'', '''') ) ) LIKE ' + QuotedStr('%' + UpperCase(Trim(edtCnpj.Text)) + '%' ));
+    fdQryFiltro.SQL.Add
+      (' AND UPPER(TRIM( REPLACE( REPLACE( REPLACE(CNPJ, ''.'', ''''), ''-'', ''''), ''/'', '''') ) ) LIKE '
+      + QuotedStr('%' + UpperCase(Trim(edtCnpj.Text)) + '%'));
   end;
 
   fdQryFiltro.Open();

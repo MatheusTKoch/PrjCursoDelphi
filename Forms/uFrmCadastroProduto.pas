@@ -3,14 +3,15 @@ unit uFrmCadastroProduto;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmCadastroPai, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxContainer, cxEdit, cxMaskEdit, cxSpinEdit, Vcl.Mask, Vcl.DBCtrls,
-  cxTextEdit, MoneyEdit, dbmnyed;
+  cxTextEdit, MoneyEdit, dbmnyed, uDmLookup;
 
 type
   TFormCadastroProduto = class(TFormCadastroPai)
@@ -45,6 +46,9 @@ type
     DBMoneyEdit5: TDBMoneyEdit;
     Label10: TLabel;
     DBEdit1: TDBEdit;
+    Label11: TLabel;
+    DBLookupComboBox1: TDBLookupComboBox;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,5 +61,12 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormCadastroProduto.FormCreate(Sender: TObject);
+begin
+  inherited;
+  dmLookup.fdQryFornecedor.Open();
+  dmLookup.fdQryFornecedor.FetchAll;
+end;
 
 end.

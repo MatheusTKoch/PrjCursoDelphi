@@ -3,11 +3,13 @@ unit uFrmFiltroClientes;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmFiltroPai, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
-  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.StdCtrls,
+  Vcl.ExtCtrls,
   Vcl.Grids, Vcl.DBGrids;
 
 type
@@ -83,7 +85,8 @@ begin
   ValidaQueryVazia;
   FormCadastroCliente := TFormCadastroCliente.Create(Self);
   try
-    FormCadastroCliente.fdQryCadastro.Locate('ID_CLIENTE', fdQryFiltroID_CLIENTE.AsInteger, []);
+    FormCadastroCliente.fdQryCadastro.Locate('ID_CLIENTE',
+      fdQryFiltroID_CLIENTE.AsInteger, []);
     FormCadastroCliente.ShowModal;
   finally
     FreeAndNil(FormCadastroCliente);
@@ -99,17 +102,21 @@ begin
 
   if Trim(edtFiltro.Text) <> '' then
   begin
-    fdQryFiltro.SQL.Add(' AND UPPER(TRIM(RAZAO_SOCIAL)) LIKE ' + QuotedStr('%' + UpperCase(Trim(edtFiltro.Text)) + '%') );
+    fdQryFiltro.SQL.Add(' AND UPPER(TRIM(RAZAO_SOCIAL)) LIKE ' +
+      QuotedStr('%' + UpperCase(Trim(edtFiltro.Text)) + '%'));
   end;
 
   if Trim(edtFantasia.Text) <> '' then
   begin
-    fdQryFiltro.SQL.Add(' AND UPPER(TRIM(FANTASIA)) LIKE' + QuotedStr('%' + UpperCase(Trim(edtFantasia.Text)) + '%'));
+    fdQryFiltro.SQL.Add(' AND UPPER(TRIM(FANTASIA)) LIKE' +
+      QuotedStr('%' + UpperCase(Trim(edtFantasia.Text)) + '%'));
   end;
 
   if Trim(edtCnpj.Text) <> '' then
   begin
-    fdQryFiltro.SQL.Add(' AND UPPER(TRIM( REPLACE( REPLACE( REPLACE(CPF_CNPJ, ''.'', ''''), ''-'', ''''), ''/'', '''') ) ) LIKE ' + QuotedStr('%' + UpperCase(Trim(edtCnpj.Text)) + '%' ));
+    fdQryFiltro.SQL.Add
+      (' AND UPPER(TRIM( REPLACE( REPLACE( REPLACE(CPF_CNPJ, ''.'', ''''), ''-'', ''''), ''/'', '''') ) ) LIKE '
+      + QuotedStr('%' + UpperCase(Trim(edtCnpj.Text)) + '%'));
   end;
 
   if StrToIntDef(edtCodigo.Text, 0) > 0 then
@@ -120,7 +127,5 @@ begin
   fdQryFiltro.Open();
   fdQryFiltro.FetchAll;
 end;
-
-
 
 end.

@@ -3,7 +3,8 @@ unit uFrmConfigBanco;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.pngimage,
   Vcl.StdCtrls, uBiblioteca;
 
@@ -29,10 +30,9 @@ var
 implementation
 
 {$R *.dfm}
-
 { TFormConfigBanco }
 
-  procedure TFormConfigBanco.Button1Click(Sender: TObject);
+procedure TFormConfigBanco.Button1Click(Sender: TObject);
 begin
   Configura;
 end;
@@ -40,16 +40,16 @@ end;
 procedure TFormConfigBanco.Configura;
 var
   vFileName: string;
+begin
+  if opnPastas.Execute then
   begin
-    if opnPastas.Execute then
-    begin
-      edtLocal.Text := opnPastas.FileName;
-      vFileName := ExtractFilePath(Application.ExeName) + 'config.ini';
-      SetValorIni(vFileName, 'CONFIGURACAO', 'LOCAL_DB',edtLocal.Text);
-      ShowMessage('Banco Selecionado!');
-      Self.Close;
-    end;
+    edtLocal.Text := opnPastas.FileName;
+    vFileName := ExtractFilePath(Application.ExeName) + 'config.ini';
+    SetValorIni(vFileName, 'CONFIGURACAO', 'LOCAL_DB', edtLocal.Text);
+    ShowMessage('Banco Selecionado!');
+    Self.Close;
   end;
+end;
 
 procedure TFormConfigBanco.FormClose(Sender: TObject; var Action: TCloseAction);
 begin

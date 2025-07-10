@@ -40,6 +40,7 @@ inherited FormFiltroFornecedores: TFormFiltroFornecedores
     inherited Panel2: TPanel
       Left = 704
       StyleElements = [seFont, seClient, seBorder]
+      ExplicitLeft = 704
     end
     object edtCnpj: TEdit
       Left = 255
