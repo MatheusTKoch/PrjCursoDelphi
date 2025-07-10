@@ -15,9 +15,11 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Left = 0
     Top = 41
     Width = 779
-    Height = 96
+    Height = 216
     Align = alTop
     TabOrder = 1
+    ExplicitLeft = -40
+    ExplicitTop = 57
     object Label1: TLabel
       Left = 32
       Top = 24
@@ -52,7 +54,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Width = 121
       Height = 23
       Enabled = False
-      TabOrder = 4
+      TabOrder = 0
     end
     object DBEdit3: TDBEdit
       Left = 343
@@ -78,7 +80,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       KeyField = 'ID_CLIENTE'
       ListField = 'NOMECLIENTE'
       ListSource = dmLookup.dsClientes
-      TabOrder = 0
+      TabOrder = 3
     end
     object DBCheckBox1: TDBCheckBox
       Left = 614
@@ -88,14 +90,12 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Caption = 'Faturado'
       DataField = 'FATURADO'
       DataSource = dsCadastro
-      TabOrder = 3
+      TabOrder = 4
       ValueChecked = 'S'
       ValueUnchecked = 'N'
     end
   end
   inherited fdQryCadastro: TFDQuery
-    AfterInsert = fdQryCadastroAfterInsert
-    BeforePost = fdQryCadastroBeforePost
     SQL.Strings = (
       'SELECT * FROM VENDA_CAB')
     object fdQryCadastroID_VENDA_CAB: TIntegerField

@@ -49,9 +49,7 @@ object dmLookup: TdmLookup
     Connection = dmDados.fdConexao
     Transaction = fdTransaction
     SQL.Strings = (
-      'SELECT ID_CLIENTE,'
-      '       DECODE(TIPO_FJ, '#39'F'#39', NOME, RAZAO_SOCIAL) NomeCliente'
-      ' FROM CLIENTE')
+      'SELECT * FROM CLIENTE')
     Left = 96
     Top = 200
   end

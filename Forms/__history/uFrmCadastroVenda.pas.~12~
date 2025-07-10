@@ -24,15 +24,14 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     Label5: TLabel;
     DBEdit1: TDBEdit;
     DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
     DBEdit5: TDBEdit;
     edtCliente: TDBLookupComboBox;
-    DBCheckBox1: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
-    procedure fdQryCadastroBeforePost(DataSet: TDataSet);
-    procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -47,22 +46,6 @@ implementation
 {$R *.dfm}
 
 uses uDmLookup;
-
-procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
-begin
-  inherited;
-  fdQryCadastroDATA.AsDateTime := Date;
-end;
-
-procedure TFormCadastroVenda.fdQryCadastroBeforePost(DataSet: TDataSet);
-begin
-  inherited;
-  if (fdQryCadastroDATA_FATURADO.IsNull) and (fdQryCadastroFATURADO.AsAnsiString = 'S') then
-  begin
-    fdQryCadastroDATA_FATURADO.AsDateTime := Date;
-  end;
-
-end;
 
 procedure TFormCadastroVenda.FormCreate(Sender: TObject);
 begin

@@ -1,21 +1,21 @@
 inherited FormCadastroVenda: TFormCadastroVenda
   Caption = 'Venda de Produtos'
   ClientHeight = 656
-  ClientWidth = 779
+  ClientWidth = 783
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 795
+  ExplicitWidth = 799
   ExplicitHeight = 695
   TextHeight = 15
   inherited pnCabecalho: TPanel
-    Width = 779
+    Width = 783
     StyleElements = [seFont, seClient, seBorder]
     ExplicitWidth = 783
   end
   object Panel1: TPanel [1]
     Left = 0
     Top = 41
-    Width = 779
-    Height = 96
+    Width = 783
+    Height = 216
     Align = alTop
     TabOrder = 1
     object Label1: TLabel
@@ -26,21 +26,28 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Caption = 'Id Venda'
     end
     object Label2: TLabel
-      Left = 159
+      Left = 177
       Top = 24
       Width = 37
       Height = 15
       Caption = 'Cliente'
     end
     object Label3: TLabel
-      Left = 343
+      Left = 352
       Top = 24
       Width = 24
       Height = 15
       Caption = 'Data'
     end
+    object Label4: TLabel
+      Left = 496
+      Top = 24
+      Width = 47
+      Height = 15
+      Caption = 'Faturado'
+    end
     object Label5: TLabel
-      Left = 487
+      Left = 560
       Top = 24
       Width = 76
       Height = 15
@@ -52,50 +59,42 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Width = 121
       Height = 23
       Enabled = False
-      TabOrder = 4
+      TabOrder = 0
     end
     object DBEdit3: TDBEdit
-      Left = 343
-      Top = 40
-      Width = 138
-      Height = 23
-      TabOrder = 1
-    end
-    object DBEdit5: TDBEdit
-      Left = 487
+      Left = 352
       Top = 40
       Width = 121
       Height = 23
+      TabOrder = 1
+    end
+    object DBEdit4: TDBEdit
+      Left = 496
+      Top = 40
+      Width = 47
+      Height = 23
       TabOrder = 2
     end
-    object edtCliente: TDBLookupComboBox
-      Left = 159
+    object DBEdit5: TDBEdit
+      Left = 560
       Top = 40
-      Width = 178
+      Width = 121
+      Height = 23
+      TabOrder = 3
+    end
+    object edtCliente: TDBLookupComboBox
+      Left = 177
+      Top = 40
+      Width = 145
       Height = 23
       DataField = 'ID_CLIENTE'
       DataSource = dsCadastro
-      KeyField = 'ID_CLIENTE'
-      ListField = 'NOMECLIENTE'
+      ListField = 'RAZAO_SOCIAL'
       ListSource = dmLookup.dsClientes
-      TabOrder = 0
-    end
-    object DBCheckBox1: TDBCheckBox
-      Left = 614
-      Top = 43
-      Width = 74
-      Height = 17
-      Caption = 'Faturado'
-      DataField = 'FATURADO'
-      DataSource = dsCadastro
-      TabOrder = 3
-      ValueChecked = 'S'
-      ValueUnchecked = 'N'
+      TabOrder = 4
     end
   end
   inherited fdQryCadastro: TFDQuery
-    AfterInsert = fdQryCadastroAfterInsert
-    BeforePost = fdQryCadastroBeforePost
     SQL.Strings = (
       'SELECT * FROM VENDA_CAB')
     object fdQryCadastroID_VENDA_CAB: TIntegerField

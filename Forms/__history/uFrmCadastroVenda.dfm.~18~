@@ -9,6 +9,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
   inherited pnCabecalho: TPanel
     Width = 783
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 783
   end
   object Panel1: TPanel [1]
     Left = 0
@@ -17,8 +18,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 216
     Align = alTop
     TabOrder = 1
-    ExplicitLeft = -8
-    ExplicitTop = 33
     object Label1: TLabel
       Left = 32
       Top = 24
@@ -83,11 +82,15 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Height = 23
       TabOrder = 3
     end
-    object DBLookupComboBox1: TDBLookupComboBox
+    object edtCliente: TDBLookupComboBox
       Left = 177
       Top = 40
       Width = 145
       Height = 23
+      DataField = 'ID_CLIENTE'
+      DataSource = dsCadastro
+      ListField = 'NOMECLIENTE'
+      ListSource = dmLookup.dsClientes
       TabOrder = 4
     end
   end

@@ -1,6 +1,7 @@
 unit uFrmMain;
 
 interface
+
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, AdvToolBar, AdvToolBarStylers, AdvPreviewMenu,
@@ -26,11 +27,23 @@ type
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     AdvToolBarSeparator2: TAdvToolBarSeparator;
     AdvToolBar3: TAdvToolBar;
-    btnFiltroClientes: TAdvGlowButton;
+    btnProdutos: TAdvGlowButton;
+    btnCadastroProduto: TAdvGlowButton;
+    AdvToolBarSeparator3: TAdvToolBarSeparator;
+    AdvToolBarSeparator4: TAdvToolBarSeparator;
+    AdvGlowButton4: TAdvGlowButton;
+    AdvGlowButton5: TAdvGlowButton;
+    AdvToolBarSeparator5: TAdvToolBarSeparator;
+    AdvGlowButton6: TAdvGlowButton;
+    AdvToolBarSeparator6: TAdvToolBarSeparator;
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton3Click(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
-    procedure btnFiltroClientesClick(Sender: TObject);
+    procedure btnClientesClick(Sender: TObject);
+    procedure btnCadastroFornecedorClick(Sender: TObject);
+    procedure btnFornecedorClick(Sender: TObject);
+    procedure btnProdutosClick(Sender: TObject);
+    procedure btnCadastroProdutoClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -47,8 +60,8 @@ implementation
 {$R *.dfm}
 
 uses uFrmCadastroCidade, uFrmCadastroCliente, uFrmCadastroEstado,
-  uFrmFiltroClientes;
-
+  uFrmFiltroClientes, uFrmCadastroFornecedor, uFrmCadastroProduto,
+  uFrmFiltroFornecedores, uFrmFiltroProdutos;
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
@@ -81,14 +94,46 @@ begin
 
 end;
 
-procedure TFormMain.btnFiltroClientesClick(Sender: TObject);
+procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);
+begin
+  FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
+  try
+    FormCadastroFornecedor.ShowModal;
+  finally
+    FreeAndNil(FormCadastroFornecedor);
+  end;
+end;
+
+procedure TFormMain.btnCadastroProdutoClick(Sender: TObject);
+begin
+  FormCadastroProduto := TFormCadastroProduto.Create(Self);
+  try
+    FormCadastroProduto.ShowModal;
+  finally
+    FreeAndNil(FormCadastroProduto);
+  end;
+end;
+
+procedure TFormMain.btnClientesClick(Sender: TObject);
 begin
   try
-    FormFiltroClientes := TFormFiltroClientes.Create(self);
+    FormFiltroClientes := TFormFiltroClientes.Create(Self);
     FormFiltroClientes.Show;
   finally
 
   end;
+end;
+
+procedure TFormMain.btnFornecedorClick(Sender: TObject);
+begin
+  FormFiltroFornecedores := TFormFiltroFornecedores.Create(Self);
+  FormFiltroFornecedores.Show;
+end;
+
+procedure TFormMain.btnProdutosClick(Sender: TObject);
+begin
+  FormFiltroProdutos := TFormFiltroProdutos.Create(Self);
+  FormFiltroProdutos.Show;
 end;
 
 end.

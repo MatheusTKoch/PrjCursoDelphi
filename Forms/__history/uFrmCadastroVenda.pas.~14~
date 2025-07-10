@@ -32,7 +32,6 @@ type
     DBCheckBox1: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
-    procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -47,12 +46,6 @@ implementation
 {$R *.dfm}
 
 uses uDmLookup;
-
-procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
-begin
-  inherited;
-  fdQryCadastroDATA.AsDateTime := Date;
-end;
 
 procedure TFormCadastroVenda.fdQryCadastroBeforePost(DataSet: TDataSet);
 begin

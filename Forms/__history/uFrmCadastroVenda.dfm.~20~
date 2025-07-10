@@ -9,6 +9,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
   inherited pnCabecalho: TPanel
     Width = 783
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 783
   end
   object Panel1: TPanel [1]
     Left = 0
@@ -17,87 +18,81 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 216
     Align = alTop
     TabOrder = 1
-    ExplicitLeft = -8
-    ExplicitTop = 33
     object Label1: TLabel
       Left = 32
       Top = 24
-      Width = 82
+      Width = 45
       Height = 15
-      Caption = 'ID_VENDA_CAB'
-      FocusControl = cxDBSpinEdit1
+      Caption = 'Id Venda'
     end
     object Label2: TLabel
-      Left = 184
+      Left = 159
       Top = 24
-      Width = 61
+      Width = 37
       Height = 15
-      Caption = 'ID_CLIENTE'
-      FocusControl = cxDBSpinEdit2
+      Caption = 'Cliente'
     end
     object Label3: TLabel
-      Left = 328
+      Left = 343
       Top = 24
-      Width = 29
+      Width = 24
       Height = 15
-      Caption = 'DATA'
-      FocusControl = cxDBDateEdit1
+      Caption = 'Data'
     end
     object Label4: TLabel
-      Left = 472
+      Left = 487
       Top = 24
-      Width = 59
+      Width = 47
       Height = 15
-      Caption = 'FATURADO'
-      FocusControl = cxDBTextEdit1
+      Caption = 'Faturado'
     end
     object Label5: TLabel
-      Left = 608
+      Left = 560
       Top = 24
-      Width = 93
+      Width = 76
       Height = 15
-      Caption = 'DATA_FATURADO'
-      FocusControl = cxDBDateEdit2
+      Caption = 'Data da Fatura'
     end
-    object cxDBSpinEdit1: TcxDBSpinEdit
+    object DBEdit1: TDBEdit
       Left = 32
       Top = 40
-      DataBinding.DataField = 'ID_VENDA_CAB'
-      DataBinding.DataSource = dsCadastro
+      Width = 121
+      Height = 23
+      Enabled = False
       TabOrder = 0
-      Width = 121
     end
-    object cxDBSpinEdit2: TcxDBSpinEdit
-      Left = 184
+    object DBEdit3: TDBEdit
+      Left = 343
       Top = 40
-      DataBinding.DataField = 'ID_CLIENTE'
-      DataBinding.DataSource = dsCadastro
+      Width = 138
+      Height = 23
       TabOrder = 1
-      Width = 121
     end
-    object cxDBDateEdit1: TcxDBDateEdit
-      Left = 328
+    object DBEdit4: TDBEdit
+      Left = 487
       Top = 40
-      DataBinding.DataField = 'DATA'
-      DataBinding.DataSource = dsCadastro
+      Width = 67
+      Height = 23
       TabOrder = 2
-      Width = 121
     end
-    object cxDBTextEdit1: TcxDBTextEdit
-      Left = 472
+    object DBEdit5: TDBEdit
+      Left = 560
       Top = 40
-      DataBinding.DataField = 'FATURADO'
-      DataBinding.DataSource = dsCadastro
+      Width = 121
+      Height = 23
       TabOrder = 3
-      Width = 121
     end
-    object cxDBDateEdit2: TcxDBDateEdit
-      Left = 608
+    object edtCliente: TDBLookupComboBox
+      Left = 159
       Top = 40
-      DataBinding.DataField = 'DATA_FATURADO'
-      DataBinding.DataSource = dsCadastro
+      Width = 178
+      Height = 23
+      DataField = 'ID_CLIENTE'
+      DataSource = dsCadastro
+      KeyField = 'ID_CLIENTE'
+      ListField = 'NOMECLIENTE'
+      ListSource = dmLookup.dsClientes
       TabOrder = 4
-      Width = 121
     end
   end
   inherited fdQryCadastro: TFDQuery
