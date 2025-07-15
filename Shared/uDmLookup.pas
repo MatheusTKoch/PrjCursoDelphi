@@ -23,6 +23,7 @@ type
     dsProdutos: TDataSource;
     fdQryProdutosID_PRODUTO: TIntegerField;
     fdQryProdutosDESCRICAO: TStringField;
+    fdQryProdutosV_UNITARIO: TSingleField;
   private
     { Private declarations }
   public

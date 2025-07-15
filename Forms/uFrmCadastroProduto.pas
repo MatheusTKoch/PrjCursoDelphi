@@ -68,7 +68,7 @@ uses uBiblioteca;
 procedure TFormCadastroProduto.FormCreate(Sender: TObject);
 begin
   inherited;
-  AtualizaFDQuery(dmLookup.fdQryFornecedor);
+  AtualizaFDQuery(dmLookup.fdQryFornecedor, '');
 end;
 
 end.

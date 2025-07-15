@@ -65,7 +65,8 @@ object dmLookup: TdmLookup
     Transaction = fdTransaction
     SQL.Strings = (
       'SELECT ID_PRODUTO,'
-      '       DESCRICAO'
+      '       DESCRICAO,'
+      '       V_UNITARIO'
       'FROM PRODUTO')
     Left = 96
     Top = 264
@@ -79,6 +80,10 @@ object dmLookup: TdmLookup
       FieldName = 'DESCRICAO'
       Origin = 'DESCRICAO'
       Size = 80
+    end
+    object fdQryProdutosV_UNITARIO: TSingleField
+      FieldName = 'V_UNITARIO'
+      Origin = 'V_UNITARIO'
     end
   end
   object dsProdutos: TDataSource

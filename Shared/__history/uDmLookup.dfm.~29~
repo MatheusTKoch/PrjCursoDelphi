@@ -1,0 +1,90 @@
+object dmLookup: TdmLookup
+  Height = 480
+  Width = 640
+  object fdQryEstados: TFDQuery
+    Connection = dmDados.fdConexao
+    Transaction = fdTransaction
+    SQL.Strings = (
+      'SELECT * FROM ESTADO')
+    Left = 96
+    Top = 8
+  end
+  object dsEstados: TDataSource
+    DataSet = fdQryEstados
+    Left = 176
+    Top = 8
+  end
+  object fdTransaction: TFDTransaction
+    Connection = dmDados.fdConexao
+    Left = 8
+    Top = 8
+  end
+  object fdQryCidades: TFDQuery
+    Connection = dmDados.fdConexao
+    Transaction = fdTransaction
+    SQL.Strings = (
+      'SELECT * FROM CIDADE')
+    Left = 96
+    Top = 72
+  end
+  object dsCidades: TDataSource
+    DataSet = fdQryCidades
+    Left = 176
+    Top = 72
+  end
+  object fdQryFornecedor: TFDQuery
+    Connection = dmDados.fdConexao
+    Transaction = fdTransaction
+    SQL.Strings = (
+      'SELECT * FROM FORNECEDOR')
+    Left = 96
+    Top = 136
+  end
+  object dsFornecedor: TDataSource
+    DataSet = fdQryFornecedor
+    Left = 176
+    Top = 136
+  end
+  object fdQryClientes: TFDQuery
+    Connection = dmDados.fdConexao
+    Transaction = fdTransaction
+    SQL.Strings = (
+      'SELECT ID_CLIENTE,'
+      '       DECODE(TIPO_FJ, '#39'F'#39', NOME, RAZAO_SOCIAL) NomeCliente'
+      ' FROM CLIENTE')
+    Left = 96
+    Top = 200
+  end
+  object dsClientes: TDataSource
+    DataSet = fdQryClientes
+    Left = 176
+    Top = 200
+  end
+  object fdQryProdutos: TFDQuery
+    Connection = dmDados.fdConexao
+    Transaction = fdTransaction
+    SQL.Strings = (
+      'SELECT ID_PRODUTO,'
+      '       DESCRICAO,'
+      '       V_UNITARIO'
+      'FROM PRODUTO')
+    Left = 96
+    Top = 264
+    object fdQryProdutosID_PRODUTO: TIntegerField
+      FieldName = 'ID_PRODUTO'
+      Origin = 'ID_PRODUTO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdQryProdutosDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+  end
+  object dsProdutos: TDataSource
+    DataSet = fdQryProdutos
+    Left = 176
+    Top = 264
+  end
+end

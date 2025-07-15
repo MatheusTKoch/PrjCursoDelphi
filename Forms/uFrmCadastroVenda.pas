@@ -58,11 +58,23 @@ type
     fdQryItensDescricaoProduto: TStringField;
     fdQryItensSubTotal: TFloatField;
     fdQryItensTotal: TFloatField;
+    fdtItens: TFDTransaction;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
     procedure fdQryItensAfterInsert(DataSet: TDataSet);
+    procedure fdQryCadastroAfterOpen(DataSet: TDataSet);
+    procedure fdQryCadastroAfterScroll(DataSet: TDataSet);
+    procedure fdQryItensCalcFields(DataSet: TDataSet);
+    procedure fdQryItensAfterPost(DataSet: TDataSet);
+    procedure fdQryItensAfterDelete(DataSet: TDataSet);
+    procedure fdQryItensAfterCancel(DataSet: TDataSet);
+    procedure edtDescricaoItemClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
+    procedure SetItens(pIdVenda: integer);
+    procedure GravarItem;
+    procedure SetDadosProduto(pIdProduto: integer);
     { Private declarations }
   public
     { Public declarations }
@@ -75,12 +87,36 @@ implementation
 
 {$R *.dfm}
 
-uses uDmLookup, uBiblioteca;
+uses uDmLookup, uBiblioteca, uDmDados;
+
+procedure TFormCadastroVenda.Button1Click(Sender: TObject);
+begin
+  inherited;
+  GravarItem;
+end;
+
+procedure TFormCadastroVenda.edtDescricaoItemClick(Sender: TObject);
+begin
+  inherited;
+  SetDadosProduto(edtDescricaoItem.KeyValue);
+end;
 
 procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
 begin
   inherited;
   fdQryCadastroDATA.AsDateTime := Date;
+end;
+
+procedure TFormCadastroVenda.fdQryCadastroAfterOpen(DataSet: TDataSet);
+begin
+  inherited;
+  SetItens(fdQryCadastroID_VENDA_CAB.AsInteger);
+end;
+
+procedure TFormCadastroVenda.fdQryCadastroAfterScroll(DataSet: TDataSet);
+begin
+  inherited;
+  SetItens(fdQryCadastroID_VENDA_CAB.AsInteger);
 end;
 
 procedure TFormCadastroVenda.fdQryCadastroBeforePost(DataSet: TDataSet);
@@ -93,17 +129,65 @@ begin
 
 end;
 
+procedure TFormCadastroVenda.fdQryItensAfterCancel(DataSet: TDataSet);
+begin
+  inherited;
+  fdtItens.RollbackRetaining;
+end;
+
+procedure TFormCadastroVenda.fdQryItensAfterDelete(DataSet: TDataSet);
+begin
+  inherited;
+  fdtItens.CommitRetaining;
+end;
+
 procedure TFormCadastroVenda.fdQryItensAfterInsert(DataSet: TDataSet);
 begin
   inherited;
   fdQryItensID_VENDA_CAB.AsInteger := fdQryCadastroID_VENDA_CAB.AsInteger;
 end;
 
+procedure TFormCadastroVenda.fdQryItensAfterPost(DataSet: TDataSet);
+begin
+  inherited;
+  fdtItens.CommitRetaining;
+end;
+
+procedure TFormCadastroVenda.fdQryItensCalcFields(DataSet: TDataSet);
+begin
+  inherited;
+  fdQryItensSubTotal.AsFloat := (fdQryItensQTD.AsFloat * fdQryItensVALOR_UNITARIO.AsFloat);
+  fdQryItensTotal.AsFloat := (fdQryItensQTD.AsFloat * fdQryItensVALOR_UNITARIO.AsFloat) - fdQryItensDESCONTO.AsFloat;
+end;
+
 procedure TFormCadastroVenda.FormCreate(Sender: TObject);
 begin
   inherited;
-  AtualizaFDQuery(dmLookup.fdQryProdutos);
-  AtualizaFDQuery(dmLookup.fdQryClientes);
+  AtualizaFDQuery(dmLookup.fdQryProdutos, '');
+  AtualizaFDQuery(dmLookup.fdQryClientes, '');
 end;
 
+
+procedure TFormCadastroVenda.GravarItem;
+begin
+  fdQryItens.Append;
+  fdQryItensID_PRODUTO.AsInteger := Integer(edtDescricaoItem.KeyValue);
+  fdQryItensQTD.AsFloat := edtQuantidade.Value;
+  fdQryItensVALOR_UNITARIO.AsFloat := edtValorUnitario.Value;
+  fdQryItensDESCONTO.AsFloat := edtDesconto.Value;
+  fdQryItens.Post;
+end;
+
+procedure TFormCadastroVenda.SetDadosProduto(pIdProduto: integer);
+begin
+  edtQuantidade.Value := 1;
+  edtValorUnitario.Value := dmLookup.fdQryProdutosV_UNITARIO.AsFloat;
+end;
+
+procedure TFormCadastroVenda.SetItens(pIdVenda: Integer);
+begin
+  fdQryItens.Close;
+  fdQryItens.ParamByName('ID_VENDA_CAB').AsInteger := pIdVenda;
+  AtualizaFDQuery(fdQryItens, '');
+end;
 end.

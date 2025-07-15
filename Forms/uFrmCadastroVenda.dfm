@@ -9,8 +9,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
   inherited pnCabecalho: TPanel
     Width = 878
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitLeft = -1
-    ExplicitTop = -6
     ExplicitWidth = 878
     inherited btnSair: TBitBtn
       Left = 780
@@ -24,7 +22,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 90
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 779
     object Label1: TLabel
       Left = 32
       Top = 24
@@ -107,7 +104,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 64
     Align = alBottom
     TabOrder = 2
-    ExplicitWidth = 779
   end
   object Panel3: TPanel [3]
     Left = 0
@@ -116,9 +112,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Height = 461
     Align = alClient
     TabOrder = 3
-    ExplicitLeft = -8
-    ExplicitTop = 125
-    ExplicitWidth = 779
     object Label4: TLabel
       Left = 35
       Top = 19
@@ -170,6 +163,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       ListField = 'DESCRICAO'
       ListSource = dmLookup.dsProdutos
       TabOrder = 0
+      OnClick = edtDescricaoItemClick
     end
     object edtQuantidade: TAdvMoneyEdit
       Left = 162
@@ -310,7 +304,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Height = 380
       Align = alBottom
       DataSource = dsItens
-      TabOrder = 5
+      TabOrder = 7
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -12
@@ -320,31 +314,46 @@ inherited FormCadastroVenda: TFormCadastroVenda
         item
           Expanded = False
           FieldName = 'ID_PRODUTO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'QTD'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VALOR_UNITARIO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCONTO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ID_VENDA_CAB'
+          Title.Caption = 'Codigo'
           Visible = True
         end
         item
           Expanded = False
           FieldName = 'DescricaoProduto'
+          Title.Caption = 'Descricao'
+          Width = 279
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'QTD'
+          Title.Caption = 'Quantidade'
+          Width = 69
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'VALOR_UNITARIO'
+          Title.Caption = 'Valor Unitario'
+          Width = 87
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'DESCONTO'
+          Title.Caption = 'Desconto'
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'SubTotal'
+          Width = 72
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Total'
+          Width = 83
           Visible = True
         end>
     end
@@ -371,7 +380,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
-      TabOrder = 6
+      TabOrder = 5
       Text = '0,00'
       Visible = True
       Version = '1.1.4.1'
@@ -386,13 +395,16 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Top = 38
       Width = 75
       Height = 27
-      Caption = 'Gravar Item'
-      TabOrder = 7
+      Caption = '&Gravar Item'
+      TabOrder = 6
+      OnClick = Button1Click
     end
   end
   inherited fdQryCadastro: TFDQuery
+    AfterOpen = fdQryCadastroAfterOpen
     AfterInsert = fdQryCadastroAfterInsert
     BeforePost = fdQryCadastroBeforePost
+    AfterScroll = fdQryCadastroAfterScroll
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_CAB_ID'
@@ -440,13 +452,16 @@ inherited FormCadastroVenda: TFormCadastroVenda
   end
   object fdQryItens: TFDQuery
     AfterInsert = fdQryItensAfterInsert
+    AfterPost = fdQryItensAfterPost
+    AfterCancel = fdQryItensAfterCancel
+    AfterDelete = fdQryItensAfterDelete
+    OnCalcFields = fdQryItensCalcFields
     Connection = dmDados.fdConexao
-    Transaction = fdTransaction
+    Transaction = fdtItens
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
     UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_ITEM_ID'
     UpdateOptions.AutoIncFields = 'ID_VENDA_ITEM'
-    UpdateObject = fdUpdCadastro
     SQL.Strings = (
       'SELECT * FROM VENDA_ITEM'
       'WHERE ID_VENDA_CAB = :ID_VENDA_CAB')
@@ -511,5 +526,10 @@ inherited FormCadastroVenda: TFormCadastroVenda
     DataSet = fdQryItens
     Left = 744
     Top = 272
+  end
+  object fdtItens: TFDTransaction
+    Connection = dmDados.fdConexao
+    Left = 744
+    Top = 387
   end
 end
