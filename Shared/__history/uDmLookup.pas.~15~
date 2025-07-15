@@ -21,8 +21,6 @@ type
     dsClientes: TDataSource;
     fdQryProdutos: TFDQuery;
     dsProdutos: TDataSource;
-    fdQryProdutosID_PRODUTO: TIntegerField;
-    fdQryProdutosDESCRICAO: TStringField;
   private
     { Private declarations }
   public

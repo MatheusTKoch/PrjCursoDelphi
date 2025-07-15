@@ -316,37 +316,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'ID_PRODUTO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'QTD'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VALOR_UNITARIO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCONTO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ID_VENDA_CAB'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DescricaoProduto'
-          Visible = True
-        end>
     end
     object edtTotal: TAdvMoneyEdit
       Left = 614
@@ -386,7 +355,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Top = 38
       Width = 75
       Height = 27
-      Caption = 'Gravar Item'
+      Caption = 'Gravar'
       TabOrder = 7
     end
   end
@@ -439,7 +408,8 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Top = 272
   end
   object fdQryItens: TFDQuery
-    AfterInsert = fdQryItensAfterInsert
+    AfterInsert = fdQryCadastroAfterInsert
+    BeforePost = fdQryCadastroBeforePost
     Connection = dmDados.fdConexao
     Transaction = fdTransaction
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -485,26 +455,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     object fdQryItensID_VENDA_CAB: TIntegerField
       FieldName = 'ID_VENDA_CAB'
       Origin = 'ID_VENDA_CAB'
-    end
-    object fdQryItensDescricaoProduto: TStringField
-      FieldKind = fkLookup
-      FieldName = 'DescricaoProduto'
-      LookupDataSet = dmLookup.fdQryProdutos
-      LookupKeyFields = 'ID_PRODUTO'
-      LookupResultField = 'DESCRICAO'
-      KeyFields = 'ID_PRODUTO'
-      Size = 80
-      Lookup = True
-    end
-    object fdQryItensSubTotal: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'SubTotal'
-      Calculated = True
-    end
-    object fdQryItensTotal: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'Total'
-      Calculated = True
     end
   end
   object dsItens: TDataSource

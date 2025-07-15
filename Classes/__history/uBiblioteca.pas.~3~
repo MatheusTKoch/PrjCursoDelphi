@@ -30,11 +30,4 @@ begin
   Result := vArquivo.ReadString(pSessao, pSubSessao, '');
 end;
 
-procedure AtualizaFDQuery(const pFDQuery: TFDQuery);
-begin
-  pFDQuery.Close;
-  pFDQuery.Open();
-  pFDQuery.FetchAll;
-end;
-
 end.

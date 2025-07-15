@@ -32,9 +32,7 @@ end;
 
 procedure AtualizaFDQuery(const pFDQuery: TFDQuery);
 begin
-  pFDQuery.Close;
-  pFDQuery.Open();
-  pFDQuery.FetchAll;
+
 end;
 
 end.

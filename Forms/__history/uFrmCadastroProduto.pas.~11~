@@ -11,8 +11,7 @@ uses
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Buttons,
   Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxContainer, cxEdit, cxMaskEdit, cxSpinEdit, Vcl.Mask, Vcl.DBCtrls,
-  cxTextEdit, MoneyEdit, dbmnyed, uDmLookup, AdvEdit, AdvMoneyEdit,
-  DBAdvMoneyEdit;
+  cxTextEdit, MoneyEdit, dbmnyed, uDmLookup;
 
 type
   TFormCadastroProduto = class(TFormCadastroPai)
@@ -40,11 +39,11 @@ type
     DBEdit7: TDBEdit;
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
-    DBMoneyEdit1: TDBAdvMoneyEdit;
-    DBMoneyEdit2: TDBAdvMoneyEdit;
-    DBMoneyEdit3: TDBAdvMoneyEdit;
-    DBMoneyEdit4: TDBAdvMoneyEdit;
-    DBMoneyEdit5: TDBAdvMoneyEdit;
+    DBMoneyEdit1: TDBMoneyEdit;
+    DBMoneyEdit2: TDBMoneyEdit;
+    DBMoneyEdit3: TDBMoneyEdit;
+    DBMoneyEdit4: TDBMoneyEdit;
+    DBMoneyEdit5: TDBMoneyEdit;
     Label10: TLabel;
     DBEdit1: TDBEdit;
     Label11: TLabel;
@@ -63,12 +62,11 @@ implementation
 
 {$R *.dfm}
 
-uses uBiblioteca;
-
 procedure TFormCadastroProduto.FormCreate(Sender: TObject);
 begin
   inherited;
-  AtualizaFDQuery(dmLookup.fdQryFornecedor);
+  dmLookup.fdQryFornecedor.Open();
+  dmLookup.fdQryFornecedor.FetchAll;
 end;
 
 end.

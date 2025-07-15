@@ -439,7 +439,8 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Top = 272
   end
   object fdQryItens: TFDQuery
-    AfterInsert = fdQryItensAfterInsert
+    AfterInsert = fdQryCadastroAfterInsert
+    BeforePost = fdQryCadastroBeforePost
     Connection = dmDados.fdConexao
     Transaction = fdTransaction
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]

@@ -439,7 +439,8 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Top = 272
   end
   object fdQryItens: TFDQuery
-    AfterInsert = fdQryItensAfterInsert
+    AfterInsert = fdQryCadastroAfterInsert
+    BeforePost = fdQryCadastroBeforePost
     Connection = dmDados.fdConexao
     Transaction = fdTransaction
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -495,16 +496,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
       KeyFields = 'ID_PRODUTO'
       Size = 80
       Lookup = True
-    end
-    object fdQryItensSubTotal: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'SubTotal'
-      Calculated = True
-    end
-    object fdQryItensTotal: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'Total'
-      Calculated = True
     end
   end
   object dsItens: TDataSource

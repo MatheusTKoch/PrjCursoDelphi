@@ -69,17 +69,6 @@ object dmLookup: TdmLookup
       'FROM PRODUTO')
     Left = 96
     Top = 264
-    object fdQryProdutosID_PRODUTO: TIntegerField
-      FieldName = 'ID_PRODUTO'
-      Origin = 'ID_PRODUTO'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object fdQryProdutosDESCRICAO: TStringField
-      FieldName = 'DESCRICAO'
-      Origin = 'DESCRICAO'
-      Size = 80
-    end
   end
   object dsProdutos: TDataSource
     DataSet = fdQryProdutos

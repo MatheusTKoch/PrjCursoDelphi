@@ -1,30 +1,23 @@
 inherited FormCadastroVenda: TFormCadastroVenda
   Caption = 'Venda de Produtos'
   ClientHeight = 656
-  ClientWidth = 878
+  ClientWidth = 779
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 894
+  ExplicitWidth = 795
   ExplicitHeight = 695
   TextHeight = 15
   inherited pnCabecalho: TPanel
-    Width = 878
+    Width = 779
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitLeft = -1
-    ExplicitTop = -6
-    ExplicitWidth = 878
-    inherited btnSair: TBitBtn
-      Left = 780
-      ExplicitLeft = 780
-    end
+    ExplicitWidth = 779
   end
   object Panel1: TPanel [1]
     Left = 0
     Top = 41
-    Width = 878
+    Width = 779
     Height = 90
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 779
     object Label1: TLabel
       Left = 32
       Top = 24
@@ -103,22 +96,20 @@ inherited FormCadastroVenda: TFormCadastroVenda
   object Panel2: TPanel [2]
     Left = 0
     Top = 592
-    Width = 878
+    Width = 779
     Height = 64
     Align = alBottom
     TabOrder = 2
-    ExplicitWidth = 779
   end
   object Panel3: TPanel [3]
     Left = 0
     Top = 131
-    Width = 878
+    Width = 779
     Height = 461
     Align = alClient
     TabOrder = 3
     ExplicitLeft = -8
     ExplicitTop = 125
-    ExplicitWidth = 779
     object Label4: TLabel
       Left = 35
       Top = 19
@@ -306,47 +297,15 @@ inherited FormCadastroVenda: TFormCadastroVenda
     object DBGrid1: TDBGrid
       Left = 1
       Top = 80
-      Width = 876
+      Width = 777
       Height = 380
       Align = alBottom
-      DataSource = dsItens
       TabOrder = 5
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
-      Columns = <
-        item
-          Expanded = False
-          FieldName = 'ID_PRODUTO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'QTD'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'VALOR_UNITARIO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DESCONTO'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'ID_VENDA_CAB'
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'DescricaoProduto'
-          Visible = True
-        end>
     end
     object edtTotal: TAdvMoneyEdit
       Left = 614
@@ -381,14 +340,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
       CalculatorLook.Font.Name = 'Segoe UI'
       CalculatorLook.Font.Style = []
     end
-    object Button1: TButton
-      Left = 752
-      Top = 38
-      Width = 75
-      Height = 27
-      Caption = 'Gravar Item'
-      TabOrder = 7
-    end
   end
   inherited fdQryCadastro: TFDQuery
     AfterInsert = fdQryCadastroAfterInsert
@@ -400,8 +351,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     UpdateObject = nil
     SQL.Strings = (
       'SELECT * FROM VENDA_CAB')
-    Left = 832
-    Top = 384
     object fdQryCadastroID_VENDA_CAB: TIntegerField
       FieldName = 'ID_VENDA_CAB'
       Origin = 'ID_VENDA_CAB'
@@ -426,20 +375,9 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Origin = 'DATA_FATURADO'
     end
   end
-  inherited fdUpdCadastro: TFDUpdateSQL
-    Left = 832
-    Top = 328
-  end
-  inherited fdTransaction: TFDTransaction
-    Left = 832
-    Top = 440
-  end
-  inherited dsCadastro: TDataSource
-    Left = 832
-    Top = 272
-  end
   object fdQryItens: TFDQuery
-    AfterInsert = fdQryItensAfterInsert
+    AfterInsert = fdQryCadastroAfterInsert
+    BeforePost = fdQryCadastroBeforePost
     Connection = dmDados.fdConexao
     Transaction = fdTransaction
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
@@ -450,8 +388,8 @@ inherited FormCadastroVenda: TFormCadastroVenda
     SQL.Strings = (
       'SELECT * FROM VENDA_ITEM'
       'WHERE ID_VENDA_CAB = :ID_VENDA_CAB')
-    Left = 744
-    Top = 328
+    Left = 488
+    Top = 280
     ParamData = <
       item
         Name = 'ID_VENDA_CAB'
@@ -486,30 +424,10 @@ inherited FormCadastroVenda: TFormCadastroVenda
       FieldName = 'ID_VENDA_CAB'
       Origin = 'ID_VENDA_CAB'
     end
-    object fdQryItensDescricaoProduto: TStringField
-      FieldKind = fkLookup
-      FieldName = 'DescricaoProduto'
-      LookupDataSet = dmLookup.fdQryProdutos
-      LookupKeyFields = 'ID_PRODUTO'
-      LookupResultField = 'DESCRICAO'
-      KeyFields = 'ID_PRODUTO'
-      Size = 80
-      Lookup = True
-    end
-    object fdQryItensSubTotal: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'SubTotal'
-      Calculated = True
-    end
-    object fdQryItensTotal: TFloatField
-      FieldKind = fkCalculated
-      FieldName = 'Total'
-      Calculated = True
-    end
   end
   object dsItens: TDataSource
     DataSet = fdQryItens
-    Left = 744
-    Top = 272
+    Left = 488
+    Top = 224
   end
 end

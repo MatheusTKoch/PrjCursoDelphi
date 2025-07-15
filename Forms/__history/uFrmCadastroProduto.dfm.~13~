@@ -128,12 +128,11 @@ inherited FormCadastroProduto: TFormCadastroProduto
   end
   object DBMoneyEdit1: TDBAdvMoneyEdit [16]
     Left = 215
-    Top = 96
+    Top = 101
     Width = 62
     Height = 23
     EditType = etFloat
     EmptyTextStyle = []
-    Precision = 2
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = clWindowText
     LabelFont.Height = -12
@@ -147,7 +146,7 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Lookup.Separator = ';'
     Color = clWindow
     TabOrder = 1
-    Text = '0,00'
+    Text = '0'
     Visible = True
     Version = '1.1.4.1'
     CalculatorLook.Font.Charset = DEFAULT_CHARSET
@@ -165,7 +164,6 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Height = 23
     EditType = etFloat
     EmptyTextStyle = []
-    Precision = 2
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = clWindowText
     LabelFont.Height = -12
@@ -179,7 +177,7 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Lookup.Separator = ';'
     Color = clWindow
     TabOrder = 2
-    Text = '0,00'
+    Text = '0'
     Visible = True
     Version = '1.1.4.1'
     CalculatorLook.Font.Charset = DEFAULT_CHARSET
@@ -197,7 +195,6 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Height = 23
     EditType = etFloat
     EmptyTextStyle = []
-    Precision = 2
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = clWindowText
     LabelFont.Height = -12
@@ -211,7 +208,7 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Lookup.Separator = ';'
     Color = clWindow
     TabOrder = 3
-    Text = '0,00'
+    Text = '0'
     Visible = True
     Version = '1.1.4.1'
     CalculatorLook.Font.Charset = DEFAULT_CHARSET
@@ -229,7 +226,6 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Height = 23
     EditType = etFloat
     EmptyTextStyle = []
-    Precision = 2
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = clWindowText
     LabelFont.Height = -12
@@ -243,7 +239,7 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Lookup.Separator = ';'
     Color = clWindow
     TabOrder = 5
-    Text = '0,00'
+    Text = '0'
     Visible = True
     Version = '1.1.4.1'
     CalculatorLook.Font.Charset = DEFAULT_CHARSET
@@ -261,7 +257,6 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Height = 23
     EditType = etFloat
     EmptyTextStyle = []
-    Precision = 2
     LabelFont.Charset = DEFAULT_CHARSET
     LabelFont.Color = clWindowText
     LabelFont.Height = -12
@@ -275,7 +270,7 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Lookup.Separator = ';'
     Color = clWindow
     TabOrder = 6
-    Text = '0,00'
+    Text = '0'
     Visible = True
     Version = '1.1.4.1'
     CalculatorLook.Font.Charset = DEFAULT_CHARSET

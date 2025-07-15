@@ -54,14 +54,9 @@ type
     DBGrid1: TDBGrid;
     edtTotal: TAdvMoneyEdit;
     Label10: TLabel;
-    Button1: TButton;
-    fdQryItensDescricaoProduto: TStringField;
-    fdQryItensSubTotal: TFloatField;
-    fdQryItensTotal: TFloatField;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
-    procedure fdQryItensAfterInsert(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -75,7 +70,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmLookup, uBiblioteca;
+uses uDmLookup;
 
 procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
 begin
@@ -93,17 +88,11 @@ begin
 
 end;
 
-procedure TFormCadastroVenda.fdQryItensAfterInsert(DataSet: TDataSet);
-begin
-  inherited;
-  fdQryItensID_VENDA_CAB.AsInteger := fdQryCadastroID_VENDA_CAB.AsInteger;
-end;
-
 procedure TFormCadastroVenda.FormCreate(Sender: TObject);
 begin
   inherited;
-  AtualizaFDQuery(dmLookup.fdQryProdutos);
-  AtualizaFDQuery(dmLookup.fdQryClientes);
+  dmLookup.fdQryClientes.Open();
+  dmLookup.fdQryClientes.FetchAll;
 end;
 
 end.
