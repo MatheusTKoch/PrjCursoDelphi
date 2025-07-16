@@ -30,6 +30,5 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TdmLookup, dmLookup);
-  Application.CreateForm(TFormCadastroVenda, FormCadastroVenda);
   Application.Run;
 end.

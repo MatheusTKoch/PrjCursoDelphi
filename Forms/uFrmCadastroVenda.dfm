@@ -1,27 +1,28 @@
 inherited FormCadastroVenda: TFormCadastroVenda
   Caption = 'Venda de Produtos'
   ClientHeight = 656
-  ClientWidth = 878
+  ClientWidth = 918
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 894
+  ExplicitWidth = 934
   ExplicitHeight = 695
   TextHeight = 15
   inherited pnCabecalho: TPanel
-    Width = 878
+    Width = 918
     StyleElements = [seFont, seClient, seBorder]
     ExplicitWidth = 878
     inherited btnSair: TBitBtn
-      Left = 780
-      ExplicitLeft = 780
+      Left = 827
+      ExplicitLeft = 827
     end
   end
   object Panel1: TPanel [1]
     Left = 0
     Top = 41
-    Width = 878
+    Width = 918
     Height = 90
     Align = alTop
     TabOrder = 1
+    ExplicitWidth = 878
     object Label1: TLabel
       Left = 32
       Top = 24
@@ -55,7 +56,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Top = 40
       Width = 121
       Height = 23
-      Enabled = False
+      ReadOnly = True
       TabOrder = 4
     end
     object DBEdit3: TDBEdit
@@ -100,18 +101,143 @@ inherited FormCadastroVenda: TFormCadastroVenda
   object Panel2: TPanel [2]
     Left = 0
     Top = 592
-    Width = 878
+    Width = 918
     Height = 64
     Align = alBottom
     TabOrder = 2
+    ExplicitWidth = 878
+    object Label11: TLabel
+      Left = 253
+      Top = 10
+      Width = 46
+      Height = 15
+      Caption = 'SubTotal'
+    end
+    object Label12: TLabel
+      Left = 380
+      Top = 10
+      Width = 50
+      Height = 15
+      Caption = 'Desconto'
+    end
+    object Label13: TLabel
+      Left = 507
+      Top = 10
+      Width = 26
+      Height = 15
+      Caption = 'Total'
+    end
+    object edtTotSubTotal: TAdvMoneyEdit
+      Left = 253
+      Top = 25
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 0
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.1'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object edtTotDesconto: TAdvMoneyEdit
+      Left = 380
+      Top = 25
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 1
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.1'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
+    object edtTotTotal: TAdvMoneyEdit
+      Left = 507
+      Top = 25
+      Width = 121
+      Height = 23
+      EditType = etFloat
+      EmptyTextStyle = []
+      FlatLineColor = 11250603
+      FocusColor = clWindow
+      FocusFontColor = 3881787
+      Precision = 2
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -12
+      LabelFont.Name = 'Segoe UI'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Segoe UI'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      ReadOnly = True
+      TabOrder = 2
+      Text = '0,00'
+      Visible = True
+      Version = '1.1.4.1'
+      CalculatorLook.Font.Charset = DEFAULT_CHARSET
+      CalculatorLook.Font.Color = clWindowText
+      CalculatorLook.Font.Height = -12
+      CalculatorLook.Font.Name = 'Segoe UI'
+      CalculatorLook.Font.Style = []
+    end
   end
   object Panel3: TPanel [3]
     Left = 0
     Top = 131
-    Width = 878
+    Width = 918
     Height = 461
     Align = alClient
     TabOrder = 3
+    ExplicitWidth = 878
     object Label4: TLabel
       Left = 35
       Top = 19
@@ -191,6 +317,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 1
       Text = '0,00'
       Visible = True
+      OnChange = edtQuantidadeChange
       Version = '1.1.4.1'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -224,6 +351,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 2
       Text = '0,00'
       Visible = True
+      OnChange = edtValorUnitarioChange
       Version = '1.1.4.1'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -257,6 +385,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       TabOrder = 3
       Text = '0,00'
       Visible = True
+      OnChange = edtDescontoChange
       Version = '1.1.4.1'
       CalculatorLook.Font.Charset = DEFAULT_CHARSET
       CalculatorLook.Font.Color = clWindowText
@@ -287,6 +416,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 4
       Text = '0,00'
       Visible = True
@@ -300,7 +430,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
     object DBGrid1: TDBGrid
       Left = 1
       Top = 80
-      Width = 876
+      Width = 916
       Height = 380
       Align = alBottom
       DataSource = dsItens
@@ -380,6 +510,7 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Lookup.Font.Style = []
       Lookup.Separator = ';'
       Color = clWindow
+      ReadOnly = True
       TabOrder = 5
       Text = '0,00'
       Visible = True
@@ -398,6 +529,15 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Caption = '&Gravar Item'
       TabOrder = 6
       OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 833
+      Top = 38
+      Width = 75
+      Height = 27
+      Caption = '&Excluir'
+      TabOrder = 8
+      OnClick = Button2Click
     end
   end
   inherited fdQryCadastro: TFDQuery

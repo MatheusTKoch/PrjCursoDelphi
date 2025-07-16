@@ -59,6 +59,13 @@ type
     fdQryItensSubTotal: TFloatField;
     fdQryItensTotal: TFloatField;
     fdtItens: TFDTransaction;
+    Label11: TLabel;
+    edtTotSubTotal: TAdvMoneyEdit;
+    edtTotDesconto: TAdvMoneyEdit;
+    Label12: TLabel;
+    Label13: TLabel;
+    edtTotTotal: TAdvMoneyEdit;
+    Button2: TButton;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
@@ -71,10 +78,17 @@ type
     procedure fdQryItensAfterCancel(DataSet: TDataSet);
     procedure edtDescricaoItemClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure edtQuantidadeChange(Sender: TObject);
+    procedure edtValorUnitarioChange(Sender: TObject);
+    procedure edtDescontoChange(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     procedure SetItens(pIdVenda: integer);
     procedure GravarItem;
     procedure SetDadosProduto(pIdProduto: integer);
+    procedure Totaliza;
+    procedure CalculaTotais;
+    procedure LimparCampos;
     { Private declarations }
   public
     { Public declarations }
@@ -93,12 +107,43 @@ procedure TFormCadastroVenda.Button1Click(Sender: TObject);
 begin
   inherited;
   GravarItem;
+  LimparCampos;
+end;
+
+procedure TFormCadastroVenda.Button2Click(Sender: TObject);
+begin
+  inherited;
+  fdQryItens.Delete;
+end;
+
+procedure TFormCadastroVenda.CalculaTotais;
+begin
+  edtSubTotal.Value := edtQuantidade.Value * edtValorUnitario.Value;
+  edtTotal.Value := (edtQuantidade.Value * edtValorUnitario.Value) - edtDesconto.Value;
+end;
+
+procedure TFormCadastroVenda.edtDescontoChange(Sender: TObject);
+begin
+  inherited;
+  CalculaTotais;
 end;
 
 procedure TFormCadastroVenda.edtDescricaoItemClick(Sender: TObject);
 begin
   inherited;
   SetDadosProduto(edtDescricaoItem.KeyValue);
+end;
+
+procedure TFormCadastroVenda.edtQuantidadeChange(Sender: TObject);
+begin
+  inherited;
+  CalculaTotais;
+end;
+
+procedure TFormCadastroVenda.edtValorUnitarioChange(Sender: TObject);
+begin
+  inherited;
+  CalculaTotais;
 end;
 
 procedure TFormCadastroVenda.fdQryCadastroAfterInsert(DataSet: TDataSet);
@@ -137,8 +182,10 @@ end;
 
 procedure TFormCadastroVenda.fdQryItensAfterDelete(DataSet: TDataSet);
 begin
+  fdtItens.StartTransaction;
   inherited;
   fdtItens.CommitRetaining;
+  Totaliza;
 end;
 
 procedure TFormCadastroVenda.fdQryItensAfterInsert(DataSet: TDataSet);
@@ -149,8 +196,10 @@ end;
 
 procedure TFormCadastroVenda.fdQryItensAfterPost(DataSet: TDataSet);
 begin
+  fdtItens.StartTransaction;
   inherited;
   fdtItens.CommitRetaining;
+  Totaliza;
 end;
 
 procedure TFormCadastroVenda.fdQryItensCalcFields(DataSet: TDataSet);
@@ -178,6 +227,17 @@ begin
   fdQryItens.Post;
 end;
 
+procedure TFormCadastroVenda.LimparCampos;
+begin
+  edtDescricaoItem.KeyValue := 0;
+  edtQuantidade.Value := 0;
+  edtValorUnitario.Value := 0;
+  edtDesconto.Value := 0;
+  edtSubTotal.Value := 0;
+  edtTotal.Value := 0;
+  edtDescricaoItem.SetFocus;
+end;
+
 procedure TFormCadastroVenda.SetDadosProduto(pIdProduto: integer);
 begin
   edtQuantidade.Value := 1;
@@ -189,5 +249,29 @@ begin
   fdQryItens.Close;
   fdQryItens.ParamByName('ID_VENDA_CAB').AsInteger := pIdVenda;
   AtualizaFDQuery(fdQryItens, '');
+  Totaliza;
 end;
+procedure TFormCadastroVenda.Totaliza;
+var
+  vQryTotais: TFDQuery;
+  vSql: string;
+begin
+  vQryTotais := TFDQuery.Create(nil);
+  vQryTotais.Transaction := fdtItens;
+  vQryTotais.Connection := dmDados.fdConexao;
+  try
+    vSql := 'SELECT SUM(QTD * VALOR_UNITARIO) SUBTOTAL, SUM(COALESCE(DESCONTO, 0)) DESCONTO, SUM((QTD * VALOR_UNITARIO) - COALESCE(DESCONTO, 0)) TOTAL' + #13 +
+            ' FROM VENDA_ITEM' + #13 +
+            ' WHERE ID_VENDA_CAB = ' + IntToStr(fdQryCadastroID_VENDA_CAB.AsInteger);
+    AtualizaFDQuery(vQryTotais, vSql);
+
+    edtTotSubTotal.Value := vQryTotais.FieldByName('SUBTOTAL').AsFloat;
+    edtTotDesconto.Value := vQryTotais.FieldByName('DESCONTO').AsFloat;
+    edtTotTotal.Value := vQryTotais.FieldByName('TOTAL').AsFloat;
+  finally
+    vQryTotais.Close;
+    FreeAndNil(vQryTotais);
+  end;
+end;
+
 end.
