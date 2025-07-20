@@ -27,7 +27,7 @@ type
     AdvToolBarSeparator1: TAdvToolBarSeparator;
     AdvToolBarSeparator2: TAdvToolBarSeparator;
     AdvToolBar3: TAdvToolBar;
-    btnProdutos: TAdvGlowButton;
+    btnFiltroVendas: TAdvGlowButton;
     btnCadastroProduto: TAdvGlowButton;
     AdvToolBarSeparator3: TAdvToolBarSeparator;
     AdvToolBarSeparator4: TAdvToolBarSeparator;
@@ -43,6 +43,8 @@ type
     AdvGlowButton7: TAdvGlowButton;
     AdvGlowButton8: TAdvGlowButton;
     AdvGlowButton9: TAdvGlowButton;
+    AdvToolBarSeparator9: TAdvToolBarSeparator;
+    AdvGlowButton10: TAdvGlowButton;
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton3Click(Sender: TObject);
     procedure AdvGlowButton2Click(Sender: TObject);
@@ -52,6 +54,7 @@ type
     procedure btnProdutosClick(Sender: TObject);
     procedure btnCadastroProdutoClick(Sender: TObject);
     procedure AdvGlowButton8Click(Sender: TObject);
+    procedure btnFiltroVendasClick(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -69,7 +72,8 @@ implementation
 
 uses uFrmCadastroCidade, uFrmCadastroCliente, uFrmCadastroEstado,
   uFrmFiltroClientes, uFrmCadastroFornecedor, uFrmCadastroProduto,
-  uFrmFiltroFornecedores, uFrmFiltroProdutos, uFrmCadastroVenda, uBiblioteca;
+  uFrmFiltroFornecedores, uFrmFiltroProdutos, uFrmCadastroVenda, uBiblioteca,
+  uFrmFiltroVendas;
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
@@ -104,6 +108,11 @@ end;
 procedure TFormMain.btnClientesClick(Sender: TObject);
 begin
   ShowForm(TFormFiltroClientes, FormFiltroClientes);
+end;
+
+procedure TFormMain.btnFiltroVendasClick(Sender: TObject);
+begin
+  ShowForm(TFormFiltroVendas, FormFiltroVendas);
 end;
 
 procedure TFormMain.btnFornecedorClick(Sender: TObject);

@@ -144,7 +144,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 681
     Height = 137
-    ActivePage = AdvPage4
+    ActivePage = AdvPage2
     Caption.Caption = 'Sistema de Gest'#227'o'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -594,7 +594,7 @@ object FormMain: TFormMain
       object AdvToolBar3: TAdvToolBar
         Left = 3
         Top = 3
-        Width = 285
+        Width = 388
         Height = 74
         UIStyle = tsOffice2019White
         AllowFloating = True
@@ -629,12 +629,19 @@ object FormMain: TFormMain
           Height = 54
           LineColor = clBtnShadow
         end
-        object btnProdutos: TAdvGlowButton
-          Left = 196
+        object AdvToolBarSeparator9: TAdvToolBarSeparator
+          Left = 283
+          Top = 2
+          Width = 10
+          Height = 54
+          LineColor = clBtnShadow
+        end
+        object btnFiltroVendas: TAdvGlowButton
+          Left = 293
           Top = 2
           Width = 87
           Height = 55
-          Caption = 'Produtos'
+          Caption = 'Vendas'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = 4474440
           Font.Height = -11
@@ -650,7 +657,7 @@ object FormMain: TFormMain
           Rounded = False
           Transparent = True
           TabOrder = 1
-          OnClick = btnProdutosClick
+          OnClick = btnFiltroVendasClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -755,6 +762,58 @@ object FormMain: TFormMain
           Transparent = True
           TabOrder = 3
           OnClick = btnFornecedorClick
+          Appearance.BorderColor = 14727579
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.BorderColorChecked = 4548219
+          Appearance.Color = 15653832
+          Appearance.ColorTo = 16178633
+          Appearance.ColorChecked = 11918331
+          Appearance.ColorCheckedTo = 7915518
+          Appearance.ColorDisabled = clSilver
+          Appearance.ColorDisabledTo = clNone
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 15586496
+          Appearance.ColorMirrorTo = 16245200
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = clNone
+          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
+        object AdvGlowButton10: TAdvGlowButton
+          Left = 196
+          Top = 2
+          Width = 87
+          Height = 55
+          Caption = 'Produtos'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = 4474440
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          FocusType = ftHot
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          ParentFont = False
+          Rounded = False
+          Transparent = True
+          TabOrder = 4
+          OnClick = btnProdutosClick
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219

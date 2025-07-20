@@ -19,7 +19,8 @@ uses
   uFrmFiltroFornecedores in 'Forms\uFrmFiltroFornecedores.pas' {FormFiltroFornecedores},
   uFrmCadastroProduto in 'Forms\uFrmCadastroProduto.pas' {FormCadastroProduto},
   uFrmFiltroProdutos in 'Forms\uFrmFiltroProdutos.pas' {FormFiltroProdutos},
-  uFrmCadastroVenda in 'Forms\uFrmCadastroVenda.pas' {FormCadastroVenda};
+  uFrmCadastroVenda in 'Forms\uFrmCadastroVenda.pas' {FormCadastroVenda},
+  uFrmFiltroVendas in 'Forms\uFrmFiltroVendas.pas' {FormFiltroVendas};
 
 {$R *.res}
 
