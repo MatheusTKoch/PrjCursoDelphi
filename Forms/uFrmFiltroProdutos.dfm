@@ -13,7 +13,7 @@ inherited FormFiltroProdutos: TFormFiltroProdutos
     ExplicitWidth = 798
     inherited Label1: TLabel
       Width = 39
-      Caption = 'Codigo'
+      Caption = 'C'#243'digo'
       StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 39
     end
@@ -22,7 +22,7 @@ inherited FormFiltroProdutos: TFormFiltroProdutos
       Top = 13
       Width = 51
       Height = 15
-      Caption = 'Descricao'
+      Caption = 'Descri'#231#227'o'
     end
     inherited edtFiltro: TEdit
       Width = 56

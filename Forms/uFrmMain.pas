@@ -69,89 +69,51 @@ implementation
 
 uses uFrmCadastroCidade, uFrmCadastroCliente, uFrmCadastroEstado,
   uFrmFiltroClientes, uFrmCadastroFornecedor, uFrmCadastroProduto,
-  uFrmFiltroFornecedores, uFrmFiltroProdutos, uFrmCadastroVenda;
+  uFrmFiltroFornecedores, uFrmFiltroProdutos, uFrmCadastroVenda, uBiblioteca;
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
-  FormCadastroCliente := TFormCadastroCliente.Create(Self);
-  try
-    FormCadastroCliente.ShowModal;
-  finally
-    FreeAndNil(FormCadastroCliente);
-  end;
+  ShowModalForm(TFormCadastroCliente, FormCadastroCliente);
 end;
 
 procedure TFormMain.AdvGlowButton2Click(Sender: TObject);
 begin
-  FormCadastroEstado := TFormCadastroEstado.Create(Self);
-  try
-    FormCadastroEstado.ShowModal;
-  finally
-    FreeAndNil(FormCadastroEstado);
-  end;
+  ShowModalForm(TFormCadastroEstado, FormCadastroEstado);
 end;
 
 procedure TFormMain.AdvGlowButton3Click(Sender: TObject);
 begin
-  FormCadastroCidade := TFormCadastroCidade.Create(Self);
-  try
-    FormCadastroCidade.ShowModal;
-  finally
-    FreeAndNil(FormCadastroCidade);
-  end;
-
+  ShowModalForm(TFormCadastroCidade, FormCadastroCidade);
 end;
 
 procedure TFormMain.AdvGlowButton8Click(Sender: TObject);
 begin
-  FormCadastroVenda := TFormCadastroVenda.Create(Self);
-  try
-    FormCadastroVenda.ShowModal;
-  finally
-    FreeAndNil(FormCadastroVenda);
-  end;
+  ShowModalForm(TFormCadastroVenda, FormCadastroVenda);
 end;
 
 procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);
 begin
-  FormCadastroFornecedor := TFormCadastroFornecedor.Create(Self);
-  try
-    FormCadastroFornecedor.ShowModal;
-  finally
-    FreeAndNil(FormCadastroFornecedor);
-  end;
+  ShowModalForm(TFormCadastroFornecedor, FormCadastroFornecedor);
 end;
 
 procedure TFormMain.btnCadastroProdutoClick(Sender: TObject);
 begin
-  FormCadastroProduto := TFormCadastroProduto.Create(Self);
-  try
-    FormCadastroProduto.ShowModal;
-  finally
-    FreeAndNil(FormCadastroProduto);
-  end;
+  ShowModalForm(TFormCadastroProduto, FormCadastroProduto);
 end;
 
 procedure TFormMain.btnClientesClick(Sender: TObject);
 begin
-  try
-    FormFiltroClientes := TFormFiltroClientes.Create(Self);
-    FormFiltroClientes.Show;
-  finally
-
-  end;
+  ShowForm(TFormFiltroClientes, FormFiltroClientes);
 end;
 
 procedure TFormMain.btnFornecedorClick(Sender: TObject);
 begin
-  FormFiltroFornecedores := TFormFiltroFornecedores.Create(Self);
-  FormFiltroFornecedores.Show;
+  ShowForm(TFormFiltroFornecedores, FormFiltroFornecedores);
 end;
 
 procedure TFormMain.btnProdutosClick(Sender: TObject);
 begin
-  FormFiltroProdutos := TFormFiltroProdutos.Create(Self);
-  FormFiltroProdutos.Show;
+  ShowForm(TFormFiltroProdutos, FormFiltroProdutos);
 end;
 
 end.

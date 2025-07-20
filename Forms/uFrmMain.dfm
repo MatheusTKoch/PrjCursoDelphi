@@ -799,7 +799,7 @@ object FormMain: TFormMain
       Top = 52
       Width = 673
       Height = 80
-      Caption = 'Manutencao'
+      Caption = 'Manuten'#231#227'o'
       object AdvToolBar4: TAdvToolBar
         Left = 3
         Top = 3

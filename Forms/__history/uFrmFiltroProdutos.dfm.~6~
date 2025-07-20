@@ -1,0 +1,154 @@
+inherited FormFiltroProdutos: TFormFiltroProdutos
+  Caption = 'Filtro de Produtos'
+  ClientWidth = 798
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 814
+  TextHeight = 15
+  inherited Panel1: TPanel
+    Width = 798
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 798
+    inherited Label1: TLabel
+      Width = 39
+      Caption = 'Codigo'
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 39
+    end
+    object Label2: TLabel [1]
+      Left = 81
+      Top = 13
+      Width = 51
+      Height = 15
+      Caption = 'Descricao'
+    end
+    inherited edtFiltro: TEdit
+      Width = 56
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 56
+    end
+    inherited btnFiltro: TButton
+      Left = 407
+      Caption = 'Filtrar'
+      OnClick = btnFiltroClick
+      ExplicitLeft = 407
+    end
+    inherited Panel2: TPanel
+      Left = 678
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitLeft = 678
+    end
+    object Button3: TButton
+      Left = 569
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = 'Visualizar'
+      TabOrder = 3
+      OnClick = Button3Click
+    end
+    object Button2: TButton
+      Left = 488
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = 'Novo'
+      TabOrder = 4
+      OnClick = Button2Click
+    end
+  end
+  object DBGrid1: TDBGrid [1]
+    Left = 0
+    Top = 89
+    Width = 798
+    Height = 472
+    Align = alClient
+    DataSource = dsFiltro
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  object edtDescricao: TEdit [2]
+    Left = 81
+    Top = 34
+    Width = 320
+    Height = 23
+    TabOrder = 2
+  end
+  inherited fdQryFiltro: TFDQuery
+    SQL.Strings = (
+      'SELECT '
+      #9'P.ID_PRODUTO, '
+      #9'P.DESCRICAO, '
+      #9'P.QUANTIDADE, '
+      #9'P.CUSTO, '
+      #9'P.V_UNITARIO,'
+      #9'P.UNIDADE, '
+      #9'P.PESO_LIQUIDO, '
+      #9'P.PESO_BRUTO, '
+      #9'P.FABRICANTE, '
+      #9'P.MARCA_MODELO, '
+      #9'F.RAZAO_SOCIAL FORNECEDOR  '
+      'FROM PRODUTO P LEFT JOIN FORNECEDOR F '
+      'ON F.ID_FORNECEDOR = P.ID_FORNECEDOR WHERE 1=1')
+    object fdQryFiltroID_PRODUTO: TIntegerField
+      FieldName = 'ID_PRODUTO'
+      Origin = 'ID_PRODUTO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdQryFiltroDESCRICAO: TStringField
+      FieldName = 'DESCRICAO'
+      Origin = 'DESCRICAO'
+      Size = 80
+    end
+    object fdQryFiltroQUANTIDADE: TSingleField
+      FieldName = 'QUANTIDADE'
+      Origin = 'QUANTIDADE'
+    end
+    object fdQryFiltroCUSTO: TSingleField
+      FieldName = 'CUSTO'
+      Origin = 'CUSTO'
+    end
+    object fdQryFiltroV_UNITARIO: TSingleField
+      FieldName = 'V_UNITARIO'
+      Origin = 'V_UNITARIO'
+    end
+    object fdQryFiltroUNIDADE: TStringField
+      FieldName = 'UNIDADE'
+      Origin = 'UNIDADE'
+      Size = 4
+    end
+    object fdQryFiltroPESO_LIQUIDO: TSingleField
+      FieldName = 'PESO_LIQUIDO'
+      Origin = 'PESO_LIQUIDO'
+    end
+    object fdQryFiltroPESO_BRUTO: TSingleField
+      FieldName = 'PESO_BRUTO'
+      Origin = 'PESO_BRUTO'
+    end
+    object fdQryFiltroFABRICANTE: TStringField
+      FieldName = 'FABRICANTE'
+      Origin = 'FABRICANTE'
+      Size = 60
+    end
+    object fdQryFiltroMARCA_MODELO: TStringField
+      FieldName = 'MARCA_MODELO'
+      Origin = 'MARCA_MODELO'
+      Size = 255
+    end
+    object fdQryFiltroFORNECEDOR: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'FORNECEDOR'
+      Origin = 'RAZAO_SOCIAL'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 80
+    end
+  end
+end

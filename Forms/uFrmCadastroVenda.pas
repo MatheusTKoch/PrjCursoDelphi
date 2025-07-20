@@ -12,7 +12,8 @@ uses
   Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxContainer, cxEdit, cxDropDownEdit, cxCalendar, cxTextEdit,
   cxMaskEdit, cxSpinEdit, Vcl.Mask, Vcl.DBCtrls, AdvEdit, AdvMoneyEdit,
-  DBAdvMoneyEdit, Vcl.Grids, Vcl.DBGrids;
+  DBAdvMoneyEdit, Vcl.Grids, Vcl.DBGrids, frxSmartMemo, frxClass, frxDBSet,
+  frCoreClasses;
 
 type
   TFormCadastroVenda = class(TFormCadastroPai)
@@ -66,6 +67,10 @@ type
     Label13: TLabel;
     edtTotTotal: TAdvMoneyEdit;
     Button2: TButton;
+    frVenda: TfrxReport;
+    frxDadosVenda: TfrxDBDataset;
+    frxItensVenda: TfrxDBDataset;
+    btnImprimir: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure fdQryCadastroBeforePost(DataSet: TDataSet);
     procedure fdQryCadastroAfterInsert(DataSet: TDataSet);
@@ -82,6 +87,7 @@ type
     procedure edtValorUnitarioChange(Sender: TObject);
     procedure edtDescontoChange(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
   private
     procedure SetItens(pIdVenda: integer);
     procedure GravarItem;
@@ -102,6 +108,13 @@ implementation
 {$R *.dfm}
 
 uses uDmLookup, uBiblioteca, uDmDados;
+
+procedure TFormCadastroVenda.btnImprimirClick(Sender: TObject);
+begin
+  inherited;
+  frVenda.Variables.Variables['Cliente']:= QuotedStr(edtCliente.Text);
+  CarregaRelatorio(frVenda);
+end;
 
 procedure TFormCadastroVenda.Button1Click(Sender: TObject);
 begin

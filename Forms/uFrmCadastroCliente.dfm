@@ -10,25 +10,25 @@ inherited FormCadastroCliente: TFormCadastroCliente
   object Label1: TLabel [0]
     Left = 8
     Top = 64
-    Width = 61
+    Width = 68
     Height = 15
-    Caption = 'ID_CLIENTE'
+    Caption = 'ID do Cliente'
     FocusControl = DBEdit1
   end
   object Label2: TLabel [1]
     Left = 111
     Top = 64
-    Width = 84
+    Width = 65
     Height = 15
-    Caption = 'RAZAO_SOCIAL'
+    Caption = 'Raz'#227'o Social'
     FocusControl = edtRazaoSocial
   end
   object Label3: TLabel [2]
     Left = 317
     Top = 64
-    Width = 53
+    Width = 43
     Height = 15
-    Caption = 'FANTASIA'
+    Caption = 'Fantasia'
     FocusControl = DBEdit3
   end
   object Label4: TLabel [3]
@@ -36,54 +36,54 @@ inherited FormCadastroCliente: TFormCadastroCliente
     Top = 64
     Width = 53
     Height = 15
-    Caption = 'CPF_CNPJ'
+    Caption = 'CPF/CNPJ'
     FocusControl = DBEdit4
   end
   object Label5: TLabel [4]
     Left = 8
     Top = 109
-    Width = 41
+    Width = 15
     Height = 15
-    Caption = 'TIPO_FJ'
+    Caption = 'F/J'
   end
   object Label6: TLabel [5]
     Left = 159
     Top = 114
-    Width = 35
+    Width = 33
     Height = 15
-    Caption = 'NOME'
+    Caption = 'Nome'
     FocusControl = DBEdit5
   end
   object Label7: TLabel [6]
     Left = 365
     Top = 114
-    Width = 34
+    Width = 29
     Height = 15
-    Caption = 'EMAIL'
+    Caption = 'Email'
     FocusControl = DBEdit6
   end
   object Label8: TLabel [7]
     Left = 8
     Top = 171
-    Width = 22
+    Width = 19
     Height = 15
-    Caption = 'SITE'
+    Caption = 'Site'
     FocusControl = DBEdit7
   end
   object Label9: TLabel [8]
     Left = 214
-    Top = 171
-    Width = 59
+    Top = 166
+    Width = 49
     Height = 15
-    Caption = 'ENDERECO'
+    Caption = 'Endere'#231'o'
     FocusControl = DBEdit8
   end
   object Label10: TLabel [9]
     Left = 8
     Top = 224
-    Width = 41
+    Width = 31
     Height = 15
-    Caption = 'BAIRRO'
+    Caption = 'Bairro'
     FocusControl = DBEdit9
   end
   object Label11: TLabel [10]
@@ -105,16 +105,16 @@ inherited FormCadastroCliente: TFormCadastroCliente
   object Label13: TLabel [12]
     Left = 420
     Top = 171
-    Width = 41
+    Width = 37
     Height = 15
-    Caption = 'CIDADE'
+    Caption = 'Cidade'
   end
   object Label14: TLabel [13]
     Left = 420
     Top = 224
-    Width = 43
+    Width = 35
     Height = 15
-    Caption = 'ESTADO'
+    Caption = 'Estado'
   end
   inherited pnCabecalho: TPanel
     Width = 691

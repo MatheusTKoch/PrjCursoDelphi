@@ -36,7 +36,7 @@ inherited FormFiltroClientes: TFormFiltroClientes
       Top = 13
       Width = 39
       Height = 15
-      Caption = 'Codigo'
+      Caption = 'C'#243'digo'
     end
     inherited edtFiltro: TEdit
       Width = 168

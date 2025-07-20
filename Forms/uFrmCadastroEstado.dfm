@@ -9,25 +9,25 @@ inherited FormCadastroEstado: TFormCadastroEstado
   object Label1: TLabel [0]
     Left = 8
     Top = 64
-    Width = 59
+    Width = 65
     Height = 15
-    Caption = 'ID_ESTADO'
+    Caption = 'Id do Estado'
     FocusControl = DBEdit1
   end
   object Label2: TLabel [1]
     Left = 8
     Top = 112
-    Width = 35
+    Width = 33
     Height = 15
-    Caption = 'NOME'
+    Caption = 'Nome'
     FocusControl = DBEdit2
   end
   object Label3: TLabel [2]
     Left = 232
     Top = 112
-    Width = 31
+    Width = 25
     Height = 15
-    Caption = 'SIGLA'
+    Caption = 'Sigla'
     FocusControl = DBEdit3
   end
   inherited pnCabecalho: TPanel

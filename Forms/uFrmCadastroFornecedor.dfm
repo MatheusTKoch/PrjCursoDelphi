@@ -10,16 +10,16 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
   object Label1: TLabel [0]
     Left = 32
     Top = 59
-    Width = 91
+    Width = 90
     Height = 15
-    Caption = 'ID_FORNECEDOR'
+    Caption = 'Id do Fornecedor'
   end
   object Label2: TLabel [1]
     Left = 32
     Top = 112
     Width = 65
     Height = 15
-    Caption = 'Razao Social'
+    Caption = 'Raz'#227'o Social'
   end
   object Label3: TLabel [2]
     Left = 32
@@ -47,7 +47,7 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
     Top = 304
     Width = 49
     Height = 15
-    Caption = 'Endereco'
+    Caption = 'Endere'#231'o'
   end
   object Label7: TLabel [6]
     Left = 32

@@ -10,12 +10,10 @@ inherited FormFiltroFornecedores: TFormFiltroFornecedores
   inherited Panel1: TPanel
     Width = 824
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitLeft = 40
-    ExplicitTop = 32
     ExplicitWidth = 824
     inherited Label1: TLabel
       Width = 65
-      Caption = 'Razao Social'
+      Caption = 'Raz'#227'o Social'
       StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 65
     end
