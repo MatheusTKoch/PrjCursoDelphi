@@ -1,0 +1,738 @@
+inherited FormFiltroVendas: TFormFiltroVendas
+  Caption = 'Filtro de Vendas'
+  ClientWidth = 882
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
+  StyleElements = [seFont, seClient, seBorder]
+  OnShow = FormShow
+  ExplicitWidth = 898
+  TextHeight = 15
+  inherited Panel1: TPanel
+    Width = 882
+    StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 882
+    inherited Label1: TLabel
+      Width = 37
+      Caption = 'Cliente'
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 37
+    end
+    object Label2: TLabel [1]
+      Left = 223
+      Top = 13
+      Width = 92
+      Height = 15
+      Caption = 'Periodo de Venda'
+    end
+    object Label3: TLabel [2]
+      Left = 399
+      Top = 13
+      Width = 39
+      Height = 15
+      Caption = 'Codigo'
+    end
+    inherited edtFiltro: TEdit
+      Width = 208
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 208
+    end
+    inherited btnFiltro: TButton
+      Left = 609
+      Caption = 'Filtrar'
+      OnClick = btnFiltroClick
+      ExplicitLeft = 609
+    end
+    inherited Panel2: TPanel
+      Left = 762
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitLeft = 762
+    end
+    object edtData1: TDateTimePicker
+      Left = 223
+      Top = 34
+      Width = 82
+      Height = 23
+      Date = 45858.000000000000000000
+      Time = 0.467458217593957700
+      TabOrder = 3
+    end
+    object edtData2: TDateTimePicker
+      Left = 311
+      Top = 34
+      Width = 82
+      Height = 23
+      Date = 45858.000000000000000000
+      Time = 0.467458217593957700
+      TabOrder = 4
+    end
+    object edtCodigoVenda: TEdit
+      Left = 399
+      Top = 34
+      Width = 90
+      Height = 23
+      TabOrder = 5
+    end
+    object cbFaturado: TCheckBox
+      Left = 495
+      Top = 36
+      Width = 97
+      Height = 17
+      Caption = 'Faturado'
+      TabOrder = 6
+    end
+    object btnImprimir: TButton
+      Left = 690
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = 'Imprimir'
+      TabOrder = 7
+    end
+  end
+  object DBGrid1: TDBGrid [1]
+    Left = 0
+    Top = 89
+    Width = 882
+    Height = 472
+    Align = alClient
+    DataSource = dsFiltro
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+  object frVendas: TfrxReport
+    Version = '2025.2.4'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick, pbCopy, pbSelection, pbWatermarks]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 45858.880509432900000000
+    ReportOptions.LastChange = 45859.835040891200000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 320
+    Top = 136
+    Datasets = <
+      item
+        DataSet = frDBVendas
+        DataSetName = 'frDBVendas'
+      end>
+    Variables = <>
+    Style = <>
+    Watermarks = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 210.000000000000000000
+      PaperHeight = 297.000000000000000000
+      PaperSize = 9
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+      Frame.Typ = []
+      MirrorMode = []
+      object Header1: TfrxHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 79.370130000000000000
+        Top = 18.897650000000000000
+        Width = 718.110700000000000000
+        object Memo1: TfrxMemoView
+          AllowVectorExport = True
+          Top = 18.897637795275600000
+          Width = 718.110236220472000000
+          Height = 18.897651670000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haCenter
+          Memo.UTF8W = (
+            'RELATORIO DE VENDAS')
+          ParentFont = False
+        end
+      end
+      object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 64.252010000000000000
+        Top = 120.944960000000000000
+        Width = 718.110700000000000000
+        Condition = 'frDBVendas."CLIENTE"'
+        object MemofrDBVendasCLIENTE: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 71.811070000000000000
+          Top = 3.779530000000000000
+          Width = 400.630180000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'CLIENTE'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frDBVendas."CLIENTE"]')
+        end
+        object Memo2: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559059340000000000
+          Top = 3.779534080000000000
+          Width = 52.913418830000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Cliente')
+          ParentFont = False
+        end
+        object Memo3: TfrxMemoView
+          AllowVectorExport = True
+          Left = 30.236239060000000000
+          Top = 41.574828120000000000
+          Width = 56.692958360000000000
+          Height = 18.897659300000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Produto')
+          ParentFont = False
+        end
+        object Memo4: TfrxMemoView
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Top = 41.574830000000000000
+          Width = 79.370138360000000000
+          Height = 18.897659300000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Quantidade')
+          ParentFont = False
+        end
+        object Memo5: TfrxMemoView
+          AllowVectorExport = True
+          Left = 336.378170000000000000
+          Top = 41.574830000000000000
+          Width = 79.370138360000000000
+          Height = 18.897659300000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Valor Unit.')
+          ParentFont = False
+        end
+        object Memo6: TfrxMemoView
+          AllowVectorExport = True
+          Left = 430.866420000000000000
+          Top = 41.574830000000000000
+          Width = 79.370138360000000000
+          Height = 18.897659300000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'SubTotal')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 525.354670000000000000
+          Top = 41.574830000000000000
+          Width = 79.370138360000000000
+          Height = 18.897659300000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Desconto')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 619.842920000000000000
+          Top = 41.574830000000000000
+          Width = 79.370138360000000000
+          Height = 18.897659300000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'Total')
+          ParentFont = False
+        end
+        object Line1: TfrxLineView
+          AllowVectorExport = True
+          Left = 30.236243990000000000
+          Top = 60.472478120000000000
+          Width = 668.976803880000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+      end
+      object MasterData1: TfrxMasterData
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 18.897650000000000000
+        Top = 207.874150000000000000
+        Width = 718.110700000000000000
+        DataSet = frDBVendas
+        DataSetName = 'frDBVendas'
+        RowCount = 0
+        Stretched = True
+        object MemofrDBVendasPRODUTO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 30.236240000000000000
+          Width = 207.874150000000000000
+          Height = 18.897650000000000000
+          StretchMode = smActualHeight
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'PRODUTO'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frDBVendas."PRODUTO"]')
+          ParentFont = False
+        end
+        object MemofrDBVendasQTD: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 241.889920000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'QTD'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frDBVendas."QTD"]')
+          ParentFont = False
+        end
+        object MemofrDBVendasVALOR_UNITARIO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 336.378170000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'VALOR_UNITARIO'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frDBVendas."VALOR_UNITARIO"]')
+          ParentFont = False
+        end
+        object MemofrDBVendasSUBTOTAL: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 430.866420000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'SUBTOTAL'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frDBVendas."SUBTOTAL"]')
+          ParentFont = False
+        end
+        object MemofrDBVendasDESCONTO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 525.354670000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'DESCONTO'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frDBVendas."DESCONTO"]')
+          ParentFont = False
+        end
+        object MemofrDBVendasTOTAL: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 619.842920000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DataField = 'TOTAL'
+          DataSet = frDBVendas
+          DataSetName = 'frDBVendas'
+          DisplayFormat.FormatStr = '%2.2n'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[frDBVendas."TOTAL"]')
+          ParentFont = False
+        end
+      end
+      object GroupFooter1: TfrxGroupFooter
+        FillType = ftBrush
+        FillGap.Top = 0
+        FillGap.Left = 0
+        FillGap.Bottom = 0
+        FillGap.Right = 0
+        Frame.Typ = []
+        Height = 68.031540000000000000
+        Top = 249.448980000000000000
+        Width = 718.110700000000000000
+        object Line2: TfrxLineView
+          AllowVectorExport = True
+          Left = 30.236240000000000000
+          Width = 668.976803880000000000
+          Color = clBlack
+          Frame.Typ = [ftTop]
+        end
+        object SysMemo1: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 430.866418940000000000
+          Width = 79.370130730000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."SUBTOTAL">,MasterData1)]')
+          ParentFont = False
+        end
+        object SysMemo2: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 525.354670000000000000
+          Width = 79.370130730000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."DESCONTO">,MasterData1)]')
+          ParentFont = False
+        end
+        object SysMemo3: TfrxSysMemoView
+          AllowVectorExport = True
+          Left = 619.842920000000000000
+          Width = 79.370130730000000000
+          Height = 18.897644040000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          DisplayFormat.FormatStr = '%2.2m'
+          DisplayFormat.Kind = fkNumeric
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            '[SUM(<frDBVendas."TOTAL">,MasterData1)]')
+          ParentFont = False
+        end
+        object Line3: TfrxLineView
+          AllowVectorExport = True
+          Top = 41.574803149606300000
+          Width = 718.110236220000000000
+          Color = clBlack
+          Frame.Style = fsDot
+          Frame.Typ = [ftTop]
+        end
+      end
+    end
+  end
+  object frDBVendas: TfrxDBDataset
+    UserName = 'frDBVendas'
+    CloseDataSource = False
+    DataSet = fdQryRelatorio
+    BCDToCurrency = False
+    DataSetOptions = []
+    Left = 320
+    Top = 200
+    FieldDefs = <
+      item
+        FieldName = 'ID_VENDA_CAB'
+      end
+      item
+        FieldName = 'ID_CLIENTE'
+      end
+      item
+        FieldName = 'CLIENTE'
+        FieldType = fftString
+        Size = 80
+      end
+      item
+        FieldName = 'DATA'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'FATURADO'
+        FieldType = fftString
+      end
+      item
+        FieldName = 'PRODUTO'
+        FieldType = fftString
+        Size = 80
+      end
+      item
+        FieldName = 'QTD'
+      end
+      item
+        FieldName = 'VALOR_UNITARIO'
+      end
+      item
+        FieldName = 'SUBTOTAL'
+      end
+      item
+        FieldName = 'DESCONTO'
+      end
+      item
+        FieldName = 'TOTAL'
+      end>
+  end
+  object fdQryRelatorio: TFDQuery
+    Active = True
+    Connection = dmDados.fdConexao
+    SQL.Strings = (
+      'SELECT V.ID_VENDA_CAB, '
+      #9#9'V.ID_CLIENTE,'
+      #9#9'DECODE(C.TIPO_FJ, '#39'F'#39', C.NOME, C.RAZAO_SOCIAL) CLIENTE,'
+      #9#9'V.DATA,'
+      #9#9'COALESCE(V.FATURADO, '#39'N'#39') FATURADO,'
+      #9#9'P.DESCRICAO PRODUTO,'
+      #9#9'I.QTD,'
+      #9#9'I.VALOR_UNITARIO,'
+      #9#9'I.VALOR_UNITARIO * I.QTD SUBTOTAL,'
+      #9#9'COALESCE(I.DESCONTO, 0) DESCONTO,'
+      #9#9'(I.QTD * I.VALOR_UNITARIO) - COALESCE(I.DESCONTO, 0) TOTAL'
+      #9#9
+      #9#9
+      
+        'FROM VENDA_CAB V INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.ID_CLI' +
+        'ENTE'
+      #9#9#9#9' INNER JOIN VENDA_ITEM I ON I.ID_VENDA_CAB = V.ID_VENDA_CAB'
+      #9#9#9#9' INNER JOIN PRODUTO P ON P.ID_PRODUTO = I.ID_PRODUTO'
+      'WHERE 1 = 1'
+      'ORDER BY DECODE (C.TIPO_FJ, '#39'F'#39', C.NOME, C.RAZAO_SOCIAL),'
+      #9#9' P.DESCRICAO'
+      '')
+    Left = 320
+    Top = 264
+    object fdQryRelatorioID_VENDA_CAB: TIntegerField
+      FieldName = 'ID_VENDA_CAB'
+      Origin = 'ID_VENDA_CAB'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdQryRelatorioID_CLIENTE: TIntegerField
+      FieldName = 'ID_CLIENTE'
+      Origin = 'ID_CLIENTE'
+    end
+    object fdQryRelatorioCLIENTE: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'CLIENTE'
+      Origin = 'CLIENTE'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 80
+    end
+    object fdQryRelatorioDATA: TDateField
+      FieldName = 'DATA'
+      Origin = '"DATA"'
+    end
+    object fdQryRelatorioFATURADO: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'FATURADO'
+      Origin = 'FATURADO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 1
+    end
+    object fdQryRelatorioPRODUTO: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'PRODUTO'
+      Origin = 'DESCRICAO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 80
+    end
+    object fdQryRelatorioQTD: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'QTD'
+      Origin = 'QTD'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object fdQryRelatorioVALOR_UNITARIO: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object fdQryRelatorioSUBTOTAL: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'SUBTOTAL'
+      Origin = 'SUBTOTAL'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object fdQryRelatorioDESCONTO: TSingleField
+      AutoGenerateValue = arDefault
+      FieldName = 'DESCONTO'
+      Origin = 'DESCONTO'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+    object fdQryRelatorioTOTAL: TFloatField
+      AutoGenerateValue = arDefault
+      FieldName = 'TOTAL'
+      Origin = 'TOTAL'
+      ProviderFlags = []
+      ReadOnly = True
+    end
+  end
+end

@@ -24,11 +24,25 @@ type
     frVendas: TfrxReport;
     frDBVendas: TfrxDBDataset;
     fdQryRelatorio: TFDQuery;
+    fdQryRelatorioID_VENDA_CAB: TIntegerField;
+    fdQryRelatorioID_CLIENTE: TIntegerField;
+    fdQryRelatorioCLIENTE: TWideStringField;
+    fdQryRelatorioDATA: TDateField;
+    fdQryRelatorioFATURADO: TWideStringField;
+    fdQryRelatorioPRODUTO: TStringField;
+    fdQryRelatorioQTD: TSingleField;
+    fdQryRelatorioVALOR_UNITARIO: TSingleField;
+    fdQryRelatorioSUBTOTAL: TFloatField;
+    fdQryRelatorioDESCONTO: TSingleField;
+    fdQryRelatorioTOTAL: TFloatField;
     procedure btnFiltroClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
   private
     { Private declarations }
     procedure Filtrar;
+    procedure SetFiltro(const pQuery: TFDQuery);
+    procedure Imprimir;
   public
     { Public declarations }
   end;
@@ -40,7 +54,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmDados;
+uses uDmDados, uBiblioteca;
 
 { TFormFiltroVendas }
 
@@ -48,6 +62,13 @@ procedure TFormFiltroVendas.btnFiltroClick(Sender: TObject);
 begin
   inherited;
   Filtrar;
+end;
+
+procedure TFormFiltroVendas.btnImprimirClick(Sender: TObject);
+begin
+  inherited;
+  Imprimir;
+  CarregaRelatorio(frVendas);
 end;
 
 procedure TFormFiltroVendas.Filtrar;
@@ -62,30 +83,7 @@ begin
   fdQryFiltro.SQL.Add(' FROM VENDA_CAB V INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.ID_CLIENTE');
   fdQryFiltro.SQL.Add(' WHERE 1=1');
 
-  if Trim(edtFiltro.Text) <> '' then
-  begin
-    fdQryFiltro.SQL.Add(' AND TRIM(UPPER(DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL))) LIKE '+ QuotedStr('%' + UpperCase(Trim(edtFiltro.Text) + '%')));
-  end;
-
-  if edtData1.Date > 0 then
-  begin
-    fdQryFiltro.SQL.Add(' AND V.DATA >= ' + QuotedStr(FormatDateTime('dd.mm.yyyy', edtData1.Date)));
-  end;
-
-  if edtData2.Date > 0 then
-  begin
-    fdQryFiltro.SQL.Add(' AND V.DATA <= ' + QuotedStr(FormatDateTime('dd.mm.yyyy', edtData2.Date)));
-  end;
-
-  if edtCodigoVenda.Text <> '' then
-  begin
-    fdQryFiltro.SQL.Add(' AND V.ID_VENDA_CAB = ' + edtCodigoVenda.Text);
-  end;
-
-  if cbFaturado.Checked then
-  begin
-    fdQryFiltro.SQL.Add(' AND V.FATURADO = ''S'' ');
-  end;
+  SetFiltro(fdQryFiltro);
 
   fdQryFiltro.Open();
   fdQryfiltro.FetchAll;
@@ -96,6 +94,63 @@ begin
   inherited;
   edtData1.Date := Date;
   edtData2.Date := Date;
+end;
+
+procedure TFormFiltroVendas.Imprimir;
+begin
+  fdQryRelatorio.Close;
+  fdQryRelatorio.SQL.Clear;
+  fdQryRelatorio.SQL.Add(' SELECT V.ID_VENDA_CAB,');
+  fdQryRelatorio.SQL.Add('        V.ID_CLIENTE,');
+  fdQryRelatorio.SQL.Add('        DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL) CLIENTE,');
+  fdQryRelatorio.SQL.Add('        V.DATA,');
+  fdQryRelatorio.SQL.Add('        COALESCE(V.FATURADO, ''N'') FATURADO,');
+  fdQryRelatorio.SQL.Add('        P.DESCRICAO PRODUTO,');
+  fdQryRelatorio.SQL.Add('        I.QTD,');
+  fdQryRelatorio.SQL.Add('        I.VALOR_UNITARIO,');
+  fdQryRelatorio.SQL.Add('        I.VALOR_UNITARIO * I.QTD SUBTOTAL,');
+  fdQryRelatorio.SQL.Add('        COALESCE(I.DESCONTO, 0) DESCONTO,');
+  fdQryRelatorio.SQL.Add('        (I.QTD * I.VALOR_UNITARIO) - COALESCE(I.DESCONTO, 0) TOTAL');
+  fdQryRelatorio.SQL.Add(' FROM VENDA_CAB V INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.ID_CLIENTE');
+  fdQryRelatorio.SQL.Add('                  INNER JOIN VENDA_ITEM I ON I.ID_VENDA_CAB = V.ID_VENDA_CAB');
+  fdQryRelatorio.SQL.Add('                  INNER JOIN PRODUTO P ON P.ID_PRODUTO = I.ID_PRODUTO');
+  fdQryRelatorio.SQL.Add(' WHERE 1 = 1');
+
+  SetFiltro(fdQryRelatorio);
+
+  fdQryRelatorio.SQL.Add(' ORDER BY DECODE (C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL),');
+  fdQryRelatorio.SQL.Add('                  P.DESCRICAO');
+
+  fdQryRelatorio.Open;
+  fdQryRelatorio.FetchAll;
+end;
+
+procedure TFormFiltroVendas.SetFiltro(const pQuery: TFDQuery);
+begin
+  if Trim(edtFiltro.Text) <> '' then
+  begin
+    pQuery.SQL.Add(' AND TRIM(UPPER(DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL))) LIKE '+ QuotedStr('%' + UpperCase(Trim(edtFiltro.Text) + '%')));
+  end;
+
+  if edtData1.Date > 0 then
+  begin
+    pQuery.SQL.Add(' AND V.DATA >= ' + QuotedStr(FormatDateTime('dd.mm.yyyy', edtData1.Date)));
+  end;
+
+  if edtData2.Date > 0 then
+  begin
+    pQuery.SQL.Add(' AND V.DATA <= ' + QuotedStr(FormatDateTime('dd.mm.yyyy', edtData2.Date)));
+  end;
+
+  if edtCodigoVenda.Text <> '' then
+  begin
+    pQuery.SQL.Add(' AND V.ID_VENDA_CAB = ' + edtCodigoVenda.Text);
+  end;
+
+  if cbFaturado.Checked then
+  begin
+    pQuery.SQL.Add(' AND V.FATURADO = ''S'' ');
+  end;
 end;
 
 end.
