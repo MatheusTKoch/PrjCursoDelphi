@@ -1019,7 +1019,6 @@ object FormMain: TFormMain
           Rounded = False
           Transparent = True
           TabOrder = 3
-          OnClick = AdvGlowButton3Click
           Appearance.BorderColor = 14727579
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219

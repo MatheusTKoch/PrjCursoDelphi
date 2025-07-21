@@ -1,0 +1,53 @@
+inherited FormFiltroVendas: TFormFiltroVendas
+  Caption = 'Filtro de Vendas'
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
+  StyleElements = [seFont, seClient, seBorder]
+  TextHeight = 15
+  inherited Panel1: TPanel
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Label1: TLabel
+      Width = 37
+      Caption = 'Cliente'
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 37
+    end
+    object Label2: TLabel [1]
+      Left = 223
+      Top = 13
+      Width = 98
+      Height = 15
+      Caption = 'Periodo de Venda'
+    end
+    inherited edtFiltro: TEdit
+      Width = 208
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 208
+    end
+    inherited btnFiltro: TButton
+      Caption = 'Filtrar'
+    end
+    inherited Panel2: TPanel
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    object edtData1: TDateTimePicker
+      Left = 223
+      Top = 34
+      Width = 82
+      Height = 23
+      Date = 45858.000000000000000000
+      Time = 0.467458217593957700
+      TabOrder = 3
+    end
+    object edtData2: TDateTimePicker
+      Left = 311
+      Top = 34
+      Width = 82
+      Height = 23
+      Date = 45858.000000000000000000
+      Time = 0.467458217593957700
+      TabOrder = 4
+    end
+  end
+end

@@ -65,6 +65,9 @@ inherited FormCadastroVenda: TFormCadastroVenda
       Top = 40
       Width = 121
       Height = 23
+      DataField = 'ID_VENDA_CAB'
+      DataSource = dsCadastro
+      Enabled = False
       ReadOnly = True
       TabOrder = 4
     end
@@ -1219,6 +1222,25 @@ inherited FormCadastroVenda: TFormCadastroVenda
     DataSetOptions = []
     Left = 232
     Top = 339
+    FieldDefs = <
+      item
+        FieldName = 'ID_VENDA_CAB'
+      end
+      item
+        FieldName = 'ID_CLIENTE'
+      end
+      item
+        FieldName = 'DATA'
+        FieldType = fftDateTime
+      end
+      item
+        FieldName = 'FATURADO'
+        FieldType = fftString
+      end
+      item
+        FieldName = 'DATA_FATURADO'
+        FieldType = fftDateTime
+      end>
   end
   object frxItensVenda: TfrxDBDataset
     UserName = 'frxItensVenda'
@@ -1228,5 +1250,35 @@ inherited FormCadastroVenda: TFormCadastroVenda
     DataSetOptions = []
     Left = 232
     Top = 403
+    FieldDefs = <
+      item
+        FieldName = 'ID_VENDA_ITEM'
+      end
+      item
+        FieldName = 'ID_PRODUTO'
+      end
+      item
+        FieldName = 'QTD'
+      end
+      item
+        FieldName = 'VALOR_UNITARIO'
+      end
+      item
+        FieldName = 'DESCONTO'
+      end
+      item
+        FieldName = 'ID_VENDA_CAB'
+      end
+      item
+        FieldName = 'DescricaoProduto'
+        FieldType = fftString
+        Size = 80
+      end
+      item
+        FieldName = 'SubTotal'
+      end
+      item
+        FieldName = 'Total'
+      end>
   end
 end

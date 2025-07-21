@@ -1,0 +1,96 @@
+inherited FormFiltroVendas: TFormFiltroVendas
+  Caption = 'Filtro de Vendas'
+  ClientWidth = 882
+  FormStyle = fsMDIChild
+  Visible = True
+  WindowState = wsMaximized
+  StyleElements = [seFont, seClient, seBorder]
+  ExplicitWidth = 898
+  TextHeight = 15
+  inherited Panel1: TPanel
+    Width = 882
+    StyleElements = [seFont, seClient, seBorder]
+    inherited Label1: TLabel
+      Width = 37
+      Caption = 'Cliente'
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 37
+    end
+    object Label2: TLabel [1]
+      Left = 223
+      Top = 13
+      Width = 98
+      Height = 15
+      Caption = 'Periodo de Venda'
+    end
+    object Label3: TLabel [2]
+      Left = 399
+      Top = 13
+      Width = 39
+      Height = 15
+      Caption = 'Codigo'
+    end
+    inherited edtFiltro: TEdit
+      Width = 208
+      StyleElements = [seFont, seClient, seBorder]
+      ExplicitWidth = 208
+    end
+    inherited btnFiltro: TButton
+      Left = 681
+      Caption = 'Filtrar'
+      OnClick = btnFiltroClick
+      ExplicitLeft = 681
+    end
+    inherited Panel2: TPanel
+      Left = 762
+      StyleElements = [seFont, seClient, seBorder]
+    end
+    object edtData1: TDateTimePicker
+      Left = 223
+      Top = 34
+      Width = 82
+      Height = 23
+      Date = 45858.000000000000000000
+      Time = 0.467458217593957700
+      TabOrder = 3
+    end
+    object edtData2: TDateTimePicker
+      Left = 311
+      Top = 34
+      Width = 82
+      Height = 23
+      Date = 45858.000000000000000000
+      Time = 0.467458217593957700
+      TabOrder = 4
+    end
+    object edtCodigoVenda: TEdit
+      Left = 399
+      Top = 34
+      Width = 90
+      Height = 23
+      TabOrder = 5
+    end
+    object cbFaturado: TCheckBox
+      Left = 495
+      Top = 36
+      Width = 97
+      Height = 17
+      Caption = 'Faturado'
+      TabOrder = 6
+    end
+  end
+  object DBGrid1: TDBGrid [1]
+    Left = 0
+    Top = 89
+    Width = 882
+    Height = 472
+    Align = alClient
+    DataSource = dsFiltro
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+  end
+end
