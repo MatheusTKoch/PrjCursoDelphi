@@ -35,9 +35,18 @@ type
     fdQryRelatorioSUBTOTAL: TFloatField;
     fdQryRelatorioDESCONTO: TSingleField;
     fdQryRelatorioTOTAL: TFloatField;
+    Button2: TButton;
+    Button3: TButton;
+    fdQryFiltroID_VENDA_CAB: TIntegerField;
+    fdQryFiltroID_CLIENTE: TIntegerField;
+    fdQryFiltroCLIENTE: TWideStringField;
+    fdQryFiltroDATA: TDateField;
+    fdQryFiltroFATURADO: TWideStringField;
     procedure btnFiltroClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
   private
     { Private declarations }
     procedure Filtrar;
@@ -54,7 +63,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmDados, uBiblioteca;
+uses uDmDados, uBiblioteca, uFrmCadastroVenda;
 
 { TFormFiltroVendas }
 
@@ -69,6 +78,32 @@ begin
   inherited;
   Imprimir;
   CarregaRelatorio(frVendas);
+end;
+
+procedure TFormFiltroVendas.Button2Click(Sender: TObject);
+begin
+  inherited;
+  FormCadastroVenda := TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.SetRecord(0, tNil);
+    FormCadastroVenda.fdqrycadastro.Insert;
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
+  end;
+end;
+
+procedure TFormFiltroVendas.Button3Click(Sender: TObject);
+begin
+  inherited;
+  ValidaQueryVazia;
+  FormCadastroVenda := TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.SetRecord(fdQryFiltroID_VENDA_CAB.AsInteger, tNil);
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
+  end;
 end;
 
 procedure TFormFiltroVendas.Filtrar;

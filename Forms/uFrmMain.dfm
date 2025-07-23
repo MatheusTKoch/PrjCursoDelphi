@@ -144,7 +144,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 681
     Height = 137
-    ActivePage = AdvPage2
+    ActivePage = AdvPage1
     Caption.Caption = 'Sistema de Gest'#227'o'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]

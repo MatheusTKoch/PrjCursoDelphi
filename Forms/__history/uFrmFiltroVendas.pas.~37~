@@ -1,0 +1,186 @@
+unit uFrmFiltroVendas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFrmFiltroPai, FireDAC.Stan.Intf,
+  FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
+  FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
+  FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.ExtCtrls,
+  Vcl.ComCtrls, Vcl.Grids, Vcl.DBGrids, frxSmartMemo, frxClass, frxDBSet,
+  frCoreClasses;
+
+type
+  TFormFiltroVendas = class(TFormFiltroPai)
+    edtData1: TDateTimePicker;
+    edtData2: TDateTimePicker;
+    Label2: TLabel;
+    edtCodigoVenda: TEdit;
+    Label3: TLabel;
+    cbFaturado: TCheckBox;
+    DBGrid1: TDBGrid;
+    btnImprimir: TButton;
+    frVendas: TfrxReport;
+    frDBVendas: TfrxDBDataset;
+    fdQryRelatorio: TFDQuery;
+    fdQryRelatorioID_VENDA_CAB: TIntegerField;
+    fdQryRelatorioID_CLIENTE: TIntegerField;
+    fdQryRelatorioCLIENTE: TWideStringField;
+    fdQryRelatorioDATA: TDateField;
+    fdQryRelatorioFATURADO: TWideStringField;
+    fdQryRelatorioPRODUTO: TStringField;
+    fdQryRelatorioQTD: TSingleField;
+    fdQryRelatorioVALOR_UNITARIO: TSingleField;
+    fdQryRelatorioSUBTOTAL: TFloatField;
+    fdQryRelatorioDESCONTO: TSingleField;
+    fdQryRelatorioTOTAL: TFloatField;
+    Button2: TButton;
+    Button3: TButton;
+    procedure btnFiltroClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+    procedure Filtrar;
+    procedure SetFiltro(const pQuery: TFDQuery);
+    procedure Imprimir;
+  public
+    { Public declarations }
+  end;
+
+var
+  FormFiltroVendas: TFormFiltroVendas;
+
+implementation
+
+{$R *.dfm}
+
+uses uDmDados, uBiblioteca, uFrmCadastroVenda;
+
+{ TFormFiltroVendas }
+
+procedure TFormFiltroVendas.btnFiltroClick(Sender: TObject);
+begin
+  inherited;
+  Filtrar;
+end;
+
+procedure TFormFiltroVendas.btnImprimirClick(Sender: TObject);
+begin
+  inherited;
+  Imprimir;
+  CarregaRelatorio(frVendas);
+end;
+
+procedure TFormFiltroVendas.Button2Click(Sender: TObject);
+begin
+  inherited;
+  FormCadastroVenda := TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.SetRecord(0, tNil);
+    FormCadastroVenda.fdqrycadastro.Insert;
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
+  end;
+end;
+
+procedure TFormFiltroVendas.Button3Click(Sender: TObject);
+begin
+  inherited;
+  ValidaQueryVazia;
+  FormCadastroVenda := TFormCadastroVenda.Create(Self);
+  try
+    FormCadastroVenda.SetRecord(fdQryFiltroID_PRODUTO.AsInteger, tNil);
+    FormCadastroVenda.ShowModal;
+  finally
+    FreeAndNil(FormCadastroVenda);
+  end;
+end;
+
+procedure TFormFiltroVendas.Filtrar;
+begin
+  fdQryFiltro.Close;
+  fdQryFiltro.SQL.Clear;
+  fdQryFiltro.SQL.Add(' SELECT V.ID_VENDA_CAB,');
+  fdQryFiltro.SQL.Add(' V.ID_CLIENTE,');
+  fdQryFiltro.SQL.Add(' DECODE (C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL) CLIENTE,');
+  fdQryFiltro.SQL.Add(' V.DATA,');
+  fdQryFiltro.SQL.Add(' COALESCE(V.FATURADO, ''N'') FATURADO');
+  fdQryFiltro.SQL.Add(' FROM VENDA_CAB V INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.ID_CLIENTE');
+  fdQryFiltro.SQL.Add(' WHERE 1=1');
+
+  SetFiltro(fdQryFiltro);
+
+  fdQryFiltro.Open();
+  fdQryfiltro.FetchAll;
+end;
+
+procedure TFormFiltroVendas.FormShow(Sender: TObject);
+begin
+  inherited;
+  edtData1.Date := Date;
+  edtData2.Date := Date;
+end;
+
+procedure TFormFiltroVendas.Imprimir;
+begin
+  fdQryRelatorio.Close;
+  fdQryRelatorio.SQL.Clear;
+  fdQryRelatorio.SQL.Add(' SELECT V.ID_VENDA_CAB,');
+  fdQryRelatorio.SQL.Add('        V.ID_CLIENTE,');
+  fdQryRelatorio.SQL.Add('        DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL) CLIENTE,');
+  fdQryRelatorio.SQL.Add('        V.DATA,');
+  fdQryRelatorio.SQL.Add('        COALESCE(V.FATURADO, ''N'') FATURADO,');
+  fdQryRelatorio.SQL.Add('        P.DESCRICAO PRODUTO,');
+  fdQryRelatorio.SQL.Add('        I.QTD,');
+  fdQryRelatorio.SQL.Add('        I.VALOR_UNITARIO,');
+  fdQryRelatorio.SQL.Add('        I.VALOR_UNITARIO * I.QTD SUBTOTAL,');
+  fdQryRelatorio.SQL.Add('        COALESCE(I.DESCONTO, 0) DESCONTO,');
+  fdQryRelatorio.SQL.Add('        (I.QTD * I.VALOR_UNITARIO) - COALESCE(I.DESCONTO, 0) TOTAL');
+  fdQryRelatorio.SQL.Add(' FROM VENDA_CAB V INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.ID_CLIENTE');
+  fdQryRelatorio.SQL.Add('                  INNER JOIN VENDA_ITEM I ON I.ID_VENDA_CAB = V.ID_VENDA_CAB');
+  fdQryRelatorio.SQL.Add('                  INNER JOIN PRODUTO P ON P.ID_PRODUTO = I.ID_PRODUTO');
+  fdQryRelatorio.SQL.Add(' WHERE 1 = 1');
+
+  SetFiltro(fdQryRelatorio);
+
+  fdQryRelatorio.SQL.Add(' ORDER BY DECODE (C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL),');
+  fdQryRelatorio.SQL.Add('                  P.DESCRICAO');
+
+  fdQryRelatorio.Open;
+  fdQryRelatorio.FetchAll;
+end;
+
+procedure TFormFiltroVendas.SetFiltro(const pQuery: TFDQuery);
+begin
+  if Trim(edtFiltro.Text) <> '' then
+  begin
+    pQuery.SQL.Add(' AND TRIM(UPPER(DECODE(C.TIPO_FJ, ''F'', C.NOME, C.RAZAO_SOCIAL))) LIKE '+ QuotedStr('%' + UpperCase(Trim(edtFiltro.Text) + '%')));
+  end;
+
+  if edtData1.Date > 0 then
+  begin
+    pQuery.SQL.Add(' AND V.DATA >= ' + QuotedStr(FormatDateTime('dd.mm.yyyy', edtData1.Date)));
+  end;
+
+  if edtData2.Date > 0 then
+  begin
+    pQuery.SQL.Add(' AND V.DATA <= ' + QuotedStr(FormatDateTime('dd.mm.yyyy', edtData2.Date)));
+  end;
+
+  if edtCodigoVenda.Text <> '' then
+  begin
+    pQuery.SQL.Add(' AND V.ID_VENDA_CAB = ' + edtCodigoVenda.Text);
+  end;
+
+  if cbFaturado.Checked then
+  begin
+    pQuery.SQL.Add(' AND V.FATURADO = ''S'' ');
+  end;
+end;
+
+end.

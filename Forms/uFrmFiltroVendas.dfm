@@ -39,9 +39,11 @@ inherited FormFiltroVendas: TFormFiltroVendas
     end
     inherited btnFiltro: TButton
       Left = 609
+      Top = 13
       Caption = 'Filtrar'
       OnClick = btnFiltroClick
       ExplicitLeft = 609
+      ExplicitTop = 13
     end
     inherited Panel2: TPanel
       Left = 762
@@ -83,12 +85,30 @@ inherited FormFiltroVendas: TFormFiltroVendas
     end
     object btnImprimir: TButton
       Left = 690
-      Top = 32
+      Top = 13
       Width = 75
       Height = 25
       Caption = 'Imprimir'
       TabOrder = 7
       OnClick = btnImprimirClick
+    end
+    object Button2: TButton
+      Left = 609
+      Top = 44
+      Width = 75
+      Height = 25
+      Caption = 'Novo'
+      TabOrder = 8
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 690
+      Top = 44
+      Width = 75
+      Height = 25
+      Caption = 'Visualizar'
+      TabOrder = 9
+      OnClick = Button3Click
     end
   end
   object DBGrid1: TDBGrid [1]
@@ -104,6 +124,47 @@ inherited FormFiltroVendas: TFormFiltroVendas
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+  end
+  inherited fdQryFiltro: TFDQuery
+    SQL.Strings = (
+      'SELECT V.ID_VENDA_CAB,'
+      #9'   V.ID_CLIENTE,'
+      '       DECODE (C.TIPO_FJ, '#39'F'#39', C.NOME, C.RAZAO_SOCIAL) CLIENTE, '
+      '       V.DATA, '
+      '       COALESCE(V.FATURADO, '#39'N'#39') FATURADO'
+      
+        '   FROM VENDA_CAB V INNER JOIN CLIENTE C ON C.ID_CLIENTE = V.ID_' +
+        'CLIENTE')
+    object fdQryFiltroID_VENDA_CAB: TIntegerField
+      FieldName = 'ID_VENDA_CAB'
+      Origin = 'ID_VENDA_CAB'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object fdQryFiltroID_CLIENTE: TIntegerField
+      FieldName = 'ID_CLIENTE'
+      Origin = 'ID_CLIENTE'
+    end
+    object fdQryFiltroCLIENTE: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'CLIENTE'
+      Origin = 'CLIENTE'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 80
+    end
+    object fdQryFiltroDATA: TDateField
+      FieldName = 'DATA'
+      Origin = '"DATA"'
+    end
+    object fdQryFiltroFATURADO: TWideStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'FATURADO'
+      Origin = 'FATURADO'
+      ProviderFlags = []
+      ReadOnly = True
+      Size = 1
+    end
   end
   object frVendas: TfrxReport
     Version = '2025.2.4'
@@ -593,46 +654,6 @@ inherited FormFiltroVendas: TFormFiltroVendas
     DataSetOptions = []
     Left = 320
     Top = 200
-    FieldDefs = <
-      item
-        FieldName = 'ID_VENDA_CAB'
-      end
-      item
-        FieldName = 'ID_CLIENTE'
-      end
-      item
-        FieldName = 'CLIENTE'
-        FieldType = fftString
-        Size = 80
-      end
-      item
-        FieldName = 'DATA'
-        FieldType = fftDateTime
-      end
-      item
-        FieldName = 'FATURADO'
-        FieldType = fftString
-      end
-      item
-        FieldName = 'PRODUTO'
-        FieldType = fftString
-        Size = 80
-      end
-      item
-        FieldName = 'QTD'
-      end
-      item
-        FieldName = 'VALOR_UNITARIO'
-      end
-      item
-        FieldName = 'SUBTOTAL'
-      end
-      item
-        FieldName = 'DESCONTO'
-      end
-      item
-        FieldName = 'TOTAL'
-      end>
   end
   object fdQryRelatorio: TFDQuery
     Active = True

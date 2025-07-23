@@ -47,7 +47,7 @@ implementation
 
 {$R *.dfm}
 
-uses uFrmCadastroProduto;
+uses uFrmCadastroProduto, uBiblioteca;
 
 procedure TFormFiltroProdutos.btnFiltroClick(Sender: TObject);
 begin
@@ -60,6 +60,7 @@ begin
   inherited;
   FormCadastroProduto := TFormCadastroProduto.Create(Self);
   try
+    FormCadastroProduto.SetRecord(0, tNil);
     FormCadastroProduto.fdqrycadastro.Insert;
     FormCadastroProduto.ShowModal;
   finally
@@ -73,8 +74,7 @@ begin
   ValidaQueryVazia;
   FormCadastroProduto := TFormCadastroProduto.Create(Self);
   try
-    FormCadastroProduto.fdqrycadastro.Locate('ID_PRODUTO',
-      fdQryFiltroID_PRODUTO.AsInteger, []);
+    FormCadastroProduto.SetRecord(fdQryFiltroID_PRODUTO.AsInteger, tNil);
     FormCadastroProduto.ShowModal;
   finally
     FreeAndNil(FormCadastroProduto);

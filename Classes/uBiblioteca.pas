@@ -4,6 +4,8 @@ interface
 
 uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes, frxClass;
 
+type
+  TNav = (tFirst, tPrior, tNext, tLast, tNenhum, tNil);
   procedure SetValorIni(pLocal, pSessao, pSubSessao, pValor: string);
   function GetValorIni(pLocal, pSessao, pSubSessao: string): string;
   procedure AtualizaFDQuery(const pFDQuery: TFDQuery; pSQL: string);
