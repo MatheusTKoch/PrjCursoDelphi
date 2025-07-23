@@ -4,7 +4,7 @@ object FormCadastroPai: TFormCadastroPai
   BorderStyle = bsSingle
   Caption = 'FormCadastroPai'
   ClientHeight = 441
-  ClientWidth = 624
+  ClientWidth = 782
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,10 +17,51 @@ object FormCadastroPai: TFormCadastroPai
   object pnCabecalho: TPanel
     Left = 0
     Top = 0
-    Width = 624
+    Width = 782
     Height = 41
     Align = alTop
     TabOrder = 0
+    ExplicitWidth = 624
+    object SpeedButton1: TSpeedButton
+      Left = 448
+      Top = 8
+      Width = 23
+      Height = 25
+      Hint = 'Primeiro Registro'
+      Caption = '<<'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton2: TSpeedButton
+      Left = 477
+      Top = 8
+      Width = 23
+      Height = 25
+      Hint = 'Anterior'
+      Caption = '<'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton3: TSpeedButton
+      Left = 506
+      Top = 8
+      Width = 23
+      Height = 25
+      Hint = 'Proximo'
+      Caption = '>'
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object SpeedButton4: TSpeedButton
+      Left = 535
+      Top = 8
+      Width = 23
+      Height = 25
+      Hint = 'Ultimo Registro'
+      Caption = '>>'
+      ParentShowHint = False
+      ShowHint = True
+    end
     object btnNovo: TBitBtn
       Left = 0
       Top = 1
@@ -58,7 +99,7 @@ object FormCadastroPai: TFormCadastroPai
       OnClick = btnExcluirClick
     end
     object btnSair: TBitBtn
-      Left = 543
+      Left = 693
       Top = 1
       Width = 81
       Height = 41
@@ -88,5 +129,10 @@ object FormCadastroPai: TFormCadastroPai
     DataSet = fdQryCadastro
     Left = 576
     Top = 224
+  end
+  object fdQryCodigo: TFDQuery
+    Connection = dmDados.fdConexao
+    Left = 576
+    Top = 160
   end
 end

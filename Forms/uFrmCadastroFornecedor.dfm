@@ -1,10 +1,8 @@
 inherited FormCadastroFornecedor: TFormCadastroFornecedor
   Caption = 'Cadastro de Fornecedor'
   ClientHeight = 533
-  ClientWidth = 836
   StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 852
   ExplicitHeight = 572
   TextHeight = 15
   object Label1: TLabel [0]
@@ -71,7 +69,6 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
     Caption = 'Estado'
   end
   inherited pnCabecalho: TPanel
-    Width = 836
     StyleElements = [seFont, seClient, seBorder]
     ExplicitWidth = 836
   end

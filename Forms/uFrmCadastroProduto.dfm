@@ -1,9 +1,9 @@
 inherited FormCadastroProduto: TFormCadastroProduto
   Caption = 'Cadastro de Produtos'
   ClientHeight = 304
-  ClientWidth = 625
+  ClientWidth = 713
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 641
+  ExplicitWidth = 729
   ExplicitHeight = 343
   TextHeight = 15
   object Label1: TLabel [0]
@@ -84,10 +84,14 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Caption = 'Id Fornecedor'
   end
   inherited pnCabecalho: TPanel
-    Width = 625
+    Width = 713
     TabOrder = 9
     StyleElements = [seFont, seClient, seBorder]
     ExplicitWidth = 625
+    inherited btnSair: TBitBtn
+      Left = 629
+      ExplicitLeft = 629
+    end
   end
   object DBEdit6: TDBEdit [12]
     Left = 16

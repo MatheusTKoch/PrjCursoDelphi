@@ -12,6 +12,7 @@ uses
   FireDAC.Comp.DataSet, uDmDados;
 
 type
+  TNav = (tFirst, tPrior, tNext, tLast, tNenhum, tNil);
   TFormCadastroPai = class(TForm)
     pnCabecalho: TPanel;
     btnNovo: TBitBtn;
@@ -23,6 +24,11 @@ type
     fdUpdCadastro: TFDUpdateSQL;
     fdTransaction: TFDTransaction;
     dsCadastro: TDataSource;
+    SpeedButton1: TSpeedButton;
+    SpeedButton2: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    SpeedButton4: TSpeedButton;
+    fdQryCodigo: TFDQuery;
     procedure btnNovoClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -30,8 +36,13 @@ type
     procedure btnSairClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
+
+    function GetNameTable(pSql: string): string;
+    procedure SetNewSql(pCodigo: integer);
     { Private declarations }
   public
+    vSqlOriginal: string;
+    procedure SetRecord(pCodigo: integer; pTipo: TNav);
     { Public declarations }
   end;
 
@@ -86,7 +97,88 @@ end;
 
 procedure TFormCadastroPai.FormCreate(Sender: TObject);
 begin
+  vSqlOriginal := fdQryCadastro.SQL.Text;
+end;
+
+function TFormCadastroPai.GetNameTable(pSql: string): string;
+var
+  vSql: TStringList;
+begin
+  vSql := TStringList.Create;
+  try
+    vSql.Delimiter := ' ';
+    vSql.StrictDelimiter := True;
+
+    vSql.DelimitedText := Copy(pSql, Pos('FROM', UpperCase(pSql)), Length(pSql));
+
+    Result := Trim(vSql.Strings[1]);
+  finally
+    vSql.Free;
+  end;
+end;
+
+procedure TFormCadastroPai.SetNewSql(pCodigo: integer);
+var
+  vNewSql: string;
+begin
+  fdQryCadastro.Close;
+  fdQryCadastro.SQL.Clear;
+  vNewSql := 'SELECT * FROM (' + vSqlOriginal + ') WHERE ID_' + GetNameTable(vSqlOriginal) + ' = :ID_' + GetNameTable(vSqlOriginal);
+  fdQryCadastro.SQL.Text := vNewSql;
+  fdQryCadastro.ParamByName('ID_' + GetNameTable(vSqlOriginal)).AsInteger := pCodigo;
   fdQryCadastro.Open;
+end;
+
+procedure TFormCadastroPai.SetRecord(pCodigo: integer; pTipo: TNav);
+var
+  vID: string;
+  vCodigo: integer;
+begin
+  vId := 'ID_' + GetNameTable(vSqlOriginal);
+  if pCodigo > 0 then
+  begin
+    SetNewSql(pCodigo);
+  end
+  else
+  begin
+    if pTipo = tFirst then
+    begin
+      fdQryCodigo.Close;
+      fdQryCodigo.SQL.Clear;
+      fdQryCodigo.SQL.Add('SELECT MIN(' + vId + ') ID FROM ' + GetNameTable(vSqlOriginal));
+      fdQryCodigo.Open;
+
+      vCodigo := fdQryCodigo.FieldByName('ID').AsInteger;
+
+      SetNewSql(vCodigo);
+    end
+    else
+    if pTipo = tLast then
+    begin
+      fdQryCodigo.Close;
+      fdQryCodigo.SQL.Clear;
+      fdQryCodigo.SQL.Add('SELECT MAX(' + vId + ') ID FROM ' + GetNameTable(vSqlOriginal));
+      fdQryCodigo.Open;
+
+      vCodigo := fdQryCodigo.FieldByName('ID').AsInteger;
+
+      SetNewSql(vCodigo);
+    end
+    else
+    if pTipo = tPrior then
+    begin
+      vCodigo := fdQryCadastro.FieldByName(vID).AsInteger;
+
+      fdQryCodigo.Close;
+      fdQryCodigo.SQL.Clear;
+      fdQryCodigo.SQL.Add('SELECT MAX(' + vId + ') ID FROM ' + GetNameTable(vSqlOriginal) + 'WHERE ' + vID + ' < ' + IntToStr(vCodigo));
+      fdQryCodigo.Open;
+
+      vCodigo := fdQryCodigo.FieldByName('ID').AsInteger;
+
+      SetNewSql(vCodigo);
+    end;
+  end;
 end;
 
 end.

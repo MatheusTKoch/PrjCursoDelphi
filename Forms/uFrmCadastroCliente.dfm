@@ -1,10 +1,10 @@
 inherited FormCadastroCliente: TFormCadastroCliente
   Caption = 'Cadastro de Cliente'
   ClientHeight = 304
-  ClientWidth = 691
+  ClientWidth = 768
   StyleElements = [seFont, seClient, seBorder]
   OnShow = FormShow
-  ExplicitWidth = 707
+  ExplicitWidth = 784
   ExplicitHeight = 343
   TextHeight = 15
   object Label1: TLabel [0]
@@ -117,9 +117,13 @@ inherited FormCadastroCliente: TFormCadastroCliente
     Caption = 'Estado'
   end
   inherited pnCabecalho: TPanel
-    Width = 691
+    Width = 768
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 691
+    ExplicitWidth = 768
+    inherited btnSair: TBitBtn
+      Left = 678
+      ExplicitLeft = 678
+    end
   end
   object DBEdit1: TDBEdit [15]
     Left = 8
@@ -257,7 +261,6 @@ inherited FormCadastroCliente: TFormCadastroCliente
     TabOrder = 14
   end
   inherited fdQryCadastro: TFDQuery
-    Active = True
     BeforeInsert = fdQryCadastroBeforeInsert
     BeforeEdit = fdQryCadastroBeforeEdit
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]

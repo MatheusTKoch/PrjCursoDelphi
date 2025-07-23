@@ -1,9 +1,9 @@
 inherited FormCadastroEstado: TFormCadastroEstado
   Caption = 'Cadastro de Estados'
   ClientHeight = 165
-  ClientWidth = 562
+  ClientWidth = 686
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 578
+  ExplicitWidth = 702
   ExplicitHeight = 204
   TextHeight = 15
   object Label1: TLabel [0]
@@ -31,12 +31,12 @@ inherited FormCadastroEstado: TFormCadastroEstado
     FocusControl = DBEdit3
   end
   inherited pnCabecalho: TPanel
-    Width = 562
+    Width = 686
     StyleElements = [seFont, seClient, seBorder]
     ExplicitWidth = 562
     inherited btnSair: TBitBtn
-      Left = 431
-      ExplicitLeft = 431
+      Left = 599
+      ExplicitLeft = 599
     end
   end
   object DBEdit1: TDBEdit [4]
