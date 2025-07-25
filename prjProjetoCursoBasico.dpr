@@ -20,7 +20,8 @@ uses
   uFrmCadastroProduto in 'Forms\uFrmCadastroProduto.pas' {FormCadastroProduto},
   uFrmFiltroProdutos in 'Forms\uFrmFiltroProdutos.pas' {FormFiltroProdutos},
   uFrmCadastroVenda in 'Forms\uFrmCadastroVenda.pas' {FormCadastroVenda},
-  uFrmFiltroVendas in 'Forms\uFrmFiltroVendas.pas' {FormFiltroVendas};
+  uFrmFiltroVendas in 'Forms\uFrmFiltroVendas.pas' {FormFiltroVendas},
+  uFrmFiltroUsuario in 'Forms\uFrmFiltroUsuario.pas' {FormFiltroUsuario};
 
 {$R *.res}
 

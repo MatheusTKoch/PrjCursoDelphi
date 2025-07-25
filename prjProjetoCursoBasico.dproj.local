@@ -20,19 +20,19 @@
     <Transaction>2025/06/14 23:48:30.000.585,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroCliente.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/06/14 23:48:30.000.585,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroCliente.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm</Transaction>
     <Transaction>2025/06/19 09:18:39.000.711,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
-    <Transaction>2025/06/19 09:19:04.000.630,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroEstado.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/06/19 09:19:04.000.630,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroEstado.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm</Transaction>
+    <Transaction>2025/06/19 09:19:04.000.630,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroEstado.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/06/19 14:11:00.000.905,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/06/19 14:13:01.000.102,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroCidade.pas</Transaction>
     <Transaction>2025/06/19 14:13:01.000.102,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmCadastroCidade.dfm</Transaction>
     <Transaction>2025/06/19 14:28:28.000.920,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
-    <Transaction>2025/06/19 14:29:02.000.052,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Shared\uDmLookup.dfm</Transaction>
     <Transaction>2025/06/19 14:29:02.000.052,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Shared\uDmLookup.pas</Transaction>
+    <Transaction>2025/06/19 14:29:02.000.052,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Shared\uDmLookup.dfm</Transaction>
     <Transaction>2025/06/19 18:21:00.000.935,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/06/19 18:21:01.000.350,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit2.pas</Transaction>
     <Transaction>2025/06/19 18:24:26.000.573,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmMain.pas=</Transaction>
-    <Transaction>2025/06/19 18:24:38.000.043,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmMain.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit2.dfm</Transaction>
     <Transaction>2025/06/19 18:24:38.000.043,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmMain.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit2.pas</Transaction>
+    <Transaction>2025/06/19 18:24:38.000.043,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmMain.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit2.dfm</Transaction>
     <Transaction>2025/06/28 10:01:59.000.642,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/06/28 10:03:35.000.681,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\frmFiltroPai.pas</Transaction>
     <Transaction>2025/06/28 10:03:35.000.681,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\frmFiltroPai.dfm</Transaction>
@@ -57,6 +57,9 @@
     <Transaction>2025/07/19 22:01:05.000.703,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
     <Transaction>2025/07/19 22:01:35.000.968,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmFiltroVendas.dfm</Transaction>
     <Transaction>2025/07/19 22:01:35.000.968,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmFiltroVendas.pas</Transaction>
+    <Transaction>2025/07/24 20:31:20.311,=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
+    <Transaction>2025/07/24 20:32:07.304,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmFiltroUsuario.dfm=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.dfm</Transaction>
+    <Transaction>2025/07/24 20:32:07.304,C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Forms\uFrmFiltroUsuario.pas=C:\Users\Matheus\Documents\Delphi\Curso Delphi Udemy\ProjetoCursoBasico\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Classes"/>
@@ -92,6 +95,8 @@
     <File Path="Forms\uFrmCadastroVenda.dfm"/>
     <File Path="Forms\uFrmFiltroVendas.pas"/>
     <File Path="Forms\uFrmFiltroVendas.dfm"/>
+    <File Path="Forms\uFrmFiltroUsuario.pas"/>
+    <File Path="Forms\uFrmFiltroUsuario.dfm"/>
     <File Path="Shared"/>
     <File Path="Shared\uDmLookup.pas"/>
     <File Path="Shared\uDmLookup.dfm"/>

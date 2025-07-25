@@ -195,6 +195,10 @@
             <Form>FormFiltroVendas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\uFrmFiltroUsuario.pas">
+            <Form>FormFiltroUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
