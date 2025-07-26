@@ -71,14 +71,12 @@ end;
 function TFormLogin.Login(pLogin, pSenha: string): boolean;
 begin
   Result := False;
-
   fdQryLogin.Close;
   fdQryLogin.ParamByName('LOGIN').AsAnsiString := pLogin;
-  fdQryLogin.Open();
-
+  fdQryLogin.Open;
 
   fdQryLogin.First;
-  while fdQryLogin.Eof do
+  while not fdQryLogin.Eof do
   begin
     if pSenha = Criptografa('D', fdQryLogin.FieldByName('SENHA').AsAnsiString) then
     begin

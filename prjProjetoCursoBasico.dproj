@@ -199,6 +199,15 @@
             <Form>FormFiltroUsuario</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Forms\uFrmLogin.pas">
+            <Form>FormLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Classes\uCrpt.pas"/>
+        <DCCReference Include="Forms\uFrmCadastroUsuario.pas">
+            <Form>FormCadastroUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

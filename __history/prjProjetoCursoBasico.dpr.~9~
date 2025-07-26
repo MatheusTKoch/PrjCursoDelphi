@@ -1,0 +1,36 @@
+program prjProjetoCursoBasico;
+
+
+
+uses
+  Vcl.Forms,
+  uDmDados in 'Forms\uDmDados.pas' {dmDados: TDataModule},
+  uBiblioteca in 'Classes\uBiblioteca.pas',
+  uFrmConfigBanco in 'Forms\uFrmConfigBanco.pas' {FormConfigBanco},
+  uFrmCadastroPai in 'Forms\uFrmCadastroPai.pas' {FormCadastroPai},
+  uFrmCadastroCliente in 'Forms\uFrmCadastroCliente.pas' {FormCadastroCliente},
+  uFrmCadastroEstado in 'Forms\uFrmCadastroEstado.pas' {FormCadastroEstado},
+  uFrmCadastroCidade in 'Forms\uFrmCadastroCidade.pas' {FormCadastroCidade},
+  uDmLookup in 'Shared\uDmLookup.pas' {dmLookup: TDataModule},
+  uFrmMain in 'Forms\uFrmMain.pas' {FormMain},
+  uFrmFiltroPai in 'Forms\uFrmFiltroPai.pas' {FormFiltroPai},
+  uFrmFiltroClientes in 'Forms\uFrmFiltroClientes.pas' {FormFiltroClientes},
+  uFrmCadastroFornecedor in 'Forms\uFrmCadastroFornecedor.pas' {FormCadastroFornecedor},
+  uFrmFiltroFornecedores in 'Forms\uFrmFiltroFornecedores.pas' {FormFiltroFornecedores},
+  uFrmCadastroProduto in 'Forms\uFrmCadastroProduto.pas' {FormCadastroProduto},
+  uFrmFiltroProdutos in 'Forms\uFrmFiltroProdutos.pas' {FormFiltroProdutos},
+  uFrmCadastroVenda in 'Forms\uFrmCadastroVenda.pas' {FormCadastroVenda},
+  uFrmFiltroVendas in 'Forms\uFrmFiltroVendas.pas' {FormFiltroVendas},
+  uFrmFiltroUsuario in 'Forms\uFrmFiltroUsuario.pas' {FormFiltroUsuario};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TFormConfigBanco, FormConfigBanco);
+  Application.CreateForm(TdmDados, dmDados);
+  Application.CreateForm(TdmLookup, dmLookup);
+  Application.Run;
+end.

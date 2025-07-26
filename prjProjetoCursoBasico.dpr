@@ -21,7 +21,10 @@ uses
   uFrmFiltroProdutos in 'Forms\uFrmFiltroProdutos.pas' {FormFiltroProdutos},
   uFrmCadastroVenda in 'Forms\uFrmCadastroVenda.pas' {FormCadastroVenda},
   uFrmFiltroVendas in 'Forms\uFrmFiltroVendas.pas' {FormFiltroVendas},
-  uFrmFiltroUsuario in 'Forms\uFrmFiltroUsuario.pas' {FormFiltroUsuario};
+  uFrmFiltroUsuario in 'Forms\uFrmFiltroUsuario.pas' {FormFiltroUsuario},
+  uFrmLogin in 'Forms\uFrmLogin.pas' {FormLogin},
+  uCrpt in 'Classes\uCrpt.pas',
+  uFrmCadastroUsuario in 'Forms\uFrmCadastroUsuario.pas' {FormCadastroUsuario};
 
 {$R *.res}
 
@@ -32,5 +35,7 @@ begin
   Application.CreateForm(TFormConfigBanco, FormConfigBanco);
   Application.CreateForm(TdmDados, dmDados);
   Application.CreateForm(TdmLookup, dmLookup);
+  Application.CreateForm(TFormLogin, FormLogin);
+  Application.CreateForm(TFormCadastroUsuario, FormCadastroUsuario);
   Application.Run;
 end.
