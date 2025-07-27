@@ -33,7 +33,7 @@ inherited FormCadastroEstado: TFormCadastroEstado
   inherited pnCabecalho: TPanel
     Width = 686
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 562
+    ExplicitWidth = 686
     inherited btnSair: TBitBtn
       Left = 599
       ExplicitLeft = 599
@@ -92,6 +92,10 @@ inherited FormCadastroEstado: TFormCadastroEstado
       Origin = 'SIGLA'
       Size = 2
     end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
   end
   inherited fdUpdCadastro: TFDUpdateSQL
     Left = 408
@@ -103,6 +107,10 @@ inherited FormCadastroEstado: TFormCadastroEstado
   end
   inherited dsCadastro: TDataSource
     Left = 368
+    Top = 56
+  end
+  inherited fdQryCodigo: TFDQuery
+    Left = 528
     Top = 56
   end
 end

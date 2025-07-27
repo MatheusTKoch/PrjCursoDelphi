@@ -1,0 +1,56 @@
+unit uDmDados;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
+  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
+  FireDAC.Stan.Def,
+  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
+  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  uBiblioteca, uFrmConfigBanco, Vcl.Forms;
+
+type
+  TdmDados = class(TDataModule)
+    fdConexao: TFDConnection;
+    procedure DataModuleCreate(Sender: TObject);
+  private
+    procedure CarregaBanco;
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmDados: TdmDados;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+{$R *.dfm}
+
+procedure TdmDados.CarregaBanco;
+begin
+  try
+    fdConexao.Params.Clear;
+    fdConexao.Params.Add('User_Name=sysdba');
+    fdConexao.Params.Add('Password=masterkey');
+    fdConexao.Params.Add('Protocol=TCPIP');
+    fdConexao.Params.Add('Server=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'CONFIGURACAO', 'SERVER'));
+    fdConexao.Params.Add('CharacterSet=utf8');
+    fdConexao.Params.Add('Database=' + GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'CONFIGURACAO', 'LOCAL_DB'));
+    fdConexao.Params.Add('DriverID=FB');
+
+    fdConexao.Connected := True;
+  except
+    ShowModalForm(TFormConfigBanco, FormConfigBanco);
+    FormConfigBanco.ShowModal;
+  end;
+end;
+
+procedure TdmDados.DataModuleCreate(Sender: TObject);
+begin
+  CarregaBanco;
+end;
+
+end.

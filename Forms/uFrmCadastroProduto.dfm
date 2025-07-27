@@ -87,7 +87,7 @@ inherited FormCadastroProduto: TFormCadastroProduto
     Width = 713
     TabOrder = 9
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 625
+    ExplicitWidth = 713
     inherited btnSair: TBitBtn
       Left = 629
       ExplicitLeft = 629
@@ -371,6 +371,10 @@ inherited FormCadastroProduto: TFormCadastroProduto
       FieldName = 'ID_FORNECEDOR'
       Origin = 'ID_FORNECEDOR'
     end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
   end
   inherited fdUpdCadastro: TFDUpdateSQL
     Left = 584
@@ -382,6 +386,10 @@ inherited FormCadastroProduto: TFormCadastroProduto
   end
   inherited dsCadastro: TDataSource
     Left = 584
+    Top = 72
+  end
+  inherited fdQryCodigo: TFDQuery
+    Left = 640
     Top = 72
   end
 end

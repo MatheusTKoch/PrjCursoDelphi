@@ -14,12 +14,11 @@ type
     AdvOfficeStatusBar1: TAdvOfficeStatusBar;
     AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
     AdvToolBarPager1: TAdvToolBarPager;
-    AdvPage1: TAdvPage;
+    advPageCadastros: TAdvPage;
     AdvToolBar1: TAdvToolBar;
     AdvQuickAccessToolBar1: TAdvQuickAccessToolBar;
     AdvShapeButton1: TAdvShapeButton;
-    AdvPage2: TAdvPage;
-    AdvPage3: TAdvPage;
+    advPageFiltros: TAdvPage;
     AdvToolBar2: TAdvToolBar;
     AdvGlowButton2: TAdvGlowButton;
     AdvGlowButton1: TAdvGlowButton;
@@ -36,7 +35,7 @@ type
     AdvToolBarSeparator5: TAdvToolBarSeparator;
     AdvGlowButton6: TAdvGlowButton;
     AdvToolBarSeparator6: TAdvToolBarSeparator;
-    AdvPage4: TAdvPage;
+    advPageManutencao: TAdvPage;
     AdvToolBar4: TAdvToolBar;
     AdvToolBarSeparator7: TAdvToolBarSeparator;
     AdvToolBarSeparator8: TAdvToolBarSeparator;

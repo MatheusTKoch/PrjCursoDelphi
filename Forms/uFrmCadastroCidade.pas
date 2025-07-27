@@ -19,6 +19,7 @@ type
     DBEdit1: TDBEdit;
     Label2: TLabel;
     DBEdit2: TDBEdit;
+    fdQryCadastroDT_EXCLUIDO: TDateField;
   private
     { Private declarations }
   public

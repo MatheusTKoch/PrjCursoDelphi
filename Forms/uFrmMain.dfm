@@ -145,7 +145,7 @@ object FormMain: TFormMain
     Top = 0
     Width = 681
     Height = 137
-    ActivePage = AdvPage1
+    ActivePage = advPageFiltros
     Caption.Caption = 'Sistema de Gest'#227'o'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -240,7 +240,7 @@ object FormMain: TFormMain
       0000}
     TabOrder = 3
     UIStyle = tsOffice2019White
-    object AdvPage1: TAdvPage
+    object advPageCadastros: TAdvPage
       Left = 4
       Top = 52
       Width = 673
@@ -645,7 +645,7 @@ object FormMain: TFormMain
         end
       end
     end
-    object AdvPage2: TAdvPage
+    object advPageFiltros: TAdvPage
       Left = 4
       Top = 52
       Width = 673
@@ -965,14 +965,7 @@ object FormMain: TFormMain
         end
       end
     end
-    object AdvPage3: TAdvPage
-      Left = 4
-      Top = 52
-      Width = 673
-      Height = 80
-      Caption = ' Configura'#231#245'es'
-    end
-    object AdvPage4: TAdvPage
+    object advPageManutencao: TAdvPage
       Left = 4
       Top = 52
       Width = 673

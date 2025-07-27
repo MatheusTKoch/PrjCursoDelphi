@@ -61,10 +61,13 @@ procedure TFormCadastroPai.btnGravarClick(Sender: TObject);
 begin
   if fdQryCadastro.State in [dsEdit, dsInsert] then
   begin
-    fdTransaction.StartTransaction;
-    fdQryCadastro.Post;
-    fdTransaction.CommitRetaining;
-    ShowMessage('Cadastro finalizado com sucesso.');
+    if MsgPerguntar('Tem certeza que deseja gravar?', False) then
+    begin
+      fdTransaction.StartTransaction;
+      fdQryCadastro.Post;
+      fdTransaction.CommitRetaining;
+      MsgInformacao('Cadastro finalizado com sucesso.');
+    end;
   end;
 end;
 
@@ -85,20 +88,30 @@ procedure TFormCadastroPai.btnCancelarClick(Sender: TObject);
 begin
   if fdQryCadastro.State in [dsEdit, dsInsert] then
   begin
-    fdTransaction.StartTransaction;
-    fdQryCadastro.Cancel;
-    fdTransaction.RollbackRetaining;
+    if MsgPerguntar('Tem certeza que deseja cancelar', False) then
+    begin
+      fdTransaction.StartTransaction;
+      fdQryCadastro.Cancel;
+      fdTransaction.RollbackRetaining;
+    end;
   end;
 end;
 
 procedure TFormCadastroPai.btnExcluirClick(Sender: TObject);
 begin
-  fdQryCadastro.Edit;
-  fdQryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
-  fdTransaction.StartTransaction;
-  fdQryCadastro.Post;
-  fdTransaction.CommitRetaining;
-  SetRecord(fdQryCadastro.FieldByName('ID_' + GetNameTable(vSqlOriginal)).AsInteger, tNil);
+  if fdQryCadastro.RecordCount > 0 then
+  begin
+    if MsgPerguntar('Tem certeza que deseja excluir?', False) then
+    begin
+      fdQryCadastro.Edit;
+      fdQryCadastro.FieldByName('DT_EXCLUIDO').AsDateTime := Date;
+      fdTransaction.StartTransaction;
+      fdQryCadastro.Post;
+      fdTransaction.CommitRetaining;
+      SetRecord(fdQryCadastro.FieldByName('ID_' + GetNameTable(vSqlOriginal)).AsInteger, tNil);
+      MsgInformacao('Registro excluido com sucesso!');
+    end;
+  end;
 end;
 
 procedure TFormCadastroPai.btnSairClick(Sender: TObject);

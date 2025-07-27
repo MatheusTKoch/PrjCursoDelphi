@@ -42,6 +42,7 @@ type
     DBEdit6: TDBEdit;
     DBEdit7: TDBEdit;
     DBLookupComboBox1: TDBLookupComboBox;
+    fdQryCadastroDT_EXCLUIDO: TDateField;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }

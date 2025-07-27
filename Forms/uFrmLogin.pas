@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmDados, uCrpt;
+uses uDmDados, uCrpt, uBiblioteca;
 
 procedure TFormLogin.Button1Click(Sender: TObject);
 begin
@@ -49,7 +49,7 @@ procedure TFormLogin.Button2Click(Sender: TObject);
 begin
   if not Login(edtLogin.Text, edtSenha.Text) then
   begin
-    ShowMessage('Login incorreto!');
+    MsgAtencao('Login incorreto!');
     Abort;
   end
   else

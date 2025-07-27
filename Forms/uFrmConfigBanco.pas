@@ -14,7 +14,8 @@ type
     edtLocal: TEdit;
     Label1: TLabel;
     Button1: TButton;
-    opnPastas: TOpenDialog;
+    Label2: TLabel;
+    edtServer: TEdit;
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -41,14 +42,10 @@ procedure TFormConfigBanco.Configura;
 var
   vFileName: string;
 begin
-  if opnPastas.Execute then
-  begin
-    edtLocal.Text := opnPastas.FileName;
-    vFileName := ExtractFilePath(Application.ExeName) + 'config.ini';
-    SetValorIni(vFileName, 'CONFIGURACAO', 'LOCAL_DB', edtLocal.Text);
-    ShowMessage('Banco Selecionado!');
-    Self.Close;
-  end;
+  vFileName := ExtractFilePath(Application.ExeName) + 'config.ini';
+  SetValorIni(vFileName, 'CONFIGURACAO', 'LOCAL_DB', edtLocal.Text);
+  SetValorIni(vFileName, 'CONFIGURACAO', 'SERVER', edtServer.Text);
+  MsgInformacao('Banco Selecionado!');
 end;
 
 procedure TFormConfigBanco.FormClose(Sender: TObject; var Action: TCloseAction);

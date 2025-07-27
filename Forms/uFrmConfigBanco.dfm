@@ -284,6 +284,13 @@ object FormConfigBanco: TFormConfigBanco
     Height = 15
     Caption = 'Local do Banco de Dados:'
   end
+  object Label2: TLabel
+    Left = 217
+    Top = 86
+    Width = 32
+    Height = 15
+    Caption = 'Server'
+  end
   object edtLocal: TEdit
     Left = 217
     Top = 53
@@ -293,18 +300,18 @@ object FormConfigBanco: TFormConfigBanco
   end
   object Button1: TButton
     Left = 502
-    Top = 82
+    Top = 154
     Width = 75
     Height = 25
-    Caption = 'Configurar'
+    Caption = 'Salvar'
     TabOrder = 1
     OnClick = Button1Click
   end
-  object opnPastas: TOpenDialog
-    DefaultExt = 'fdb'
-    FileName = 'dados'
-    Filter = 'Firebird|*.fdb'
-    Left = 448
-    Top = 8
+  object edtServer: TEdit
+    Left = 217
+    Top = 107
+    Width = 360
+    Height = 23
+    TabOrder = 2
   end
 end

@@ -38,7 +38,7 @@ implementation
 
 {$R *.dfm}
 
-uses uDmDados;
+uses uDmDados, uBiblioteca;
 
 procedure TFormFiltroPai.Button1Click(Sender: TObject);
 begin
@@ -54,7 +54,7 @@ procedure TFormFiltroPai.ValidaQueryVazia;
 begin
   if fdQryFiltro.IsEmpty then
   begin
-    ShowMessage('Pesquise um registro para visualizar!');
+    MsgAtencao('Pesquise um registro para visualizar!');
     Abort;
   end;
 end;

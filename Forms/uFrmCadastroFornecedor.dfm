@@ -70,7 +70,6 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
   end
   inherited pnCabecalho: TPanel
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 836
   end
   object DBLookupComboBox2: TDBLookupComboBox [10]
     Left = 32
@@ -208,6 +207,10 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
     object fdQryCadastroID_ESTADO: TIntegerField
       FieldName = 'ID_ESTADO'
       Origin = 'ID_ESTADO'
+    end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
     end
   end
 end

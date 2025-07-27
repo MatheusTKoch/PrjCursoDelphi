@@ -39,6 +39,7 @@ inherited FormCadastroUsuario: TFormCadastroUsuario
   inherited pnCabecalho: TPanel
     Width = 860
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitWidth = 860
     inherited btnSair: TBitBtn
       Left = 771
       ExplicitLeft = 771

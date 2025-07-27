@@ -41,7 +41,7 @@ implementation
 
 {$R *.dfm}
 
-uses uCrpt;
+uses uCrpt, uBiblioteca;
 
 procedure TFormCadastroUsuario.btnGravarClick(Sender: TObject);
 begin
@@ -72,7 +72,7 @@ begin
      (Trim(edtLogin.Text) = '') or
      (Trim(edtSenha.Text) = '') then
   begin
-    ShowMessage('Todos os campos são obrigatório!');
+    MsgAtencao('Todos os campos são obrigatórios!');
     Abort;
   end;
 

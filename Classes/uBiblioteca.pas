@@ -2,7 +2,7 @@ unit uBiblioteca;
 
 interface
 
-uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes, frxClass;
+uses IniFiles, System.SysUtils, Vcl.Forms, FireDAC.Comp.Client, System.Classes, frxClass, Winapi.Windows;
 
 type
   TNav = (tFirst, tPrior, tNext, tLast, tNenhum, tNil);
@@ -12,8 +12,13 @@ type
   procedure ShowModalForm(pClass: TComponentClass; pForm: TForm);
   procedure ShowForm(pClass: TComponentClass; pForm: TForm);
   procedure CarregaRelatorio(const pReport: TfrxReport);
+  procedure MsgAtencao(pMsg: string);
+  procedure MsgInformacao(pMsg: string);
+  function MsgPerguntar(pMsg: string; pFocoBtnSim: Boolean = True): Boolean;
+  procedure MsgErro(pMsg: string);
 
 implementation
+
 
 procedure SetValorIni(pLocal, pSessao, pSubSessao: string; pValor: string);
 var
@@ -72,6 +77,33 @@ procedure CarregaRelatorio(const pReport: TfrxReport);
 begin
   pReport.PrepareReport;
   pReport.ShowPreparedReport;
+end;
+
+procedure MsgAtencao(pMsg: string);
+begin
+  Application.MessageBox(PChar(pMsg), 'Atenção', MB_ICONWARNING + MB_OK);
+end;
+
+procedure MsgInformacao(pMsg: string);
+begin
+  Application.MessageBox(PChar(pMsg), 'Informação', MB_ICONINFORMATION + MB_OK);
+end;
+
+function MsgPerguntar(pMsg: string; pFocoBtnSim: Boolean = True): Boolean;
+begin
+  if pFocoBtnSim then
+  begin
+    Result := Application.MessageBox(PChar(pMsg), 'Pergunta', MB_ICONQUESTION + MB_YESNO) = IDYES;
+  end
+  else
+  begin
+    Result := Application.MessageBox(pChar(pMsg), 'Pergunta', MB_ICONQUESTION + MB_YESNO + MB_DEFBUTTON2) = IDYES;
+  end;
+end;
+
+procedure MsgErro(pMsg: string);
+begin
+  Application.MessageBox(PChar(pMsg), 'Erro', MB_ICONERROR + MB_OK);
 end;
 
 end.

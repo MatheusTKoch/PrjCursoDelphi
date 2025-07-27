@@ -587,6 +587,10 @@ inherited FormCadastroVenda: TFormCadastroVenda
       FieldName = 'DATA_FATURADO'
       Origin = 'DATA_FATURADO'
     end
+    object fdQryCadastroDT_EXCLUIDO: TDateField
+      FieldName = 'DT_EXCLUIDO'
+      Origin = 'DT_EXCLUIDO'
+    end
   end
   inherited fdUpdCadastro: TFDUpdateSQL
     Left = 832
@@ -599,6 +603,10 @@ inherited FormCadastroVenda: TFormCadastroVenda
   inherited dsCadastro: TDataSource
     Left = 832
     Top = 272
+  end
+  inherited fdQryCodigo: TFDQuery
+    Left = 744
+    Top = 448
   end
   object fdQryItens: TFDQuery
     AfterInsert = fdQryItensAfterInsert
