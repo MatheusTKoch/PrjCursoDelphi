@@ -43,7 +43,6 @@ object FormLogin: TFormLogin
     Height = 23
     PasswordChar = '*'
     TabOrder = 1
-    OnKeyPress = edtSenhaKeyPress
   end
   object btnCancelar: TButton
     Left = 71

@@ -14,12 +14,11 @@ type
     AdvOfficeStatusBar1: TAdvOfficeStatusBar;
     AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler;
     AdvToolBarPager1: TAdvToolBarPager;
-    AdvPage1: TAdvPage;
+    advPageCadastros: TAdvPage;
     AdvToolBar1: TAdvToolBar;
     AdvQuickAccessToolBar1: TAdvQuickAccessToolBar;
     AdvShapeButton1: TAdvShapeButton;
-    AdvPage2: TAdvPage;
-    AdvPage3: TAdvPage;
+    advPageFiltros: TAdvPage;
     AdvToolBar2: TAdvToolBar;
     AdvGlowButton2: TAdvGlowButton;
     AdvGlowButton1: TAdvGlowButton;
@@ -36,7 +35,7 @@ type
     AdvToolBarSeparator5: TAdvToolBarSeparator;
     AdvGlowButton6: TAdvGlowButton;
     AdvToolBarSeparator6: TAdvToolBarSeparator;
-    AdvPage4: TAdvPage;
+    advPageManutencao: TAdvPage;
     AdvToolBar4: TAdvToolBar;
     AdvToolBarSeparator7: TAdvToolBarSeparator;
     AdvToolBarSeparator8: TAdvToolBarSeparator;
@@ -47,7 +46,7 @@ type
     AdvGlowButton10: TAdvGlowButton;
     btnFiltroUsuarios: TAdvGlowButton;
     AdvToolBarSeparator10: TAdvToolBarSeparator;
-    AdvGlowButton11: TAdvGlowButton;
+    btnCadastroUsuario: TAdvGlowButton;
     AdvToolBarSeparator11: TAdvToolBarSeparator;
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure AdvGlowButton3Click(Sender: TObject);
@@ -60,6 +59,9 @@ type
     procedure AdvGlowButton8Click(Sender: TObject);
     procedure btnFiltroVendasClick(Sender: TObject);
     procedure btnFiltroUsuariosClick(Sender: TObject);
+    procedure btnCadastroUsuarioClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure AdvShapeButton1Click(Sender: TObject);
   private
     { Private declarations }
   protected
@@ -78,7 +80,7 @@ implementation
 uses uFrmCadastroCidade, uFrmCadastroCliente, uFrmCadastroEstado,
   uFrmFiltroClientes, uFrmCadastroFornecedor, uFrmCadastroProduto,
   uFrmFiltroFornecedores, uFrmFiltroProdutos, uFrmCadastroVenda, uBiblioteca,
-  uFrmFiltroVendas, uFrmFiltroUsuario;
+  uFrmFiltroVendas, uFrmFiltroUsuario, uFrmCadastroUsuario, uFrmLogin;
 
 procedure TFormMain.AdvGlowButton1Click(Sender: TObject);
 begin
@@ -100,6 +102,11 @@ begin
   ShowModalForm(TFormCadastroVenda, FormCadastroVenda);
 end;
 
+procedure TFormMain.AdvShapeButton1Click(Sender: TObject);
+begin
+  ShowModalForm(TFormLogin, FormLogin);
+end;
+
 procedure TFormMain.btnCadastroFornecedorClick(Sender: TObject);
 begin
   ShowModalForm(TFormCadastroFornecedor, FormCadastroFornecedor);
@@ -108,6 +115,11 @@ end;
 procedure TFormMain.btnCadastroProdutoClick(Sender: TObject);
 begin
   ShowModalForm(TFormCadastroProduto, FormCadastroProduto);
+end;
+
+procedure TFormMain.btnCadastroUsuarioClick(Sender: TObject);
+begin
+  ShowModalForm(TFormCadastroUsuario, FormCadastroUsuario);
 end;
 
 procedure TFormMain.btnClientesClick(Sender: TObject);
@@ -133,6 +145,11 @@ end;
 procedure TFormMain.btnProdutosClick(Sender: TObject);
 begin
   ShowForm(TFormFiltroProdutos, FormFiltroProdutos);
+end;
+
+procedure TFormMain.FormCreate(Sender: TObject);
+begin
+  ShowModalForm(TFormLogin, FormLogin);
 end;
 
 end.

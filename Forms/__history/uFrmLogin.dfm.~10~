@@ -43,7 +43,6 @@ object FormLogin: TFormLogin
     Height = 23
     PasswordChar = '*'
     TabOrder = 1
-    OnKeyPress = edtSenhaKeyPress
   end
   object btnCancelar: TButton
     Left = 71
@@ -54,14 +53,14 @@ object FormLogin: TFormLogin
     TabOrder = 2
     OnClick = btnCancelarClick
   end
-  object btnConfirmar: TButton
+  object Button2: TButton
     Left = 152
     Top = 160
     Width = 75
     Height = 25
     Caption = 'Confirmar'
     TabOrder = 3
-    OnClick = btnConfirmarClick
+    OnClick = Button2Click
   end
   object Panel1: TPanel
     Left = 0

@@ -16,16 +16,18 @@ type
     Label1: TLabel;
     Label2: TLabel;
     fdQryLogin: TFDQuery;
-    Button1: TButton;
-    Button2: TButton;
+    btnCancelar: TButton;
+    btnConfirmar: TButton;
     Panel1: TPanel;
     fdQryLoginLOGIN: TStringField;
     fdQryLoginSENHA: TStringField;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnConfirmarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edtSenhaKeyPress(Sender: TObject; var Key: Char);
   private
     function Login(pLogin, pSenha: string): boolean;
+    procedure ValidaLogin;
     { Private declarations }
   public
     { Public declarations }
@@ -40,12 +42,12 @@ implementation
 
 uses uDmDados, uCrpt, uBiblioteca;
 
-procedure TFormLogin.Button1Click(Sender: TObject);
+procedure TFormLogin.btnCancelarClick(Sender: TObject);
 begin
   Application.Terminate;
 end;
 
-procedure TFormLogin.Button2Click(Sender: TObject);
+procedure TFormLogin.btnConfirmarClick(Sender: TObject);
 begin
   if not Login(edtLogin.Text, edtSenha.Text) then
   begin
@@ -55,6 +57,19 @@ begin
   else
   begin
     Self.Close;
+  end;
+end;
+
+procedure TFormLogin.edtSenhaKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    ValidaLogin;
+  end
+  else
+  if Key = #27 then
+  begin
+    Application.Terminate;
   end;
 end;
 
@@ -84,6 +99,19 @@ begin
       Break;
     end;
     fdQryLogin.Next;
+  end;
+end;
+
+procedure TFormLogin.ValidaLogin;
+begin
+  if not Login(edtLogin.Text, edtSenha.Text) then
+  begin
+    MsgAtencao('Login incorreto!');
+    Abort;
+  end
+  else
+  begin
+    Self.Close;
   end;
 end;
 
