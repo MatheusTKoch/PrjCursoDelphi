@@ -314,7 +314,6 @@ inherited FormCadastroProduto: TFormCadastroProduto
   end
   inherited fdQryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_PRODUTO_ID'
     UpdateOptions.AutoIncFields = 'ID_PRODUTO'
     SQL.Strings = (

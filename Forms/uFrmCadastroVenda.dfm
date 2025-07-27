@@ -556,7 +556,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     BeforePost = fdQryCadastroBeforePost
     AfterScroll = fdQryCadastroAfterScroll
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_CAB_ID'
     UpdateOptions.AutoIncFields = 'ID_VENDA_CAB'
     UpdateObject = nil
@@ -617,7 +616,6 @@ inherited FormCadastroVenda: TFormCadastroVenda
     Connection = dmDados.fdConexao
     Transaction = fdtItens
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_VENDA_ITEM_ID'
     UpdateOptions.AutoIncFields = 'ID_VENDA_ITEM'
     SQL.Strings = (

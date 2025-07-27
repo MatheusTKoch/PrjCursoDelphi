@@ -34,7 +34,6 @@ type
     AdvGlowButton5: TAdvGlowButton;
     AdvToolBarSeparator5: TAdvToolBarSeparator;
     AdvGlowButton6: TAdvGlowButton;
-    AdvToolBarSeparator6: TAdvToolBarSeparator;
     advPageManutencao: TAdvPage;
     AdvToolBar4: TAdvToolBar;
     AdvToolBarSeparator7: TAdvToolBarSeparator;

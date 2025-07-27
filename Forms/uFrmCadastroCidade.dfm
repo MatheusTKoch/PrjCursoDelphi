@@ -33,11 +33,12 @@ inherited FormCadastroCidade: TFormCadastroCidade
   end
   object DBEdit1: TDBEdit [3]
     Left = 24
-    Top = 104
+    Top = 107
     Width = 105
     Height = 23
     DataField = 'ID_CIDADE'
     DataSource = dsCadastro
+    Enabled = False
     TabOrder = 1
   end
   object DBEdit2: TDBEdit [4]
@@ -51,7 +52,6 @@ inherited FormCadastroCidade: TFormCadastroCidade
   end
   inherited fdQryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_CIDADE_ID'
     UpdateOptions.AutoIncFields = 'ID_CIDADE'
     SQL.Strings = (

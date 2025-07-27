@@ -132,6 +132,7 @@ inherited FormCadastroCliente: TFormCadastroCliente
     Height = 23
     DataField = 'ID_CLIENTE'
     DataSource = dsCadastro
+    Enabled = False
     TabOrder = 1
   end
   object edtRazaoSocial: TDBEdit [16]
@@ -264,7 +265,6 @@ inherited FormCadastroCliente: TFormCadastroCliente
     BeforeInsert = fdQryCadastroBeforeInsert
     BeforeEdit = fdQryCadastroBeforeEdit
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_CLIENTE_ID'
     UpdateOptions.AutoIncFields = 'ID_CLIENTE'
     SQL.Strings = (

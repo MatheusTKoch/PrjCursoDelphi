@@ -25,7 +25,10 @@ type
     procedure btnConfirmarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure edtSenhaKeyPress(Sender: TObject; var Key: Char);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
+    FIniFileName: string;
     function Login(pLogin, pSenha: string): boolean;
     procedure ValidaLogin;
     { Private declarations }
@@ -49,15 +52,7 @@ end;
 
 procedure TFormLogin.btnConfirmarClick(Sender: TObject);
 begin
-  if not Login(edtLogin.Text, edtSenha.Text) then
-  begin
-    MsgAtencao('Login incorreto!');
-    Abort;
-  end
-  else
-  begin
-    Self.Close;
-  end;
+  ValidaLogin;
 end;
 
 procedure TFormLogin.edtSenhaKeyPress(Sender: TObject; var Key: Char);
@@ -81,6 +76,20 @@ begin
   end;
 
   Action := caFree;
+end;
+
+procedure TFormLogin.FormCreate(Sender: TObject);
+begin
+  FIniFileName := ExtractFilePath(Application.ExeName) + 'config.ini';
+  edtLogin.Text := GetValorIni(ExtractFilePath(Application.ExeName) + 'config.ini', 'USUARIO', 'ULTIMO_LOGIN');
+end;
+
+procedure TFormLogin.FormShow(Sender: TObject);
+begin
+  if (edtLogin.Text <> '') then
+  begin
+    edtSenha.SetFocus;
+  end;
 end;
 
 function TFormLogin.Login(pLogin, pSenha: string): boolean;
@@ -111,6 +120,7 @@ begin
   end
   else
   begin
+    SetValorIni(FIniFileName, 'USUARIO', 'ULTIMO_LOGIN', edtLogin.Text);
     Self.Close;
   end;
 end;

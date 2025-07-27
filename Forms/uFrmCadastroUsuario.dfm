@@ -87,7 +87,6 @@ inherited FormCadastroUsuario: TFormCadastroUsuario
   inherited fdQryCadastro: TFDQuery
     BeforePost = fdQryCadastroBeforePost
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_USUARIO_ID'
     UpdateOptions.AutoIncFields = 'ID_USUARIO'
     SQL.Strings = (

@@ -161,7 +161,6 @@ inherited FormCadastroFornecedor: TFormCadastroFornecedor
   end
   inherited fdQryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_FORNECEDOR_ID'
     UpdateOptions.AutoIncFields = 'ID_FORNECEDOR'
     SQL.Strings = (

@@ -46,6 +46,7 @@ inherited FormCadastroEstado: TFormCadastroEstado
     Height = 23
     DataField = 'ID_ESTADO'
     DataSource = dsCadastro
+    Enabled = False
     TabOrder = 1
   end
   object DBEdit2: TDBEdit [5]
@@ -68,7 +69,6 @@ inherited FormCadastroEstado: TFormCadastroEstado
   end
   inherited fdQryCadastro: TFDQuery
     UpdateOptions.AssignedValues = [uvFetchGeneratorsPoint, uvGeneratorName]
-    UpdateOptions.FetchGeneratorsPoint = gpImmediate
     UpdateOptions.GeneratorName = 'GEN_ESTADO_ID'
     UpdateOptions.AutoIncFields = 'ID_ESTADO'
     SQL.Strings = (

@@ -13,6 +13,8 @@ object FormLogin: TFormLogin
   Font.Style = []
   Position = poDesktopCenter
   OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
   TextHeight = 15
   object Label1: TLabel
     Left = 88

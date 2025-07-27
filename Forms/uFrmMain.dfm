@@ -2,7 +2,7 @@ object FormMain: TFormMain
   Left = 250
   Top = 200
   ClientHeight = 606
-  ClientWidth = 681
+  ClientWidth = 943
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -29,7 +29,7 @@ object FormMain: TFormMain
   object AdvOfficeStatusBar1: TAdvOfficeStatusBar
     Left = 0
     Top = 587
-    Width = 681
+    Width = 943
     Height = 19
     AnchorHint = False
     Font.Charset = DEFAULT_CHARSET
@@ -139,13 +139,14 @@ object FormMain: TFormMain
     Styler = AdvOfficeStatusBarOfficeStyler1
     UseSystemFont = False
     Version = '1.7.4.1'
+    ExplicitWidth = 681
   end
   object AdvToolBarPager1: TAdvToolBarPager
     Left = 0
     Top = 0
-    Width = 681
+    Width = 943
     Height = 137
-    ActivePage = advPageFiltros
+    ActivePage = advPageCadastros
     Caption.Caption = 'Sistema de Gest'#227'o'
     Caption.Height = 26
     CaptionButtons = [cbClose, cbMinimize, cbMaximize]
@@ -240,11 +241,11 @@ object FormMain: TFormMain
       0000}
     TabOrder = 3
     UIStyle = tsOffice2019White
-    ExplicitWidth = 682
+    ExplicitWidth = 681
     object advPageCadastros: TAdvPage
       Left = -1
       Top = 52
-      Width = 683
+      Width = 945
       Height = 85
       Caption = 'Cadastros'
       object AdvToolBar1: TAdvToolBar
@@ -336,8 +337,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -386,8 +387,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -436,8 +437,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -486,8 +487,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -496,7 +497,7 @@ object FormMain: TFormMain
       object AdvToolBar2: TAdvToolBar
         Left = 390
         Top = 3
-        Width = 301
+        Width = 187
         Height = 79
         UIStyle = tsOffice2019White
         AllowFloating = True
@@ -521,15 +522,7 @@ object FormMain: TFormMain
           Left = 89
           Top = 2
           Width = 10
-          Height = 54
-          LineColor = clBtnShadow
-          Visible = False
-        end
-        object AdvToolBarSeparator6: TAdvToolBarSeparator
-          Left = 186
-          Top = 2
-          Width = 10
-          Height = 54
+          Height = 59
           LineColor = clBtnShadow
         end
         object btnCadastroProduto: TAdvGlowButton
@@ -576,8 +569,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -626,8 +619,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -637,7 +630,7 @@ object FormMain: TFormMain
     object advPageFiltros: TAdvPage
       Left = -1
       Top = 52
-      Width = 683
+      Width = 945
       Height = 85
       Caption = 'Filtros'
       object AdvToolBar3: TAdvToolBar
@@ -736,8 +729,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -786,8 +779,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -836,8 +829,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -886,8 +879,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -936,8 +929,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -947,7 +940,7 @@ object FormMain: TFormMain
     object advPageManutencao: TAdvPage
       Left = -1
       Top = 52
-      Width = 683
+      Width = 945
       Height = 85
       Caption = 'Manuten'#231#227'o'
       object AdvToolBar4: TAdvToolBar
@@ -1030,8 +1023,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -1080,8 +1073,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -1128,8 +1121,8 @@ object FormMain: TFormMain
           Appearance.ColorMirrorDownTo = 16244937
           Appearance.ColorMirrorChecked = 16248808
           Appearance.ColorMirrorCheckedTo = 16248808
-          Appearance.ColorMirrorDisabled = clNone
-          Appearance.ColorMirrorDisabledTo = clNone
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
           Appearance.TextColorChecked = 4474440
           Appearance.TextColorDown = 4474440
           Appearance.TextColorHot = 4474440
@@ -1148,26 +1141,26 @@ object FormMain: TFormMain
       Top = 29
       Width = 45
       Height = 24
-      Appearance.Shape = bsRectangle
-      Appearance.BorderColor = 7566195
-      Appearance.BorderColorHot = 8487297
-      Appearance.BorderColorDown = 7566195
+      Appearance.Shape = bsOrb
+      Appearance.BorderColor = clWhite
+      Appearance.BorderColorHot = clWhite
+      Appearance.BorderColorDown = 14851584
       Appearance.BorderColorDisabled = clWhite
-      Appearance.InnerBorderColor = 14277081
-      Appearance.InnerBorderColorHot = 14540253
-      Appearance.InnerBorderColorDown = 14277081
-      Appearance.Color = clLightgray
-      Appearance.ColorTo = 13027014
+      Appearance.InnerBorderColor = clGray
+      Appearance.InnerBorderColorHot = clGray
+      Appearance.InnerBorderColorDown = clGray
+      Appearance.Color = 12954008
+      Appearance.ColorTo = 15722980
       Appearance.ColorMirror = clSilver
       Appearance.ColorMirrorTo = clSilver
-      Appearance.ColorHot = 14145495
-      Appearance.ColorHotTo = 13421772
+      Appearance.ColorHot = 14408667
+      Appearance.ColorHotTo = 14408667
       Appearance.ColorHotMirror = 13027014
       Appearance.ColorHotMirrorTo = 13027014
-      Appearance.ColorDown = clLightgray
-      Appearance.ColorDownTo = 13027014
-      Appearance.ColorDownMirror = clSilver
-      Appearance.ColorDownMirrorTo = clSilver
+      Appearance.ColorDown = 14851584
+      Appearance.ColorDownTo = 14851584
+      Appearance.ColorDownMirror = 14851584
+      Appearance.ColorDownMirrorTo = 14851584
       Appearance.ColorDisabled = clGray
       Appearance.ColorDisabledTo = clGray
       Font.Charset = DEFAULT_CHARSET
@@ -1326,8 +1319,8 @@ object FormMain: TFormMain
     GlowButtonAppearance.ColorMirrorDownTo = 16244937
     GlowButtonAppearance.ColorMirrorChecked = 16248808
     GlowButtonAppearance.ColorMirrorCheckedTo = 16248808
-    GlowButtonAppearance.ColorMirrorDisabled = clNone
-    GlowButtonAppearance.ColorMirrorDisabledTo = clNone
+    GlowButtonAppearance.ColorMirrorDisabled = 11974326
+    GlowButtonAppearance.ColorMirrorDisabledTo = 15921906
     GlowButtonAppearance.TextColorChecked = 4474440
     GlowButtonAppearance.TextColorDown = 4474440
     GlowButtonAppearance.TextColorHot = 4474440
@@ -1496,11 +1489,12 @@ object FormMain: TFormMain
     TabAppearance.BackGround.Color = clWhite
     TabAppearance.BackGround.ColorTo = clWhite
     TabAppearance.BackGround.Direction = gdHorizontal
-    Left = 160
-    Top = 176
+    Left = 88
+    Top = 160
   end
   object AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler
     Style = psOffice2019White
+    AutoThemeAdapt = True
     BorderColor = 12895944
     PanelAppearanceLight.BorderColor = clNone
     PanelAppearanceLight.BorderColorHot = 16444643
@@ -1542,7 +1536,7 @@ object FormMain: TFormMain
     PanelAppearanceDark.TextColorHot = clBlack
     PanelAppearanceDark.TextColorDown = clBlack
     PanelAppearanceDark.TextStyle = []
-    Left = 328
-    Top = 176
+    Left = 88
+    Top = 216
   end
 end

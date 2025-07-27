@@ -77,14 +77,14 @@ object FormCadastroPai: TFormCadastroPai
     object btnGravar: TBitBtn
       Left = 104
       Top = 1
-      Width = 81
+      Width = 97
       Height = 41
-      Caption = 'Gravar'
+      Caption = 'Gravar/Alterar'
       TabOrder = 1
       OnClick = btnGravarClick
     end
     object btnCancelar: TBitBtn
-      Left = 207
+      Left = 223
       Top = 1
       Width = 81
       Height = 41
@@ -93,7 +93,7 @@ object FormCadastroPai: TFormCadastroPai
       OnClick = btnCancelarClick
     end
     object btnExcluir: TBitBtn
-      Left = 311
+      Left = 327
       Top = 1
       Width = 81
       Height = 41
